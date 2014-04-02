@@ -3,18 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-
-	require_once('bd-sdk/facebook.php');
-	 $config = array(
-	'appId' => '578241305624655',
-	'secret' => '163708fdec7503fe860750419670152a',
-    'allowSignedRequest' => false // optional but should be set to false for non-canvas apps
-	);
-
-		$facebook = new Facebook($config);
-		$user_id = $facebook->getUser();
-?>
 	<head>
 		<title> Triki </title>
 
