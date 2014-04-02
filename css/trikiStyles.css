@@ -1,12 +1,23 @@
 .header {
-  width= 100%;
-  max-height= 50px;
-  background= #FFFFFF;
-  position= absolute;
-  top= 0px;
-  left= 0px;
+  width: 100%;
+  max-height: 50px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .header #logo {
-  max-width= 100px;
+  max-width: 100px;
+}
+
+#countdown-modal-body {
+}
+
+#countdown-modal-body {
+  height: 290px;
+  width: 100%;
+  font-size: 500px;
+  padding-top: 200px;
+  padding-left: 135px;
 }

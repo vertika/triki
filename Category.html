@@ -40,13 +40,31 @@
 		<!-- Start code here: -->
 
 		<button id="playButton" type="button" class="btn btn-default">
-         Play
-       </button>
-       <script>
-         $('#playButton').click(function(){
-           window.location.href = 'Game.html';
-         });
-       </script>
+      Play
+  	</button>
+  	<script>
+  		$('#playButton').click(function(){
+
+
+				/*
+				The categories in the link are called query strings.
+				The hardcoded strings should be replaced by user selections but in the
+				same format as shown.
+				*/
+
+				/*
+				Also something to keep in mind: putting %20 anywhere there is a space.
+				May have to write a separate function for this.
+				*/
+				
+    		window.location.href ='Game.html?Category1=History&'+
+																				'Category2=Physics&'+
+																				'Category3=Music&'+
+																				'Category4=Health&'+
+																				'Category5=Life&'+
+																				'Category6=Culture';
+      });
+    </script>
 
 
 

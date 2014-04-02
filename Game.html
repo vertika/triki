@@ -8,19 +8,19 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
+
+		<!-- JQuery -->
+		<script src="js/jquery-2.1.0.min.js"></script>
 
 	</head>
 	<body>
-
-
-
+		<!-- Navigation Header -->
 		<div class="container" align="center">
 			<img src="trikiIcon.jpg"
 			title="trikiIcon" height="30%" width="30%"/>
 		</div>
-		
+
 		<div class="navbar">
 			<div class="navbar-inner">
 			<div class="container">
@@ -35,11 +35,38 @@
 			</div>
 		</div>
 		<p></p>
-		
-		<div class="hero-unit" style="margin:0px auto; width:80%">
-			<div class="container">
-					<div id="column1" style="float:left; margin:0px auto; width:33%;">
-						<img src="User-blue-icon.png"
+
+
+
+		<!-- Game -->
+
+<!-- Modal Loading Window -->
+
+<script src="js/gamePage.js"></script>
+<div id="countdown-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div id="countdown-modal-content" class="modal-content">
+      <div id= "countdown-modal-body" class="modal-body">
+				<!-- put countdown script -->
+
+				<div id="gameCountdown">5</div>
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="togglePause()" type="button" class="btn btn-primary">pause</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- Game board -->
+
+<!--
+<div class="hero-unit" style="margin:0px auto; width:80%">
+	<div class="container">
+		<div id="column1" style="float:left; margin:0px auto; width:33%;">
+			<img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/>
 
 					</div>
@@ -109,6 +136,8 @@
 			</div>
 		</div>
 		<p></p>
+
+	-->
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
