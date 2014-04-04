@@ -22,11 +22,11 @@
 			<div class="navbar-inner">
 			<div class="container">
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Rules</a></li>
-					<li><a href="#">Challenges</a></li>
-					<li><a href="#">Play!</a></li>
+					<li class="active"><a href="Home.html">Home</a></li>
+					<li><a href="About.html">About</a></li>
+					<li><a href="Rules.html">Rules</a></li>
+					<li><a href="Challenges.html">Challenges</a></li>
+					<li><a href="Category.html">Play!</a></li>
 				</ul>
 			</div>
 			</div>
@@ -35,16 +35,31 @@
 		
 		
 		<!-- Start code here: -->
+		<div class="container">
+			<div id="column1" style="float:left; margin:0px auto; width:50%;">
+				<div class="fileupload fileupload-new" data-provides="fileupload">
+				  <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+				  <div>
+					<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+					<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				  </div>
+				</div>
+			</div>
 		
-		<div class="fileupload fileupload-new" data-provides="fileupload">
-		  <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-		  <div>
-			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-		  </div>
+			<div id="column2" style="float:left; margin:0px auto; width:50%;">
+				<form role="form">
+				  <div class="form-group">
+					<label for="userFirstName">First Name</label>
+					<input type="userFirstName" class="form-control" id="userFirstName" placeholder="Enter first name">
+					<label for="userLastName">Last Name</label>
+					<input type="userLastName" class="form-control" id="userLastName" placeholder="Enter last name">
+					<label for="email">Email address</label>
+					<input type="email" class="form-control" id="email" placeholder="Enter email">
+				  </div>
+				  <button type="save" class="btn btn-default">Save Changes</button>
+				</form>
+			</div>
 		</div>
-		
-		
 		
 		
 		<!-- End code here! -->
