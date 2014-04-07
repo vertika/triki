@@ -1,5 +1,6 @@
 table.fixed
 {
+	padding: 10px;
 	overflow: hidden;
 	table-layout:fixed; 
 	text-align: center;
