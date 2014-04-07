@@ -2,8 +2,6 @@ table.fixed
 {
 	overflow: hidden;
 	table-layout:fixed; 
-	width: 570px;
-	height: 90px;
 	text-align: center;
 }
 
