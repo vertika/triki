@@ -1,0 +1,53 @@
+table.fixed
+{
+	overflow: hidden;
+	table-layout:fixed; 
+	width: 570px;
+	height: 90px;
+	text-align: center;
+}
+
+#vertAlign
+{
+	vertical-align: text-middle;
+}
+
+#spaceBelow { 
+	margin-bottom: 10px;
+}
+
+#categoryBox{
+	margin-top:8px;
+	height:390px; 
+	width:850px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	overflow: scroll;
+}
+
+#bin, #cat0, #cat1, #cat2, #cat3, #cat4, 
+#cat5, #cat6, #cat7, #cat8, #cat9, #cat10,
+#cat11, #cat12, #cat13, #cat14, #cat15,
+#cat16, #cat17, #cat18, #cat19, #cat20,
+#cat21, #cat22, #cat23, #cat24, #cat25,
+#cat26, #cat27, #cat28, #cat28, #cat29,
+#cat30, #cat31, #cat32, #cat33, #cat34,
+#cat35, #cat36, #cat37, #cat38
+{
+	width:190px; 
+	height:30px;
+}
+
+#bin0, #bin1, #bin2, #bin3, #bin4, #bin4{
+	width:190px;
+	height:30px;
+	vertical-align: text-middle; 
+}
+
+
+body{
+   min-width:1000px; /* suppose you want minimun width of 1000px */
+   width: auto !important;  /* Firefox will set width as auto */
+   width:1000px;             /* As IE ignores !important it will set width as 1000px; */
+}
