@@ -21,3 +21,8 @@
   padding-top: 200px;
   padding-left: 135px;
 }
+
+#numQuestionsGenerated{
+  position: absolute;
+  left: 200px;
+}
