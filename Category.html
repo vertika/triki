@@ -81,7 +81,10 @@
 			<tr>	
 				<td>
 					<div class="well" id="categoryBox">
-						<table>
+						<table 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)">
 							<tr>
 								<td>
 									<button class="btn" id="cat0"
@@ -102,6 +105,29 @@
 											draggable="true"
 											ondragstart="return dragStart(event)"
 											ondragend="return dragEnd(event)">Category2
+									</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat3"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category3
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat4"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category4
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat5"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category5
 									</button> 
 								</td>
 							</tr>
@@ -133,9 +159,9 @@
 							ondragenter="return dragEnter(event)"
 							ondrop="return dragDrop(event)"
 							ondragover="return dragOver(event)"></div>
+							
 					<div style="height: 300px" align="center">
-						<button class="btn .btn-large btn-success" id="playButton"
-								style="height:50px; font-size:210%; margin-left:830px">PLAY
+						<button class="btn .btn-large btn-success" id="playButton">Start game!
 						</button>
 					</div>
 				</td>
@@ -144,7 +170,7 @@
 		
 		
 	
-		<div class="well" align="center" id="categoryBox"
+		<!--<div class="well" align="center" id="categoryBox"
 			ondragenter="return dragEnter(event)"
 		        ondrop="return dragDrop(event)"
 		        ondragover="return dragOver(event)">
@@ -366,7 +392,7 @@
 			            	ondragend="return dragEnd(event)">Category38
 	            		</button> 
 			</div>
-		</div>
+		</div> -->
 	
 
 	  	<script>
