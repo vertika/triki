@@ -77,49 +77,72 @@
 
 		<h1 align="center" style="height:50px"> Choose your categories </h1>
 
-
-		<table class="fixed" align="center">
-			<tr> 
-				<td align="center">
-		       			<div class="well" id="bin0" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
+		<table align="center">
+			<tr>	
+				<td>
+					<div class="well" id="categoryBox">
+						<table>
+							<tr>
+								<td>
+									<button class="btn" id="cat0"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category0
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat1"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category1
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat2"
+											draggable="true"
+											ondragstart="return dragStart(event)"
+											ondragend="return dragEnd(event)">Category2
+									</button> 
+								</td>
+							</tr>
+						</table>
+					</div>
 				</td>
-					<td align="center">
-		       			<div class="well" id="bin1" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
-				</td>
-					<td align="center">
-		       			<div class="well" id="bin2" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
-				</td>
-			</tr>
-			<tr> 
-				<td align="center">
-		       			<div class="well" id="bin3" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
-				</td>
-				<td align="center">
-		       			<div class="well" id="bin4" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
-				</td>
-				<td align="center">
-		       			<div class="well" id="bin5" 
-		       			ondragenter="return dragEnter(event)"
-		       			ondrop="return dragDrop(event)"
-		       			ondragover="return dragOver(event)"></div>
+				<td>
+					<div class="well" id="bin0" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin1" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin2" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin3" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin4" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin5" 
+							ondragenter="return dragEnter(event)"
+							ondrop="return dragDrop(event)"
+							ondragover="return dragOver(event)"></div>
+					<div style="height: 300px" align="center">
+						<button class="btn .btn-large btn-success" id="playButton"
+								style="height:50px; font-size:210%; margin-left:830px">PLAY
+						</button>
+					</div>
 				</td>
 			</tr>
 		</table>
+		
+		
 	
 		<div class="well" align="center" id="categoryBox"
 			ondragenter="return dragEnter(event)"
@@ -131,7 +154,7 @@
 			  		draggable="true"
 			            	ondragstart="return dragStart(event)"
 			            	ondragend="return dragEnd(event)">Category0
-	        		</button> 
+	        	</button> 
 			  	<button class="btn" id="cat1"
 			  		draggable="true"
 			            	ondragstart="return dragStart(event)"
@@ -345,12 +368,7 @@
 			</div>
 		</div>
 	
-		<div style="height: 300px" align="center">
-			<button class="btn .btn-large btn-success" 
-				id="playButton"
-				style="height:50px; font-size:210%; margin-left:830px">PLAY
-			</button>
-		</div>
+
 	  	<script>
 	  		$('#playButton').click(function(){
 	
