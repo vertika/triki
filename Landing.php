@@ -30,7 +30,7 @@
 						$user = $facebook->getUser();
 						if ($user) {
 							header ('Location: Home.php');
-							//echo '<a href="logout.php">Logout</a>'; 
+							echo '<a href="logout.php">Logout</a>'; 
 						}
 						else {
 							$loginUrl = $facebook->getLoginUrl(array(
