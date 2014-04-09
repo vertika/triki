@@ -181,9 +181,29 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 		var title = item.correctAnswer;
 		item.url += title.replace(/ /g, "_");
 
-		WikiTraverser.prototype.qAndAs.push(item);
 
+		//Put into appropriate category groups
+		var catExists = 0;
+		for(var i = 0; i < WikiTraverser.prototype.qAndAs.length; i++){
+			if(item.category === WikiTraverser.prototype.qAndAs[i][0].category){
+				catExists = 1;
+				WikiTraverser.prototype.qAndAs[i].push(item);
+			}
+		}
+		if(catExists === 0){
+			WikiTraverser.prototype.qAndAs.push(item.category);
+			for(var i = 0; i < WikiTraverser.prototype.qAndAs.length; i++){
+				if(item.category === WikiTraverser.prototype.qAndAs[i][0]){
+					WikiTraverser.prototype.qAndAs[i] = [item];
+				}
+			}
+		}
+
+		console.log(WikiTraverser.prototype.qAndAs);
+
+
+		//WikiTraverser.prototype.qAndAs.push(item);
 		WikiTraverser.prototype.numQuestionsGeneratedSoFar++;
-		
+
 	});
 }
