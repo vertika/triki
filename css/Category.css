@@ -23,7 +23,7 @@ table.fixed
   	overflow: scroll;
 }
 
-#bin, #cat0, #cat1, #cat2, #cat3, #cat4, 
+#bin, #cat1, #cat2, #cat3, #cat4, 
 #cat5, #cat6, #cat7, #cat8, #cat9, #cat10,
 #cat11, #cat12, #cat13, #cat14, #cat15,
 #cat16, #cat17, #cat18, #cat19, #cat20,
@@ -34,6 +34,13 @@ table.fixed
 {
 	width:190px; 
 	height:30px;
+}
+
+#cat0
+{
+	width:190px; 
+	height:30px;
+	background: red;
 }
 
 #bin0, #bin1, #bin2, #bin3, #bin4, #bin4, #bin5{
