@@ -1,11 +1,3 @@
-<?php
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL);
-	session_start();
-
-	// include_once "fbaccess.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,23 +10,24 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
+		
+		<!-- Custom -->
+		<script src="js/js/homePage.js"></script>
 
 	</head>
 	<body>
 		<div class="container" align="center">
-			<img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"/>
+			<a href="Home.html"><img src="trikiIcon.jpg"
+			title="trikiIcon" height="30%" width="30%"></a>
 		</div>
 		
 		<div class="navbar">
 			<div class="navbar-inner">
 			<div class="container">
 				<ul class="nav">
-					<li class="active"><a href="Home.php">Home</a></li>
-					<li><a href="About.html">About</a></li>
-					<li><a href="Rules.html">Rules</a></li>
-					<li><a href="Challenges.html">Challenges</a></li>
-					<li><a href="Category.html">Play!</a></li>
+					<li class="active"><a href="Home.php"><b>Home</b></a></li>
+					<li><a href="About.php"><b>About</b></a></li>
+					<li><a href="Category.php"><b>Play</b></a></li>
 					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
 				</ul>
 			</div>
@@ -50,13 +43,13 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
+		  <div class="modal-dialog modal-lg">
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title" id="myModalLabel">Edit Your Profile</h4>
 			  </div>
-			<div class="modal-body">
+			<div class="modal-body" align="center">
 				<div class="fileupload fileupload-new" data-provides="fileupload">
 					<div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
 						<div>
@@ -73,6 +66,8 @@
 						<input type="userLastName" class="form-control" id="userLastName" placeholder="Enter last name">
 						<label for="email"> <b>Email address</b> </label>
 						<input type="email" class="form-control" id="email" placeholder="Enter email">
+						<label for="about"> <b>About</b> </label>
+						<input type="about" class="form-control" id="about" placeholder="Describe yourself here...">
 					</div>
 				</form>
 					
@@ -85,7 +80,8 @@
 			  </div>
 			</div>
 		</div>
-		
+	
+	
 		<!-- End code here! -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>

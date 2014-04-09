@@ -1,33 +1,11 @@
 <?php
-	// ini_set('display_errors', 'On');
-	// error_reporting(E_ALL);
-	// include_once "fbaccess.php";
-
-	// session_start();
-	//phpinfo();
-	// $_SESSION['logoutURL'] = $logoutUrl;
-	// $_SESSION['loginURL'] = $loginUrl;
-	// $_SESSION['site_url'] = $site_url;
 
 	require "fb-sdk/facebook.php";
-
 
 	$facebook = new Facebook(array(
 		'appId'		=> '578241305624655',
 		'secret' 	=> '163708fdec7503fe860750419670152a',
 		));
-
-	
-
-	// if ($user){
-	// 	try{
-	// 		$user_profile = $facebook->api('/me');
-	// 	} catch (FacebookAPIException $e){
-	// 		error_log($e);
-	// 		$user = NULL;
-	// 	}
-	// }
-
 ?>
 
 <!DOCTYPE html>
