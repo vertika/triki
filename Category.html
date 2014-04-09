@@ -17,41 +17,7 @@
 		<!-- Vertika's stuff -->
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
 		<script type="text/javascript">
-			function dragStart(ev) {
-			    ev.dataTransfer.effectAllowed='move';
-			    //ev.dataTransfer.dropEffect='move';
-			    ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
-			    ev.dataTransfer.setDragImage(ev.target,0,0);
-			    return true;
-			}
 	
-			function dragEnd(ev) {
-			    ev.dataTransfer.clearData("Text");
-			    return true;
-			}
-	
-			function dragEnter(ev) {
-			    var idelt = ev.dataTransfer.getData("Text");
-			    return true;
-			}
-	
-			function dragOver(ev) {
-			    var idelt = ev.dataTransfer.getData("Text");
-			    // id of what was just dropped
-			    var id = ev.target.getAttribute('id');
-			    
-	
-			    return false;
-			}
-	
-			function dragDrop(ev) {
-			 	console.log('drop');
-			    var idelt = ev.dataTransfer.getData("Text");
-			    ev.target.appendChild(document.getElementById(idelt));
-			    ev.stopPropagation();
-			    return false; // return false so the event will not be propagated to the browser
-			}
-			
 		</script>
 	</head>
 	
@@ -83,84 +49,40 @@
 			<tr>	
 				<td>
 					<div class="well" id="categoryBox">
-						<table 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)">
+						<table>
 							<tr>
 								<td>
-									<button class="btn" id="cat0"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category0
-									</button> 
+									<button class="btn" id="cat0">Category0</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat1"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category1
-									</button> 
+									<button class="btn" id="cat1">Category1</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat2"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category2
-									</button> 
+									<button class="btn" id="cat2">Category2</button> 
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="btn" id="cat3"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category3
+									<button class="btn" id="cat3">Category3
 									</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat4"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category4
-									</button> 
+									<button class="btn" id="cat4">Category4</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat5"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category5
-									</button> 
+									<button class="btn" id="cat5">Category5</button> 
 								</td>
 							</tr>
 						</table>
 					</div>
 				</td>
 				<td>
-					<div class="well" id="bin0" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin1" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin2" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin3" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin4" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin5" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin0"></div>
+					<div class="well" id="bin1"></div>
+					<div class="well" id="bin2"></div>
+					<div class="well" id="bin3"></div>
+					<div class="well" id="bin4"></div>
+					<div class="well" id="bin5"></div>
 							
 					<div style="height: 300px" align="center">
 						<button class="btn .btn-large btn-success" id="playButton">Start game!
