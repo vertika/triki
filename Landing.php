@@ -29,7 +29,7 @@
 					<?php
 						$user = $facebook->getUser();
 						if ($user) {
-							'redirect_uri' => 'http://www.rzchou.com/Home.php';
+							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>'; 
 						}
 						else {
