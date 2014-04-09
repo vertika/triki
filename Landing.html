@@ -1,19 +1,8 @@
-<?php
 
-	require_once('bd-sdk/facebook.php');
-	 $config = array(
-	'appId' => 'bla',
-	'secret' => 'bla',
-    'allowSignedRequest' => false // optional but should be set to false for non-canvas apps
-	);
 
-		$facebook = new Facebook($config);
-		$user_id = $facebook->getUser();
-?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 
 	<head>
 		<title> Triki </title>
@@ -62,6 +51,7 @@
 		      FB.login();
 		    }
 		  });
+			
 		  };
 
 		  // Load the SDK asynchronously
@@ -80,24 +70,31 @@
 		    FB.api('/me', function(response) {
 		      console.log('Good to see you, ' + response.name + '.');
 		    });
+		   window.location = "http://www.rzchou.com/Home.php";
 		  }
 		</script>
-
 
 		<div id="wrapper">
 			<div id="content">
 				<img id="blah" src="img/logo.png">
 				<br>
 				<br>
-				<div id="loginContainer">
+				<div id="loginContainer" align="center">
 
 					<!-- put login stuff here -->
+					<!-- <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button> -->
+					<!-- <div class="logout" >
+						<?php				
+							// if (!$user) echo '<a href="' . $loginUrl . '"><h5>Login</h5></a>';
+							// else {
+							// 	$_SESSION['logoutUrl'] = $logoutUrl;
+							// 	header( 'Location: http://www.rzchou.com/Home.php');
+							}
+						?>
+					</div> -->		
+					<div align="center" class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
 					
-					<!-- <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button> -->
-
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
 				</div>
-
 				
 			</div>
 

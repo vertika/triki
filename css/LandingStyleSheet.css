@@ -69,3 +69,12 @@
 		text-decoration: underline;
 		color: white
 	}
+
+	div.fbimage {
+		vertical-align: middle;
+	}
+
+	.fbimage img{
+		display: block;
+		margin: 0px auto;
+	}
