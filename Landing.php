@@ -29,8 +29,8 @@
 					<?php
 						$user = $facebook->getUser();
 						if ($user) {
-							echo 'UserID: ' .$user;
-							echo '<a href="logout.php">Logout</a>'; 
+							'redirect_uri' => 'http://www.rzchou.com/Home.php';
+							//echo '<a href="logout.php">Logout</a>'; 
 						}
 						else {
 							$loginUrl = $facebook->getLoginUrl(array(
