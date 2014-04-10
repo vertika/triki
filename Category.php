@@ -9,51 +9,40 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
 
 		<!-- JQuery -->
 		<script src="js/jquery-2.1.0.min.js"></script>
-		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+ 
+
 		<!-- Vertika's stuff -->
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
+
+		<!-- Drag and Drop -->
+		<!-- <title>jQuery UI Sortable - Display as grid</title>
+	  	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	  	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  	<link rel="stylesheet" href="/resources/demos/style.css">
+
+		<style>
+			  #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
+			  #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+		  </style>
+
 		<script type="text/javascript">
-			function dragStart(ev) {
-			    ev.dataTransfer.effectAllowed='move';
-			    //ev.dataTransfer.dropEffect='move';
-			    ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
-			    ev.dataTransfer.setDragImage(ev.target,0,0);
-			    return true;
-			}
-	
-			function dragEnd(ev) {
-			    ev.dataTransfer.clearData("Text");
-			    return true;
-			}
-	
-			function dragEnter(ev) {
-			    var idelt = ev.dataTransfer.getData("Text");
-			    return true;
-			}
-	
-			function dragOver(ev) {
-			    var idelt = ev.dataTransfer.getData("Text");
-			    var id = ev.target.getAttribute('id');
-			    
-	
-			    return false;
-			}
-	
-			function dragDrop(ev) {
-			 	console.log('drop');
-			    var idelt = ev.dataTransfer.getData("Text");
-			    ev.target.appendChild(document.getElementById(idelt));
-			    ev.stopPropagation();
-			    return false; // return false so the event will not be propagated to the browser
-			}
-			
-		</script>
+			$(function() {
+		    	$( "#sortable" ).sortable();
+		    	$( "#sortable" ).disableSelection();
+		  	});
+		</script> -->
+
 	</head>
 	
+
+
 	<body>
 		<div class="container" align="center">
 			<a href="Home.html"><img src="trikiIcon.jpg"
@@ -65,9 +54,10 @@
 			<div class="container">
 				<ul class="nav">
 					<li><a href="Home.php">Home</a></li>
-					<li><a href="About.php">About</a></li>
-					<li class="active"><a href="Category.php">Play!</a></li>
-					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					<li><a href="About.html">About</a></li>
+					<li><a href="Rules.html">Rules</a></li>
+					<li><a href="Challenges.html">Challenges</a></li>
+					<li class="active"><a href="Category.html">Play!</a></li>
 				</ul>
 			</div>
 			</div>
@@ -75,90 +65,216 @@
 		<p></p>
 
 
+		<!--<ul id="sortable">
+		  <li class="ui-state-default">1</li>
+		  <li class="ui-state-default">2</li>
+		  <li class="ui-state-default">3</li>
+		  <li class="ui-state-default">4</li>
+		  <li class="ui-state-default">5</li>
+		  <li class="ui-state-default">6</li>
+		  <li class="ui-state-default">7</li>
+		  <li class="ui-state-default">8</li>
+		  <li class="ui-state-default">9</li>
+		  <li class="ui-state-default">10</li>
+		  <li class="ui-state-default">11</li>
+		  <li class="ui-state-default">12</li>
+		</ul> -->
+
 		<h1 align="center" style="height:50px"> Choose your categories </h1>
 
 		<table align="center">
 			<tr>	
 				<td>
 					<div class="well" id="categoryBox">
-						<table 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)">
+						<table>
 							<tr>
 								<td>
-									<button class="btn" id="cat0"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category0
-									</button> 
+									<button class="btn" id="cat0">Category0</button>
 								</td>
 								<td>
-									<button class="btn" id="cat1"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category1
-									</button> 
+									<button class="btn" id="cat1">Category1</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat2"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category2
-									</button> 
+									<button class="btn" id="cat2">Category2</button> 
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="btn" id="cat3"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category3
+									<button class="btn" id="cat3">Category3
 									</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat4"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category4
+									<button class="btn" id="cat4">Category4</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat5">Category5</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat6">Category6 </button> 
+								</td>
+								<td>
+									<button class="btn" id="cat7">Category7</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat8">Category8</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat9">Category9
 									</button> 
 								</td>
 								<td>
-									<button class="btn" id="cat5"
-											draggable="true"
-											ondragstart="return dragStart(event)"
-											ondragend="return dragEnd(event)">Category5
+									<button class="btn" id="cat10">Category10</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat11">Category11</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat12">Category12
 									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat13">Category13</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat14">Category14</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat15">Category15
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat7">Category7</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat16">Category16</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat17">Category17
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat18">Category18</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat19">Category19</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat20">Category20
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat21">Category21</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat22">Category22</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat23">Category23
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat24">Category24</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat25">Category25</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat26">Category26
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat27">Category27</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat28">Category28</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat29">Category29
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat30">Category30</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat31">Category31</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat32">Category32
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat33">Category33</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat34">Category34</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat35">Category35
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat36">Category36</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat37">Category37</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat38">Category38
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat39">Category39</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat40">Category41</button> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn" id="cat41">Category41
+									</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat42">Category42</button> 
+								</td>
+								<td>
+									<button class="btn" id="cat43">Category43</button> 
 								</td>
 							</tr>
 						</table>
 					</div>
 				</td>
 				<td>
-					<div class="well" id="bin0" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin1" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin2" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin3" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin4" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
-					<div class="well" id="bin5" 
-							ondragenter="return dragEnter(event)"
-							ondrop="return dragDrop(event)"
-							ondragover="return dragOver(event)"></div>
+					<div class="well" id="bin0"></div>
+					<div class="well" id="bin1"></div>
+					<div class="well" id="bin2"></div>
+					<div class="well" id="bin3"></div>
+					<div class="well" id="bin4"></div>
+					<div class="well" id="bin5"></div>
 							
 					<div style="height: 300px" align="center">
 						<button class="btn .btn-large btn-success" id="playButton">Start game!
@@ -169,232 +285,6 @@
 		</table>
 		
 		
-	
-		<!--<div class="well" align="center" id="categoryBox"
-			ondragenter="return dragEnter(event)"
-		        ondrop="return dragDrop(event)"
-		        ondragover="return dragOver(event)">
-	
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat0"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category0
-	        	</button> 
-			  	<button class="btn" id="cat1"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category1
-			        </button> 
-	            		<button class="btn" id="cat2"
-			  		draggable="true"
-	            			ondragstart="return dragStart(event)"
-	            			ondragend="return dragEnd(event)">Category2
-	        		</button> 
-	        		<button class="btn" id="cat3"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category3
-			        </button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat4"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category4
-			        </button> 
-			  	<button class="btn" id="cat5"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category5
-			        </button> 
-			        <button class="btn" id="cat6"
-					draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category6
-			        </button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat7"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category7
-	            		</button> 
-			  	<button class="btn" id="cat8"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category8
-	            		</button> 
-	        		 <button class="btn" id="cat9"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category9
-	        		</button> 
-	        		 <button class="btn" id="cat10"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category10
-	        		</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat11"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category11
-	            		</button> 
-			  	<button class="btn" id="cat12"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category12
-			        </button> 
-			      	<button class="btn" id="cat13"
-					draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category13
-	            		</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat14"
-				  	draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category14
-		            	</button> 
-			  	<button class="btn" id="cat15"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category15
-	            		</button> 
-		        	<button class="btn" id="cat16"
-				  	draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category16
-		            	</button> 
-	            		<button class="btn" id="cat17"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category17
-	            		</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat18"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category18
-	            		</button> 
-			  	<button class="btn" id="cat19"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category19
-	            		</button> 
-	            		<button class="btn" id="cat20"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category20
-			        </button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat21"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category21
-			        </button> 
-			  	<button class="btn" id="cat22"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category22
-			        </button> 
-	            		<button class="btn" id="cat23"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category23
-	            		</button> 
-	        		<button class="btn" id="cat24"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category24
-			        </button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat25"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category25
-			        </button> 
-			  	<button class="btn" id="cat26"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category26
-			        </button> 
-	        		<button class="btn" id="cat27"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category27
-	            		</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat28"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category28
-			        </button> 
-			  	<button class="btn" id="cat29"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category29
-	        		</button> 
-		            	<button class="btn" id="cat30"
-				  	draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category30
-			        </button> 
-		            	<button class="btn" id="cat31"
-				  	draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category31
-		            	</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat32"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category32
-	        		</button> 
-			  	<button class="btn" id="cat33"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category33
-	            		</button> 
-	        		<button class="btn" id="cat34"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category34
-	        		</button> 
-			</div>
-			<div class="btn-toolbar" align="center" id="spaceBelow">
-			  	<button class="btn" id="cat35"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category35
-	            		</button> 
-			  	<button class="btn" id="cat36"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category36
-			        </button> 
-		           	<button class="btn" id="cat37"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category37
-	            		</button> 
-	            		<button class="btn" id="cat38"
-			  		draggable="true"
-			            	ondragstart="return dragStart(event)"
-			            	ondragend="return dragEnd(event)">Category38
-	            		</button> 
-			</div>
-		</div> -->
-	
-
 	  	<script>
 	  		$('#playButton').click(function(){
 	
