@@ -24,10 +24,26 @@
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
 		<script src="js/Category.js"></script>
 
-		<style>
-			  #sortable { list-style-type: none; margin: 0; padding: 0; width: 585px; }
-			  #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 180px; height: 30px; font-size: 2em; text-align: center; }
-		 </style>
+		<script>
+			
+			
+			$(function() {
+				$( "#draggable"/*, #draggable-nonvalid"*/ ).draggable();
+				$( "#droppable" ).droppable({
+				  //accept: "#draggable",
+				 // activeClass: "ui-state-hover",
+				 // hoverClass: "ui-state-active",
+				  drop: function( event, ui ) {
+					$( this )
+					  .addClass( "ui-state-highlight" )
+					  .find( "p" )
+						.html( "Dropped!" );
+				  }
+				});
+			});
+			
+			//$( "#draggable" ).draggable({ containment: "#bigTable", scroll: false });
+		</script>
 
 
 	</head>
@@ -54,15 +70,17 @@
 		<p></p>
 
 		<h1 align="center" style="height:50px"> Choose your categories </h1>
-
-		<table align="center">
+		
+		
+		 
+		<table align="center" id="bigTable">
 			<tr>
 				<td>
 					<div class="well" id="categoryBox">
-						<div id="sortable" align="center">
-						  <li class="ui-state-default" id="cat0">Category1</li>
-						  <li class="ui-state-default">Category2</li>
-						  <li class="ui-state-default">Category8</li>
+						<div id="sortable">
+							<li class="ui-widget-content" id="draggable">Category1</li>
+							<li class="ui-state-default">Category2</li>
+							<li class="ui-state-default">Category8</li>
 							<li class="ui-state-default">Category9</li>
 							<li class="ui-state-default">Category10</li>
 							<li class="ui-state-default">Category11</li>
@@ -74,192 +92,21 @@
 						    <li class="ui-state-default">Category7</li>
 						</div>
 					</div>
-					<!-- <div class="well" id="categoryBox">
-						<table>
-							<tr>
-								<td>
-									<button class="btn" id="cat0">Category0</button>
-								</td>
-								<td>
-									<button class="btn" id="cat1">Category1</button>
-								</td>
-								<td>
-									<button class="btn" id="cat2">Category2</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat3">Category3
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat4">Category4</button>
-								</td>
-								<td>
-									<button class="btn" id="cat5">Category5</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat6">Category6 </button>
-								</td>
-								<td>
-									<button class="btn" id="cat7">Category7</button>
-								</td>
-								<td>
-									<button class="btn" id="cat8">Category8</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat9">Category9
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat10">Category10</button>
-								</td>
-								<td>
-									<button class="btn" id="cat11">Category11</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat12">Category12
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat13">Category13</button>
-								</td>
-								<td>
-									<button class="btn" id="cat14">Category14</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat15">Category15
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat7">Category7</button>
-								</td>
-								<td>
-									<button class="btn" id="cat16">Category16</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat17">Category17
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat18">Category18</button>
-								</td>
-								<td>
-									<button class="btn" id="cat19">Category19</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat20">Category20
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat21">Category21</button>
-								</td>
-								<td>
-									<button class="btn" id="cat22">Category22</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat23">Category23
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat24">Category24</button>
-								</td>
-								<td>
-									<button class="btn" id="cat25">Category25</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat26">Category26
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat27">Category27</button>
-								</td>
-								<td>
-									<button class="btn" id="cat28">Category28</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat29">Category29
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat30">Category30</button>
-								</td>
-								<td>
-									<button class="btn" id="cat31">Category31</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat32">Category32
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat33">Category33</button>
-								</td>
-								<td>
-									<button class="btn" id="cat34">Category34</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat35">Category35
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat36">Category36</button>
-								</td>
-								<td>
-									<button class="btn" id="cat37">Category37</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat38">Category38
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat39">Category39</button>
-								</td>
-								<td>
-									<button class="btn" id="cat40">Category41</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat41">Category41
-									</button>
-								</td>
-								<td>
-									<button class="btn" id="cat42">Category42</button>
-								</td>
-								<td>
-									<button class="btn" id="cat43">Category43</button>
-								</td>
-							</tr>
-						</table>
-					</div> -->
+					
+					<!-- OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
 				</td>
+						
 				<td>
-					<div class="well" id="bin0"></div>
-					<div class="well" id="bin1"></div>
+					<div class="well" id="bin0">
+						<div id="droppable" class="ui-widget-header">
+						  <p>accept: '#draggable'</p>
+						</div>
+					</div>
+					<div class="well" id="bin1">
+						<div id="droppable1">
+						  <p>accept: '#draggable1'</p>
+						</div>
+					</div>
 					<div class="well" id="bin2"></div>
 					<div class="well" id="bin3"></div>
 					<div class="well" id="bin4"></div>

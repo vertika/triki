@@ -13,22 +13,33 @@
 	text-align: center; 
 }
 
-#droppable 
+#droppable, #droppable1
 { 
-	width: 150px;
-	height: 150px;
+	width: 190px;
+	height: 30px;
 	padding: 0.5em;
 	float: left;
 	margin: 10px; 
 }
 
-#draggable, #draggable-nonvalid 
+#draggable,#draggable1, #draggable-nonvalid 
 { 
-	width: 100px; 
+	/*width: 100px; 
 	height: 100px; 
 	padding: 0.5em; 
 	float: left; 
-	margin: 10px 10px 10px 0; 
+	margin: 10px 10px 10px 0; */
+	
+	width: 190px; 
+	height: 30px; 
+	padding: 0.5em; 
+	float: left; 
+	margin: 10px 10px 10px 0;
+	
+	/*width:190px;
+	height:30px;
+	margin-left:70px;
+	vertical-align: text-middle;*/
 }
 
 
@@ -38,6 +49,10 @@ table.fixed
 	overflow: hidden;
 	table-layout:fixed; 
 	text-align: center;
+}
+
+#bigTable
+{
 }
 
 #vertAlign
