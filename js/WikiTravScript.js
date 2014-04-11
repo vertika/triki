@@ -181,7 +181,7 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 		var title = item.correctAnswer;
 		item.url += title.replace(/ /g, "_");
 
-
+/*
 		//Put into appropriate category groups
 		var catExists = 0;
 		for(var i = 0; i < WikiTraverser.prototype.qAndAs.length; i++){
@@ -200,9 +200,9 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 		}
 
 		console.log(WikiTraverser.prototype.qAndAs);
+*/
 
-
-		//WikiTraverser.prototype.qAndAs.push(item);
+		WikiTraverser.prototype.qAndAs.push(item);
 		WikiTraverser.prototype.numQuestionsGeneratedSoFar++;
 
 	});
