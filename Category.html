@@ -28,11 +28,11 @@
 			
 			
 			$(function() {
-				$( "#draggable"/*, #draggable-nonvalid"*/ ).draggable();
+				$( "#draggable", #draggable-nonvalid").draggable();
 				$( "#droppable" ).droppable({
-				  //accept: "#draggable",
-				 // activeClass: "ui-state-hover",
-				 // hoverClass: "ui-state-active",
+				  accept: "#draggable",
+				  activeClass: "ui-state-hover",
+				  hoverClass: "ui-state-active",
 				  drop: function( event, ui ) {
 					$( this )
 					  .addClass( "ui-state-highlight" )
@@ -78,7 +78,7 @@
 				<td>
 					<div class="well" id="categoryBox">
 						<div id="sortable">
-							<li class="ui-widget-content" id="draggable">Category1</li>
+							<li class="ui-state-default" id="draggable">Category1</li>
 							<li class="ui-state-default">Category2</li>
 							<li class="ui-state-default">Category8</li>
 							<li class="ui-state-default">Category9</li>
@@ -97,10 +97,8 @@
 				</td>
 						
 				<td>
-					<div class="well" id="bin0">
-						<div id="droppable" class="ui-widget-header">
+					<div class="well" id="droppable">
 						  <p>accept: '#draggable'</p>
-						</div>
 					</div>
 					<div class="well" id="bin1">
 						<div id="droppable1">
