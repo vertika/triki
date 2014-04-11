@@ -26,7 +26,7 @@
 
 		<script>
 			$(function() {
-			$( "#draggable" ).draggable({ containment: "window", scroll: false });
+			$( "#draggable" ).draggable({ containment: "window", scroll: false, revert: "invalid" });
 			$( "#droppable" ).droppable({
 			  drop: function( event, ui ) {
 				$( this )
