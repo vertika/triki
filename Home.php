@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	$firstname = $_SESSION['firstname'];
+	$lastname = $_SESSION['lastname'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -29,6 +37,7 @@
 					<li><a href="About.php"><b>About</b></a></li>
 					<li><a href="Category.php"><b>Play</b></a></li>
 					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					<li><?php echo '<pre>' print_r($firstname), ' ', print_r($lastname), '</pre>';?></li>
 				</ul>
 			</div>
 			</div>

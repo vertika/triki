@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	require "fb-sdk/facebook.php";
 
 	$facebook = new Facebook(array(
@@ -30,10 +32,13 @@
 						$user = $facebook->getUser();
 						//Check if use is logged in to FB
 						if ($user) {
-							echo '$UserID: ', $user, '</p>';
+							//echo '$UserID: ', $user, '</p>';
 							$user_graph = $facebook->api('/me');
-							echo '<pre>', print_r($user_graph),'</pre>';
-							//header ('Location: Home.php');
+							//echo '<pre>', print_r($user_graph),'</pre>';
+
+							$_SESSION['firstname'] = $user_graph['first_name'];
+							$_SESSION['lastname'] = $user_graph['last_name'];
+							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>';
 						}
 						else {
