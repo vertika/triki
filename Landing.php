@@ -34,13 +34,13 @@
 						if ($user) {
 							//echo '$UserID: ', $user, '</p>';
 							$user_graph = $facebook->api('/me');
-							echo '<pre>', print_r($user_graph),'</pre>';
+							//echo '<pre>', print_r($user_graph),'</pre>';
 
-							echo '<pre>', print_r($user_graph['first_name']),'</pre>';
+							//echo '<pre>', print_r($user_graph['first_name']),'</pre>';
 
 							$_SESSION['firstname'] = $user_graph['first_name'];
 							$_SESSION['lastname'] = $user_graph['last_name'];
-							//header ('Location: Home.php');
+							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>';
 						}
 						else {
