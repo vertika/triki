@@ -3,6 +3,9 @@
 
 	$firstname = $_SESSION['firstname'];
 	$lastname = $_SESSION['lastname'];
+	$email = $_SESSION['email'];
+	$user_about_me = $_SESSION['user_about_me'];
+	$user_photos = $_SESSION['user_photos'];
 
 ?>
 
@@ -52,6 +55,10 @@
 		<div class="roytest">
 			<?php
 				echo $firstname;
+				echo $lastname;
+				echo $user_about_me;
+				echo $email;
+				echo $user_photos;
 
 			?>
 		</div>

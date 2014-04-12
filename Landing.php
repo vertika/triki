@@ -40,11 +40,16 @@
 
 							$_SESSION['firstname'] = $user_graph['first_name'];
 							$_SESSION['lastname'] = $user_graph['last_name'];
+							$_SESSION['email'] = $user_graph['email'];
+							$_SESSION['user_about_me'] = $user_graph['user_about_me'];
+							$_SESSION['user_photos'] = $user_graph['user_photos'];
+							
 							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>';
 						}
 						else {
 							$loginUrl = $facebook->getLoginUrl(array(
+									'scope' => 'user_about_me, email, user_photos',
 									'redirect_uri' => 'http://www.rzchou.com/Landing.php'
 								));
 							echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
