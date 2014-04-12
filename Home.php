@@ -1,11 +1,16 @@
 <?php
 	session_start();
 
+	//Hi Pauline, you can use the variables here for your profile infomation. Note that these are grabbed from facebook.
+	//I have to include some checks in Landing.php to check if the info is available before passing it through the session.
+	//Right now just assume that all uses have all the info below.
+	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
+
 	$firstname = $_SESSION['firstname'];
 	$lastname = $_SESSION['lastname'];
 	$email = $_SESSION['email'];
 	$user_about_me = $_SESSION['user_about_me'];
-	$user_photos = $_SESSION['user_photos'];
+	$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
 
 ?>
 
@@ -53,14 +58,14 @@
 		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
 
 		<div class="roytest">
-			<?php
-				echo $firstname;
-				echo $lastname;
-				echo $user_about_me;
-				echo $email;
-				echo $user_photos;
+			<!--<?php
+				// echo $firstname;
+				// echo $lastname;
+				// echo $user_about_me;
+				// echo $email;
+				// echo $user_photos;
 
-			?>
+			?> example code -->
 		</div>
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
