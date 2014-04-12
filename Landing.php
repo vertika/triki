@@ -28,13 +28,16 @@
 				<div id="loginContainer" align="center">
 					<?php
 						$user = $facebook->getUser();
+						//Check if use is logged in to FB
 						if ($user) {
-							header ('Location: Home.php');
-							echo '<a href="logout.php">Logout</a>'; 
+							echo '$UserID: ', $user, '</p>';
+							$user_graph = $facebook->api('/me');
+							//header ('Location: Home.php');
+							//echo '<a href="logout.php">Logout</a>';
 						}
 						else {
 							$loginUrl = $facebook->getLoginUrl(array(
-									'redirect_uri' => 'http://www.rzchou.com/Home.php'
+									'redirect_uri' => 'http://www.rzchou.com/Landing.php'
 								));
 							echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
 						}
