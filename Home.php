@@ -51,21 +51,6 @@
 		</div>
 		<p></p>
 		
-		<?php
-		
-		if($user)
-		$loginUrl = $facebook->getLoginUrl(array('scope'=>'first_name, last_name'));
-		
-		
-		
-		?>
-		
-		<?php if ($user): ?>
-    	<div align="center">
-        	<img id="image" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
-        	<div id="name"><?php echo $me['name']; ?></div>
-    	</div>
-    	<?php endif ?>
 		
 		<!-- Start code here: -->
 		
@@ -73,12 +58,12 @@
 	    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
 
 		<div class="roytest">
-			<!--<?php
-				// echo $firstname;
-				// echo $lastname;
-				// echo $user_about_me;
-				// echo $email;
-				// echo $user_photos;
+			<?php
+				 echo $firstname;
+				 echo $lastname;
+				 echo $user_about_me;
+				 echo $email;
+				 echo $user_photos;
 
 			?> example code -->
 		</div>
