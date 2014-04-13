@@ -51,11 +51,26 @@
 		</div>
 		<p></p>
 		
+		<?php
+		
+		if($user)
+		$loginUrl = $facebook->getLoginUrl(array('scope'=>'first_name, last_name'));
+		
+		
+		
+		?>
+		
+		<?php if ($user): ?>
+    	<div align="center">
+        	<img id="image" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
+        	<div id="name"><?php echo $me['name']; ?></div>
+    	</div>
+    	<?php endif ?>
 		
 		<!-- Start code here: -->
 		
 		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+	    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
 
 		<div class="roytest">
 			<!--<?php
@@ -106,7 +121,7 @@
 			  </div>
 			</div>
 		</div>
-	
+
 	
 		<!-- End code here! -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
