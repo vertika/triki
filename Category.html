@@ -9,50 +9,52 @@
 
 		<!-- JQuery -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<script src="js/bootstrap.js"></script>
-
-		<!-- JQuery UI -->
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 
 		<!-- Triki -->
 		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
 		<script src="js/Category.js"></script>
 
+		<!-- JQuery UI -->
+		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
 		<script>
-			$(function() {
-			$( "#draggable" ).draggable({ containment: "window", scroll: false, revert: "invalid" });
-			$( "#droppable" ).droppable({
-			  drop: function( event, ui ) {
-				$( this )
-				  .addClass( "ui-state-highlight" )
-				  .find( "p" )
-					.html( "Dropped!" );
-			  }
-			});
-		  });
+			$( init );
+
+			function init() 
+			{
+				// create categories 
+				 for ( var i=0; i<2; i++ ) {
+				    $('<button>' + 'Category' + i + '</button>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
+				      containment: '#categoryBox',
+				      stack: '#categoryBox button',
+				      cursor: 'move',
+				      revert: true
+				    } );
+				}
+
+			  // create category drop boxes
+			 	for ( var i=0; i<=6; i++ ) {
+			    $('<div>' + "Drop category here" + '</div>').appendTo( '#cardSlots' ).droppable( {
+			      accept: '#cardPile div',
+			      hoverClass: 'hovered',
+			      drop: handleCardDrop
+			    } );
+			  }				
+			}
+
+			function handleCardDrop( event, ui ) 
+			{
 			
-			/*$(function() {
-				$( "#draggable", #draggable-nonvalid").draggable();
-				$( "#droppable" ).droppable({
-				  accept: "#draggable",
-				  activeClass: "ui-state-hover",
-				  hoverClass: "ui-state-active",
-				  drop: function( event, ui ) {
-					$( this )
-					  .addClass( "ui-state-highlight" )
-					  .find( "p" )
-						.html( "Dropped!" );
-				  }
-				});
-			});*/
-			
-			//$( "#draggable" ).draggable({ containment: "#bigTable", scroll: false });
+			}
+
 		</script>
 
 
@@ -88,16 +90,12 @@
 				<td>
 					<div class="well" id="categoryBox">
 					
+						<button class="btn ui-draggable" id="cat0">Category0</button>
+						<button class="btn ui-draggable" id="cat1">Category1</button>
+
 					
-					<div id="draggable" class="ui-widget-content">
-					  <p>Drag me to my target</p>
-					</div>
-					 
-					
-					
-					
-						<div id="sortable">
-							<!-- <li class="ui-state-default" id="draggable">Category1</li> -->
+					<!-- <div id="sortable">
+							<!-- <li class="ui-state-default" id="draggable">Category1</li> 
 							<li class="ui-state-default">Category2</li>
 							<li class="ui-state-default">Category8</li>
 							<li class="ui-state-default">Category9</li>
@@ -110,30 +108,20 @@
 						    <li class="ui-state-default">Category6</li>
 						    <li class="ui-state-default">Category7</li>
 						</div>
-					</div>
+					</div> -->
 					
 					<!-- OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
 				</td>
 						
 				<td>
 				
-					<div id="droppable" class="ui-widget-header">
-					  <p>Drop here</p>
-					</div>
+					<div class="well ui-droppable" id="bin0"></div>
+					<div class="well ui-droppable" id="bin1"></div>
+					<div class="well ui-droppable" id="bin2"></div>
+					<div class="well ui-droppable" id="bin3"></div>
+					<div class="well ui-droppable" id="bin4"></div>
+					<div class="well ui-droppable" id="bin5"></div>
 					
-					<!--<div class="well" id="droppable">
-						  <p>accept: '#draggable'</p>
-					</div>
-					<div class="well" id="bin1">
-						<div id="droppable1">
-						  <p>accept: '#draggable1'</p>
-						</div>
-					</div> -->
-					<div class="well" id="bin2"></div>
-					<div class="well" id="bin3"></div>
-					<div class="well" id="bin4"></div>
-					<div class="well" id="bin5"></div>
-
 					<div style="height: 300px" align="center">
 						<button class="btn .btn-large btn-success" id="playButton">Start game!
 						</button>
