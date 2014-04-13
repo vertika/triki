@@ -30,19 +30,10 @@
 			<div class="navbar-inner">
 			<div class="container">
 				<ul class="nav">
-<<<<<<< HEAD
-					<li><a href="Home.php">Home</a></li>
-					<li><a href="About.html">About</a></li>
-					<li><a href="Rules.html">Rules</a></li>
-					<li><a href="Challenges.html">Challenges</a></li>
-					<li><a href="Category.html">Play!</a></li>
-=======
-					<li><a href="Home.html"><b>Home</b></a></li>
-					<li><a href="About.html"><b>About</b></a></li>
-					<li><a href="Category.html"><b>Play</b></a></li>
-					<li><a href="Landing.html"><b>Log Out</b></a></li>
-
->>>>>>> b96131c1440685a1145cd5cae8b82081d51b4ac7
+					<li><a href="Home.php"><b>Home</b></a></li>
+					<li><a href="About.php"><b>About</b></a></li>
+					<li><a href="Category.php"><b>Play</b></a></li>
+					<li><a href="Landing.php"><b>Log Out</b></a></li>
 				</ul>
 			</div>
 			</div>
