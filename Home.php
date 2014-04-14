@@ -6,11 +6,11 @@
 	//Right now just assume that all uses have all the info below.
 	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
 
-	//$firstname = $_SESSION['firstname'];
-	//$lastname = $_SESSION['lastname'];
-	//$email = $_SESSION['email'];
-	//$user_about_me = $_SESSION['user_about_me'];
-	//$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
+	$firstname = $_SESSION['firstname'];
+	$lastname = $_SESSION['lastname'];
+	$email = $_SESSION['email'];
+	$user_about_me = $_SESSION['user_about_me'];
+	$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
 
 ?>
 
@@ -55,7 +55,7 @@
 		
 		
 		<!-- Start code here: -->
-		<!--
+		
 		<div class="roytest">
 			<?php
 				 echo $firstname;
@@ -65,8 +65,8 @@
 				 echo $user_photos;
 
 			?>
-			 example code 
-			-->
+			 <!--example code -->
+			
 		
 		</div>
 		<div class="container">
@@ -75,17 +75,17 @@
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
-				<?php
+				<!-- <?php
 					$name="Pauline";
 					$lname="Low";
 					$eadd="triki.@umich.edu";
 					$aboutme="Triki wiki is the game to play!";
-				?>
+				?> -->
 				
-				<h1><?=$name?> <?=$lname?></h1>
-				<p><b>Email: </b> <?=$eadd?></p>
+				<h1><?=$firstname?> <?=$lastname?></h1>
+				<p><b>Email: </b> <?=$email?></p>
 				<h1>About Me:</h1>
-				<p><?=$aboutme?></p>
+				<p><?=$user_about_me?></p>
 		
 			</div>
 		</div>
