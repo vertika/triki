@@ -70,7 +70,7 @@ table.fixed
 	width:580px;
 	display: block;
   	margin-right: auto;
-  	overflow: scroll;
+  	/*overflow: scroll;*/
 }
 
 #bin, #cat0, #cat1, #cat2, #cat3, #cat4, 
