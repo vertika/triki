@@ -34,7 +34,7 @@
   				$('#binBox').html( '' );
 
 				// create clump categories 
-				 for ( var i=0; i<10; i++ ) {
+				 for ( var i=0; i<3; i++ ) {
 				    $('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
@@ -88,16 +88,18 @@
 
 		<h1 align="center" style="height:50px"> Choose Your Categories </h1>
 		
-		<div class="well" id="categoryBox">
 
 			<table align="center" id="bigTable">
 				<tr>
 				
-					
+					<div class="well" id="categoryBox">
 
-					<td><div class="well ui-draggable" id="cat0">Category0</div></td>
-					<td><div class="well ui-draggable" id="cat1">Category1</div></td>
-					<td><div class="well ui-draggable" id="cat2">Category2</div></td>
+
+						<td><div class="well ui-draggable" id="cat0">Category0</div></td>
+						<td><div class="well ui-draggable" id="cat1">Category1</div></td>
+						<td><div class="well ui-draggable" id="cat2">Category2</div></td>
+
+					</div>
 					
 				</tr>
 				
