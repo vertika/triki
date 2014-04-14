@@ -30,29 +30,34 @@
 
 			function init() 
 			{
-				// create categories 
+				$('#categoryBox').html( '' );
+  				$('#binBox').html( '' );
+
+				// create clump categories 
 				 for ( var i=0; i<2; i++ ) {
-				    $('<button>' + 'Category' + i + '</button>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
-				      containment: '#categoryBox',
-				      stack: '#categoryBox button',
+				    $('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
+				      containment: 'window',
+				      stack: '#categoryBox div',
 				      cursor: 'move',
 				      revert: true
 				    } );
 				}
 
-			  // create category drop boxes
-			 	for ( var i=0; i<=6; i++ ) {
-			    $('<div>' + "Drop category here" + '</div>').appendTo( '#cardSlots' ).droppable( {
-			      accept: '#cardPile div',
-			      hoverClass: 'hovered',
-			      drop: handleCardDrop
-			    } );
-			  }				
+				// create the bin slots
+				for ( var i=1; i<=10; i++ ) {
+				    $('<div>' + words[i-1] + '</div>').data( 'number', i ).appendTo( '#categoryBox' ).droppable( {
+				      accept: '#binbox div',
+				      hoverClass: 'hovered',
+				      drop: handleCatDrop
+				    } );
+			 	}
 			}
 
-			function handleCardDrop( event, ui ) 
+
+			function handleCatDrop( event, ui ) 
 			{
-			
+				var catName = ui.draggable.data(category);
+
 			}
 
 		</script>
@@ -88,14 +93,20 @@
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
-					<div class="well" id="categoryBox">
+					<div class="well" id="categoryBoxContainer">
 					
-						<button class="btn ui-draggable" id="cat0">Category0</button>
-						<button class="btn ui-draggable" id="cat1">Category1</button>
+						<div id="categoryBox">
+							<!--<button class="btn labelbtn ui-draggable" id="cat0">Category0</button>
+							<button class="btn labelbtn ui-draggable" id="cat1">Category1</button>-->
+
+							<div class="well ui-draggable" id="cat0">Category0</div>
+							<div class="well ui-draggable" id="cat1">Category1</div>
+							<div class="well ui-draggable" id="cat2">Category2</div>
+						</div>
 
 					
 					<!-- <div id="sortable">
-							<!-- <li class="ui-state-default" id="draggable">Category1</li> 
+							<li class="ui-state-default" id="draggable">Category1</li> 
 							<li class="ui-state-default">Category2</li>
 							<li class="ui-state-default">Category8</li>
 							<li class="ui-state-default">Category9</li>
@@ -114,13 +125,14 @@
 				</td>
 						
 				<td>
-				
-					<div class="well ui-droppable" id="bin0"></div>
-					<div class="well ui-droppable" id="bin1"></div>
-					<div class="well ui-droppable" id="bin2"></div>
-					<div class="well ui-droppable" id="bin3"></div>
-					<div class="well ui-droppable" id="bin4"></div>
-					<div class="well ui-droppable" id="bin5"></div>
+					<div id="binbox">
+						<div class="well ui-droppable" id="bin0"></div>
+						<div class="well ui-droppable" id="bin1"></div>
+						<div class="well ui-droppable" id="bin2"></div>
+						<div class="well ui-droppable" id="bin3"></div>
+						<div class="well ui-droppable" id="bin4"></div>
+						<div class="well ui-droppable" id="bin5"></div>
+					</div>
 					
 					<div style="height: 300px" align="center">
 						<button class="btn .btn-large btn-success" id="playButton">Start game!

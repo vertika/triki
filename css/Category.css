@@ -64,7 +64,7 @@ table.fixed
 	margin-bottom: 10px;
 }
 
-#categoryBox{
+#categoryBoxContainer{
 	margin-top:8px;
 	height:800px; 
 	width:580px;
@@ -83,9 +83,16 @@ table.fixed
 #cat35, #cat36, #cat37, #cat38, #cat39,
 #cat40, #cat41, #cat42, #cat43, #cat46
 {
-
+	width:150px;
+	height:10px;
 }
 
+
+#binbox
+{
+	z-index: -1;
+	position: fixed;
+}
 
 #bin0, #bin1, #bin2, #bin3, #bin4, #bin4, #bin5{
 	width:190px;
