@@ -90,8 +90,7 @@ table.fixed
 
 #binbox
 {
-	z-index: -1;
-	position: fixed;
+	/*z-index: -1;*/
 }
 
 #bin0, #bin1, #bin2, #bin3, #bin4, #bin4, #bin5{
@@ -101,12 +100,18 @@ table.fixed
 	vertical-align: text-middle; 
 }
 
+#correct
+{
+	background:red;
+}
+
 #playButton
 {
 	height:100px; 
 	font-size:210%; 
-	margin-left:80px;
-	margin-top:60px;
+	margin-top:70px;
+	margin-left:105px;
+	position:absolute;
 }
 body{
    min-width:1000px; /* suppose you want minimun width of 1000px */
