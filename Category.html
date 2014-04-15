@@ -51,7 +51,7 @@
 				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
 				      accept: '#categoryBox div',
 				      hoverClass: 'hovered',
-				      drop: handleCatDrop
+				      drop: handleCatDrop,
 				    } );
 			 	}
 			}
@@ -69,6 +69,9 @@
 				
 				//if(nothing there already)
 				ui.draggable.draggable( 'option', 'revert', false );
+
+				$(this).css("cursor","auto");
+
 				
 			}
 
@@ -77,7 +80,7 @@
 
 	</head>
 
-	<body>
+	<body style="cursor: auto;">
 		<div class="container" align="center">
 			<a href="Home.html"><img src="trikiIcon.jpg"
 			title="trikiIcon" height="30%" width="30%"></a>
