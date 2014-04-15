@@ -37,7 +37,7 @@
   				$('#binBox').html( '' );
 
 				// create clump categories 
-				 for ( var i=0; i<3; i++ ) {
+				 for ( var i=0; i<4; i++ ) {
 				    $('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
@@ -66,6 +66,8 @@
 				ui.draggable.draggable( 'disable' );
 				$(this).droppable( 'disable' );
 				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+				
+				//if(nothing there already)
 				ui.draggable.draggable( 'option', 'revert', false );
 				
 			}
@@ -111,6 +113,7 @@
 							<div class="well ui-draggable" id="cat0">Category0</div>
 							<div class="well ui-draggable" id="cat1">Category1</div>
 							<div class="well ui-draggable" id="cat2">Category2</div>
+							<div class="well ui-draggable" id="cat3">Category3</div>
 						</div>
 					
 					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->

@@ -53,9 +53,9 @@
 
 #categoryBox
 {
-	margin-top:8px;
+	margin-top:10px;
 	height:800px; 
-	width:580px;
+	width:630px;
 	display: block;
   	margin-right: auto;
 }
@@ -66,6 +66,9 @@
 {
 	width:150px;
 	height:10px;	
+	float: left;
+	margin-left: 15px;
+	margin-top:-5px;
 }
 
 #binBox div.hovered { background: #aaa; }
@@ -80,7 +83,7 @@
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 }
 
-#cat0.correct { background: cyan; }
+#cat0.correct { background-color:#88B5C2 !important;}
 #cat1.correct { background: red; }
 #cat2.correct { background: brown; }
 #cat3.correct { background: orange; }
