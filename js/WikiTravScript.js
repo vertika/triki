@@ -7,6 +7,8 @@ function QandA(){
 	this.incorrect1 = "";
 	this.incorrect2 = "";
 	this.incorrect3 = "";
+	this.answeredCorrectly = 0;
+	this.answered = 0;
 }
 
 //Wiki Traverser
@@ -96,7 +98,7 @@ WikiTraverser.prototype.traverseCategory = function(nextCategory, toPopulate, tr
 //Consider changing to a polling function that checks if the array has returned
 //data;
 WikiTraverser.prototype.populateQuestions = function(toPopulate, trav){
-	console.log(toPopulate);
+	//console.log(toPopulate);
 	var groupsOfFour = [];
 
 	var numAnswers = 0;
@@ -129,7 +131,7 @@ WikiTraverser.prototype.populateQuestions = function(toPopulate, trav){
 },
 
 WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
-	console.log(groupOfFour);
+//	console.log(groupOfFour);
 	var url = 'http://en.wikipedia.org/w/api.php?' +
 	'callback=?' +
 	'&format=json' +

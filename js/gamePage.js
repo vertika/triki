@@ -17,8 +17,6 @@ var cat4 = getParameterByName('Category4');
 var cat5 = getParameterByName('Category5');
 var cat6 = getParameterByName('Category6');
 
-//Set Category Titles
-
 //Open Modal Countdown Window
 $(function() {
   $('#numQuestionsGenerated').text("0/30 Questions Generated");
@@ -66,6 +64,25 @@ function startCountDownToGame(){
 
     //Start Game
 
+    var c = WikiTraverser.prototype.qAndAs;
+
+    //Set Category Labels
+    $("#categoryLabel1").text(c[0][0].category.split(":")[1]);
+    $("#categoryLabel2").text(c[1][0].category.split(":")[1]);
+    $("#categoryLabel3").text(c[2][0].category.split(":")[1]);
+    $("#categoryLabel4").text(c[3][0].category.split(":")[1]);
+    $("#categoryLabel5").text(c[4][0].category.split(":")[1]);
+    $("#categoryLabel6").text(c[5][0].category.split(":")[1]);
+
+    //Set Score Label
+    $("#scoreLabel").text("0/30");
+
+    //Set Game Time
+    $('#timeRemainingLabel').text("3:00");
+    gameTimer = window.setInterval(updateGameTime, 1000);
+
+
+
   }
 }
 
@@ -83,26 +100,102 @@ function togglePause(){
 }
 
 /*----- Game -----*/
+var minutes = 3;
+var timeLimit = 60 * minutes;
+var timeRemaining = timeLimit;
+var totalQuestions = 30;
+var numCorrect = 0;
 
-function questionSelected(questionNumber){
-  $("#question-modal").modal({
-    backdrop: 'static'
-  });
+function updateGameTime(){
+  timeRemaining -= 1;
 
-  var qanda = WikiTraverser.prototype.qAndAs[questionNumber];
+  if(timeRemaining === 0){
+    //redirect to results page
+  }else{
 
-  $("#questionText").text(qanda.question);
+    var seconds = (timeRemaining % 60);
+    if(seconds < 10){
+      seconds = "0"+seconds;
+    }
 
-  //do random
-  //Also make these buttons
-  //Also ensure that the order is correct
-  //Also add categories to the top
-  $("#option1").text(qanda.correctAnswer);
-  $("#option2").text(qanda.incorrect1);
-  $("#option3").text(qanda.incorrect2);
-  $("#option4").text(qanda.incorrect3);
+    var timeStr = Math.floor((timeRemaining / 60)) + ":" + seconds;
+    $('#timeRemainingLabel').text(timeStr);
+  }
+}
+
+
+
+var qanda;
+var questionSelectedId;
+
+function questionSelected(questionNumber, qId){
+  questionSelectedId = "#"+qId;
+
+  qanda = WikiTraverser.prototype.qAndAs[Math.floor(questionNumber / 5)][questionNumber % 5];
+
+  //check if question has already been answered
+  if(!qanda.answered){
+    //open modal window
+    $("#question-modal").modal({
+      backdrop: 'static'
+    });
+
+    //set question text
+    $("#questionText").text(qanda.question);
+
+    var positions = [1, 2, 3, 4];
+    var randomPositions = [];
+
+    for(var i = 0; i < 4; i++){
+      var index = Math.ceil(Math.random() * positions.length) - 1;
+      randomPositions.push(positions[index]);
+      positions.splice(index, 1);
+    }
+
+    var id1 = "#option"+randomPositions[0];
+    var id2 = "#option"+randomPositions[1];
+    var id3 = "#option"+randomPositions[2];
+    var id4 = "#option"+randomPositions[3];
+
+    $(id1).text(qanda.correctAnswer);
+    $(id2).text(qanda.incorrect1);
+    $(id3).text(qanda.incorrect2);
+    $(id4).text(qanda.incorrect3);
+
+  }
+}
+
+function selectedOption(selection){
+  var buttonId = "#"+selection;
+
+  if($(buttonId).text() === qanda.correctAnswer){
+    //correct
+
+    qanda.answeredCorrectly = 1;
+
+    //change button image to answered correct
+    $(questionSelectedId).removeClass("btn btn-primary pull");
+    $(questionSelectedId).addClass("btn btn-success");
+
+    //update score
+    numCorrect++;
+    var scoreString = numCorrect + "/" + totalQuestions;
+    $('#scoreLabel').text(scoreString);
+
+
+  }else{
+    //change button image to answered incorrect
+    $(questionSelectedId).removeClass("btn btn-primary pull");
+    $(questionSelectedId).addClass("btn btn-danger");
+  }
+
+  //don't allow this to be opened again
+  qanda.answered = 1;
+  $('#question-modal').modal('hide');
 
 }
+
+
 
 //Whole business with opening up dialog
 //Determine if correct answer selected
