@@ -11,17 +11,18 @@
 		<link href="css/styles.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
 		<link href="css/About.css" rel="stylesheet">
+		<!-- <link href="css/home.css" rel="stylesheet"> -->
 
 	</head>
 	<body>
-		<div class="container" align="center">
+		<div class="container" align="center" id="top">
 			<a href="Home.html"><img src="trikiIcon.jpg"
 			title="trikiIcon" height="30%" width="30%"></a>
 		</div>
 		
 		<div class="navbar">
 			<div class="navbar-inner">
-			<div class="container">
+			<div class="container" id="nav">
 				<ul class="nav">
 					<li><a href="Home.php">Home</a></li>
 					<li class="active"><a href="About.php">About</a></li>
@@ -48,55 +49,60 @@
 		
 		-->
 		<div class="container">
-		<h2>
-		What is Triki?
-		</h2>
+				<h2>What is Triki?</h2>
+				<div class="container" id="profile">
+					<div class="jumbotron">
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+						when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+						It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+						and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						</p>
+					</div>
+				<div>
+		</div>
+		<h2 id="header">How to Play? <button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button></h2>
 		
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-			when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-			and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-		</p>
-		
-		<h2>How to Play? 
-			<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button>
-		</h2>
-		<div id="intro1" class="collapse"> 
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			</p>
-				
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			</p>
-				
+				<div id="intro1" class="collapse"> 
+					<div class="container" id="profile">
+						<div class="jumbotron">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+							Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+							when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+							It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+							and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+							</p>
+						
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+							Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+							when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+							It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+							and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+							</p>
+						</div>
+					</div>
+				</div>
+	
+		<h2>Learn more about us<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro2"></button></h2>
+		<div class="container">
+			<div id="intro2" class="collapse"> 
+				<div class="container" id="profile">
+					<div class="jumbotron">
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+						when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+						It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+						and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+					</div>
+				</div>
+			</div>
 		</div>
 		
-		
-		<h2>Learn more about us
-			<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro2"></button>
-		</h2>
-		<div id="intro2" class="collapse"> 
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
-		</div>
-		
-		</div>
-		
+		<p></p>
 		
 		<!-- End code here! -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

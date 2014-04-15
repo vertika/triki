@@ -1,3 +1,19 @@
+<?php
+	session_start();
+
+	//Hi Pauline, you can use the variables here for your profile infomation. Note that these are grabbed from facebook.
+	//I have to include some checks in Landing.php to check if the info is available before passing it through the session.
+	//Right now just assume that all uses have all the info below.
+	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
+
+	$firstname = $_SESSION['firstname'];
+	$lastname = $_SESSION['lastname'];
+	$email = $_SESSION['email'];
+	$user_about_me = $_SESSION['user_about_me'];
+	$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,6 +25,8 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/home.css" rel="stylesheet">
+		
 		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
 		
 		<!-- Custom -->
@@ -38,10 +56,49 @@
 		
 		<!-- Start code here: -->
 		
-		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+		<div class="roytest">
+			<?php
+				 echo $firstname;
+				 echo $lastname;
+				 echo $user_about_me;
+				 echo $email;
+				 echo $user_photos;
 
-		<!-- Modal -->
+			?>
+			 <!--example code -->
+			
+		
+		</div>
+		<div class="container">
+		<img src="User-blue-icon.png"
+						title="User name" height="20%" width="20%"/>
+		</div>
+		<div class="container" id="profile">
+			<div class="jumbotron">
+				<!-- <?php
+					$name="Pauline";
+					$lname="Low";
+					$eadd="triki.@umich.edu";
+					$aboutme="Triki wiki is the game to play!";
+				?> -->
+				
+				<h1><?=$firstname?> <?=$lastname?></h1>
+				<p><b>Email: </b> <?=$email?></p>
+				<h1>About Me:</h1>
+				<p><?=$user_about_me?></p>
+		
+			</div>
+		</div>
+		
+		<p></p>
+		
+		<div class="container">
+		<!-- Button trigger modal -->
+	    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+		</div>
+		
+		<p></p>
+		<!-- Modal --->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -80,7 +137,7 @@
 			  </div>
 			</div>
 		</div>
-	
+
 	
 		<!-- End code here! -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
