@@ -26,10 +26,13 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 
 		<script>
+			var occupiedBins = 0;
 			$( init );
 
 			function init() 
-			{
+			{	
+				// reset
+				occupiedBins = 0;
 				$('#categoryBox').html( '' );
   				$('#binBox').html( '' );
 
@@ -45,8 +48,8 @@
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well ui-droppable">Drop here.</div>').data( 'number', i ).appendTo( '#binBox' ).droppable( {
-				      accept: '#binbox div',
+				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				      accept: '#categoryBox div',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
 				    } );
@@ -59,10 +62,11 @@
 				var binNum = $(this).data('number');
 				var catName = ui.draggable.data(category);
 				
-				ui.draggable.addClass('correct');
-				
-				ui.dr
-				
+				ui.draggable.addClass( 'correct' );
+				ui.draggable.draggable( 'disable' );
+				$(this).droppable( 'disable' );
+				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+				ui.draggable.draggable( 'option', 'revert', false );
 				
 			}
 
@@ -98,9 +102,9 @@
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
-					<div class="well" id="categoryBoxContainer">
+					<!--<div class="well" id="categoryBoxContainer"> -->
 					
-						<div id="categoryBox"> 
+						<div class="well" id="categoryBox"> 
 							<!--<button class="btn labelbtn ui-draggable" id="cat0">Category0</button>
 							<button class="btn labelbtn ui-draggable" id="cat1">Category1</button>-->
 
@@ -113,13 +117,13 @@
 				</td>
 						
 				<td>
-					<div id="binbox">
-						<div class="well ui-droppable" id="bin0">Drop here.</div>
-						<div class="well ui-droppable" id="bin1">Drop here.</div>
-						<div class="well ui-droppable" id="bin2">Drop here.</div>
-						<div class="well ui-droppable" id="bin3">Drop here.</div>
-						<div class="well ui-droppable" id="bin4">Drop here.</div>
-						<div class="well ui-droppable" id="bin5">Drop here.</div>
+					<div id="binBox">
+						<div class="well ui-droppable" id="bin0">Drop here 0</div>
+						<div class="well ui-droppable" id="bin1">Drop here 1</div>
+						<div class="well ui-droppable" id="bin2">Drop here 2</div>
+						<div class="well ui-droppable" id="bin3">Drop here 3</div>
+						<div class="well ui-droppable" id="bin4">Drop here 4</div>
+						<div class="well ui-droppable" id="bin5">Drop here 5</div>
 					</div>
 					
 					<div style="height: 300px">
