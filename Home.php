@@ -32,6 +32,31 @@
 		<!-- Custom -->
 		<script src="js/js/homePage.js"></script>
 
+
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    	<script type="text/javascript">
+      	google.load("visualization", "1", {packages:["corechart"]});
+      	google.setOnLoadCallback(drawChart);
+      	function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Categories Played', 'Number of Times Played'],
+          ['Physics',     11],
+          ['American History',      2],
+          ['Science',  2],
+          ['Music', 2],
+          ['Science and Technology',    7]
+        ]);
+
+        var options = {
+          title: 'Categories Played:',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      	}
+    	</script>
+    
 	</head>
 	<body>
 		<div class="container" align="center">
@@ -90,12 +115,25 @@
 			</div>
 		</div>
 		
-		<p></p>
-		
 		<div class="container">
 		<!-- Button trigger modal -->
 	    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
 		</div>
+		
+		
+		<div class="container">
+			<h1>Game Stats:</h1>
+		</div>
+		<div class="container" id="profile">
+			<div class="jumbotron">
+			<p><b>Total Games Played: 50</b> </p>
+			
+			</div>
+		</div>
+			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+		<p></p>
+		
+		
 		
 		<p></p>
 		<!-- Modal --->
