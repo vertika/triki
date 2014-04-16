@@ -43,7 +43,7 @@
 							$_SESSION['email'] = $user_graph['email'];
 							$_SESSION['user_about_me'] = $user_graph['user_about_me'];
 							//$_SESSION['user_photos'] = $user_graph['user_photos'];
-							$_SESSION['photo_url'] = $user_graph['cover.source'];
+							$_SESSION['username'] = $user_graph['username'];
 							
 							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>';
