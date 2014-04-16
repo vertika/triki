@@ -80,7 +80,9 @@
 		
 		
 		<!-- Start code here: -->
-		
+		<?php
+			echo $uid;
+		?>
 		<div class="container">
 		<img src='http://graph.facebook.com/".$uid."/picture?type=large'>
 		<img src="User-blue-icon.png"
