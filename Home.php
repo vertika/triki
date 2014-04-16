@@ -5,12 +5,12 @@
 	//I have to include some checks in Landing.php to check if the info is available before passing it through the session.
 	//Right now just assume that all uses have all the info below.
 	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
-	$uid = $_SESSION['uid'];
+	$photo_url = $_SESSION['photo_url'];
 	$firstname = $_SESSION['firstname'];
 	$lastname = $_SESSION['lastname'];
 	$email = $_SESSION['email'];
 	$user_about_me = $_SESSION['user_about_me'];
-	$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
+	//$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
 
 ?>
 
@@ -84,7 +84,7 @@
 			echo $uid;
 		?>
 		<div class="container">
-		<img src='http://graph.facebook.com/".$uid."/picture?type=large'>
+		<img src=<?=$photo_url?>>
 		<img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/>
 		</div>

@@ -37,12 +37,13 @@
 							//echo '<pre>', print_r($user_graph),'</pre>';
 
 							//echo '<pre>', print_r($user_graph['first_name']),'</pre>';
-							$_SESSION['uid'] = $user_graph['id'];
+							//$_SESSION['uid'] = $user_graph['id'];
 							$_SESSION['firstname'] = $user_graph['first_name'];
 							$_SESSION['lastname'] = $user_graph['last_name'];
 							$_SESSION['email'] = $user_graph['email'];
 							$_SESSION['user_about_me'] = $user_graph['user_about_me'];
-							$_SESSION['user_photos'] = $user_graph['user_photos'];
+							//$_SESSION['user_photos'] = $user_graph['user_photos'];
+							$_SESSION['photo_url'] = $user_graph['cover.source'];
 							
 							header ('Location: Home.php');
 							//echo '<a href="logout.php">Logout</a>';
