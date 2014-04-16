@@ -37,7 +37,7 @@
 							//echo '<pre>', print_r($user_graph),'</pre>';
 
 							//echo '<pre>', print_r($user_graph['first_name']),'</pre>';
-
+							$_SESSION['uid'] = $user_graph['id'];
 							$_SESSION['firstname'] = $user_graph['first_name'];
 							$_SESSION['lastname'] = $user_graph['last_name'];
 							$_SESSION['email'] = $user_graph['email'];
