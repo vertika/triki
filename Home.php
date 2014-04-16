@@ -80,15 +80,13 @@
 		
 		
 		<!-- Start code here: -->
-		<?php
-		echo $username;
-		?>
+		
 		<div class="container">
 			<?php
-			echo "You searched for <center><br><br><b><img src='http://graph.facebook.com/".$username."/picture?type=large'/></b><center> </br>";
+			echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
 			?>
-		<img src="User-blue-icon.png"
-						title="User name" height="20%" width="20%"/>
+		<!-- <img src="User-blue-icon.png"
+						title="User name" height="20%" width="20%"/> -->
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
