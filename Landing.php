@@ -50,7 +50,7 @@
 						}
 						else {
 							$loginUrl = $facebook->getLoginUrl(array(
-									'scope' => 'user_about_me, email, user_photos',
+									'scope' => 'user_about_me, email, user_photos, username',
 									'redirect_uri' => 'http://www.rzchou.com/Landing.php'
 								));
 							echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
