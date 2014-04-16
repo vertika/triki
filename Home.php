@@ -84,7 +84,9 @@
 			echo $uid;
 		?>
 		<div class="container">
+			<div>
 		<img src=<?=$photo_url?>>
+	</div>
 		<img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/>
 		</div>
