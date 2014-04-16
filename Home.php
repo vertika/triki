@@ -48,7 +48,7 @@
         ]);
 
         var options = {
-          title: 'Categories Played:',
+          title: '',
           is3D: true,
         };
 
@@ -111,13 +111,11 @@
 				<p><b>Email: </b> <?=$email?></p>
 				<h1>About Me:</h1>
 				<p><?=$user_about_me?></p>
-		
+				<p></p>
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+				<p></p>
 			</div>
-		</div>
-		
-		<div class="container">
-		<!-- Button trigger modal -->
-	    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
 		</div>
 		
 		
@@ -126,11 +124,13 @@
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
-			<p><b>Total Games Played: 50</b> </p>
-			
+			<h3><b>Total Games Played: 50</b> </h3>
+			<h3><b>Categories Played: </b> </h3>
+			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+			<p></p>
 			</div>
 		</div>
-			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+			
 		<p></p>
 		
 		
