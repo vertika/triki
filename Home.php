@@ -83,7 +83,7 @@
 		
 		<div class="container">
 			<?php
-			echo "You searched for <center><br><br><b><img src='".$photo_url."'/></b><center> </br>";
+			echo "You searched for <center><br><br><b><img src='http://graph.facebook.com/chouzhengroy/picture?type=large'/></b><center> </br>";
 			?>
 		<img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/>
