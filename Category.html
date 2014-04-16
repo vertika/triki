@@ -38,7 +38,7 @@
   				$('#binBox').html( '' );
 
 				// create clump categories 
-				 for ( var i=0; i<4; i++ ) {
+				 for ( var i=0; i<12; i++ ) {
 				    $('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
@@ -65,19 +65,14 @@
 				var binOccupied = $(this).data('occupied');
 				var catName = ui.draggable.data('category');
 				
-				//if( chosenCats[binNum] == 'none')
-				
-
 				if( binOccupied == 0 )
 				{
-					//var thisBin = '#bin' + binNum;
-					var yo = $(this).data( 'occupied', 1);
+					// opccupy this bin
+					$(this).data( 'occupied', 1);
+					chosenCats[binNum] = catName;
 
 					ui.draggable.addClass( 'correct' );
-					ui.draggable.draggable('disable');
-					ui.draggable.draggable( {
-							cursor: 'nw-resize'
-						} );
+					//ui.draggable.draggable('disable');
 
 					$(this).droppable( 'disable' );
 					ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
@@ -128,6 +123,14 @@
 							<div class="well ui-draggable" id="cat1">Category1</div>
 							<div class="well ui-draggable" id="cat2">Category2</div>
 							<div class="well ui-draggable" id="cat3">Category3</div>
+							<div class="well ui-draggable" id="cat4">Category4</div>
+							<div class="well ui-draggable" id="cat5">Category5</div>
+							<div class="well ui-draggable" id="cat6">Category6</div>
+							<div class="well ui-draggable" id="cat7">Category7</div>
+							<div class="well ui-draggable" id="cat8">Category8</div>
+							<div class="well ui-draggable" id="cat9">Category9</div>
+							<div class="well ui-draggable" id="cat10">Category10</div>
+							<div class="well ui-draggable" id="cat11">Category11</div>
 						</div>
 					
 					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
@@ -157,8 +160,16 @@
 
 	  	<script>
 	  		$('#playButton').click(function(){
+	  				if(occupiedBins != 6)
+	  				{
+	  					alert("Must choose 6 categories before starting game.");
+	  				}
+	  				else
+	  				{
+	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 
-
+	  					window.location.href ='Game.html?Category1=History&'+'Category2=Physics&'+'Category3=Music&'+'Category4=Health&'+'Category5=Life&'+'Category6=Culture';
+	  				}
 					/*
 					The categories in the link are called query strings.
 					The hardcoded strings should be replaced by user selections but in the
@@ -170,12 +181,7 @@
 					May have to write a separate function for this.
 					*/
 
-	    		window.location.href ='Game.html?Category1=History&'+
-																					'Category2=Physics&'+
-																					'Category3=Music&'+
-																					'Category4=Health&'+
-																					'Category5=Life&'+
-																					'Category6=Culture';
+	    		
 	      });
 	    </script>
 

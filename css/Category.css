@@ -1,51 +1,3 @@
-/*#droppable, #droppable1
-{ 
-	width: 190px;
-	height: 30px;
-	padding: 0.5em;
-	float: left;
-	margin: 10px; 
-}
-
-/*#draggable,#draggable1, #draggable-nonvalid 
-{ 
-	/*width: 100px; 
-	height: 100px; 
-	padding: 0.5em; 
-	float: left; 
-	margin: 10px 10px 10px 0; 
-	
-	width: 190px; 
-	height: 30px; 
-	padding: 0.5em; 
-	float: left; 
-	margin: 10px 10px 10px 0;
-	
-	/*width:190px;
-	height:30px;
-	margin-left:70px;
-	vertical-align: text-middle;
-}*/
-
-
-
-/*#binBox div
-{
-	height:30px;
-	width:190px;
-	margin-left:70px;
-}
-
-#binBox div.hovered { background: #aaa; }
-
-#categoryBox div
-{
-	width:150px;
-	height:10px;
-}*/
-
-
-
 #binBox
 {
 	height:500px;
@@ -85,12 +37,10 @@
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 }
 
-#cat0.correct { background-color:#88B5C2 !important;}
-#cat1.correct { background: red; }
-#cat2.correct { background: brown; }
-#cat3.correct { background: orange; }
-#cat4.correct { background: yellow; }
-#cat5.correct { background: green; }
+#categoryBox div.correct
+{
+	background-color:#428bca !important;
+}
 
 #playButton
 {
