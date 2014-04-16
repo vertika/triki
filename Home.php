@@ -81,19 +81,6 @@
 		
 		<!-- Start code here: -->
 		
-		<div class="roytest">
-			<?php
-				 echo $firstname;
-				 echo $lastname;
-				 echo $user_about_me;
-				 echo $email;
-				 echo $user_photos;
-
-			?>
-			 <!--example code -->
-			
-		
-		</div>
 		<div class="container">
 		<img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/>
