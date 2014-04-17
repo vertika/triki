@@ -14,11 +14,8 @@
     {
     var a=document.forms["reg"]["fname"].value;
     var b=document.forms["reg"]["lname"].value;
-    var c=document.forms["reg"]["mname"].value;
-    var d=document.forms["reg"]["address"].value;
-    var e=document.forms["reg"]["contact"].value;
-    var f=document.forms["reg"]["pic"].value;
-    var g=document.forms["reg"]["pic"].value;
+    var f=document.forms["reg"]["username"].value;
+    var g=document.forms["reg"]["password"].value;
     var h=document.forms["reg"]["pic"].value;
     if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d=="") && (e==null || e=="") && (f==null || f==""))
       {
@@ -67,26 +64,54 @@
       }
     }
     </script>
-    
+
     <body>
 
-        <div id="registration" align = "center">
-           <form name="reg" action="code_exec.php" onsubmit="return validateForm()" method="post">
+        <form name="register" action="register_exec.php" method="post">
+            <table width="510" border="0">
+                <tr>
+                    <td colspan="2"><p><strong>Registration Form</strong></p></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" maxlength="20" /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password1" /></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" name="password2" /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" id="email" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Register" /></td>
+                </tr>
+            </table>
+        </form>
+
+
+
+
+           <!-- <form name="reg" action="code_exec.php" onsubmit="return validateForm()" method="post">
                 <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
                   <tr>
                     <td colspan="2">
                         <div align="center">
-                          <?php 
-                        $remarks=$_GET['remarks'];
-                        if ($remarks==null and $remarks=="")
-                        {
-                        echo 'Register Here';
-                        }
-                        if ($remarks=='success')
-                        {
-                        echo 'Registration Success';
-                        }
-                        ?>  
+                            <?php 
+                                // $remarks=$_GET['remarks'];
+                                // if ($remarks==null and $remarks=="") {
+                                //     echo 'Register Here';
+                                // }
+                                // if ($remarks=='success'){
+                                //     echo 'Registration Success';
+                                // }
+                            ?>  
                         </div></td>
                   </tr>
                   <tr>
@@ -96,18 +121,6 @@
                   <tr>
                     <td><div align="right">Last Name:</div></td>
                     <td><input type="text" name="lname" /></td>
-                  </tr>
-                  <tr>
-                    <td><div align="right">Gender:</div></td>
-                    <td><input type="text" name="mname" /></td>
-                  </tr>
-                  <tr>
-                    <td><div align="right">Address:</div></td>
-                    <td><input type="text" name="address" /></td>
-                  </tr>
-                  <tr>
-                    <td><div align="right">Contact No.:</div></td>
-                    <td><input type="text" name="contact" /></td>
                   </tr>
                   <tr>
                     <td><div align="right">Picture:</div></td>
@@ -126,9 +139,7 @@
                     <td><input name="submit" type="submit" value="Submit" /></td>
                   </tr>
                 </table>
-            </form>
-        </div>
-
+            </form> -->
     </body>
 
 </html>
