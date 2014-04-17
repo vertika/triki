@@ -2,7 +2,7 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	 
-	$mysqli = new mysqli('www.rzchou.com', 'roy', 'chou', 'test');
+	$mysqli = new mysqli('localhost', 'roy', 'chou', 'test');
 	 
 	$username = $mysqli->real_escape_string($username);
 	 

@@ -21,7 +21,7 @@
 	$salt = createSalt();
 	$password = hash('sha256', $salt . $hash);
 	 
-	$mysqli = new mysqli('www.rzchou.com', 'roy', 'chou', 'test'); //we change the mysqli_connect to "new mysqli"
+	$mysqli = new mysqli('localhost', 'roy', 'chou', 'test'); //we change the mysqli_connect to "new mysqli"
 	 
 	//sanitize username
 	$username = $mysqli->real_escape_string($username);
