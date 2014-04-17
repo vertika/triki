@@ -14,7 +14,7 @@
 	 
 	if($result->num_rows == 0) // User not found. So, redirect to login_form again.
 	{
-	    header('Location: login.html');
+	    header('Location: Landing.php');
 	}
 	 
 	$userData = mysqli_fetch_array($result, MYSQL_ASSOC);
