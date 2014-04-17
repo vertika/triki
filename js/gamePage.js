@@ -78,11 +78,9 @@ function startCountDownToGame(){
     $("#scoreLabel").text("0/30");
 
     //Set Game Time
-    $('#timeRemainingLabel').text("3:00");
+    $('#timeRemainingLabel').text("4:00");
+
     gameTimer = window.setInterval(updateGameTime, 1000);
-
-
-
   }
 }
 
@@ -100,7 +98,7 @@ function togglePause(){
 }
 
 /*----- Game -----*/
-var minutes = 3;
+var minutes = 4;
 var timeLimit = 60 * minutes;
 var timeRemaining = timeLimit;
 var totalQuestions = 30;
@@ -111,6 +109,14 @@ function updateGameTime(){
 
   if(timeRemaining === 0){
     //redirect to results page
+
+    //Close any pages open
+    $('#question-modal').modal('hide');
+
+    giveUpPressed();
+
+
+
   }else{
 
     var seconds = (timeRemaining % 60);
@@ -195,6 +201,78 @@ function selectedOption(selection){
 
 }
 
+/* ----- after -----*/
+
+function giveUpPressed(){
+  //Stop time
+  clearInterval(gameTimer);
+
+
+  //push results
+
+  formatResultPanel();
+
+  //Hide
+  $("#gamePanel").hide();
+
+  $("#resultsPanel").show();
+
+
+}
+
+
+function formatResultPanel(){
+
+  //Header
+  var resultPanelTitle = "Congrats, you got " + numCorrect + "/" + totalQuestions + " correct!";
+  $("#resultsPanelHeader").text(resultPanelTitle);
+
+  generateResults();
+
+}
+
+function generateResults(){
+    var incorrect = [];
+
+    for(var cat = 0; cat < 6; cat++){
+      var numWrong = 0;
+      for(var q = 0; q < 5; q++){
+        var qa = WikiTraverser.prototype.qAndAs[cat][q];
+
+        if(qa.answeredCorrectly == 0){
+          console.log(qa.answeredCorrectly);
+
+          var domQuest = "#resultPanel-body-category" + cat;
+          var wrongMsg = "<li>Read up on " + qa.correctAnswer + " at <a href=\"" + qa.url + "\">" + qa.url + "</a> </li>";
+          $(domQuest).append(wrongMsg);
+          numWrong++;
+        }
+
+      }
+
+      //set color of titles
+      var domCatColorAttr = "#resultPanel-title-color-category" + cat;
+      console.log(domCatColorAttr);
+      if(numWrong < 2){
+        $(domCatColorAttr).removeClass("panel panel-default");
+        $(domCatColorAttr).addClass("panel panel-success");
+
+      }else if((numWrong >= 2) && (numWrong < 4)){
+        $(domCatColorAttr).removeClass("panel panel-default");
+        $(domCatColorAttr).addClass("panel panel-warning");
+
+      }else{
+        $(domCatColorAttr).removeClass("panel panel-default");
+        $(domCatColorAttr).addClass("panel panel-danger");
+
+      }
+
+      var domCat = "#resultPanel-title-category" + cat;
+      var titleCategory = WikiTraverser.prototype.qAndAs[cat][0].category.split(":")[1] + ", [" + (5-numWrong) + "/5]";
+      $(domCat).text(titleCategory);
+    }
+
+}
 
 
 //Whole business with opening up dialog

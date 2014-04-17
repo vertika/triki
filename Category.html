@@ -165,10 +165,20 @@
 	  					alert("Must choose 6 categories before starting game.");
 	  				}
 	  				else
-	  				{
+	  				{	
+	  
 	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 
-	  					window.location.href ='Game.html?Category1=History&'+'Category2=Physics&'+'Category3=Music&'+'Category4=Health&'+'Category5=Life&'+'Category6=Culture';
+	  					window.location.href ='Game.html?Category1=' + chosenCats[0] +
+	  					'&Category2=' + chosenCats[1] + 
+	  					'&Category3=' + chosenCats[2] + 
+	  		
+	  					'&Category4=' + chosenCats[3] +
+	  				
+	  					'&Category5=' + chosenCats[4] +
+	  					
+	  					'&Category6=' + chosenCats[5]
+	  					;
 	  				}
 					/*
 					The categories in the link are called query strings.
