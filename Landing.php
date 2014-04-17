@@ -89,7 +89,7 @@
 					?>
 				</div-->
 
-				<a href="www.rzchou.com/register.php">Register Here</a>
+				<a href="register.php">Register Here</a>
 
 				
 			</div>
