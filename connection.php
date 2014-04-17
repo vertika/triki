@@ -4,7 +4,7 @@
 	// define ("DB_PASSWD", "chou");
 	// define ("DB_NAME", "test");
 
-	$mysql_hostname = "http://www.rzchou.com";
+	$mysql_hostname = "www.rzchou.com";
 	$mysql_user = "roy";
 	$mysql_password = "chou";
 	$mysql_database = "test";
