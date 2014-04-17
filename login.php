@@ -26,4 +26,6 @@
 	}else{ // Redirect to home page after successful login.
 		header('Location: Home.php');
 	}
+
+	mysqli_close($db);
 ?>
