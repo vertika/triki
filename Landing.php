@@ -3,7 +3,7 @@
 	session_start();
 
 	require "fb-sdk/facebook.php";
-
+	include "dbconfig.php";
 	$facebook = new Facebook(array(
 		'appId'		=> '578241305624655',
 		'secret' 	=> '163708fdec7503fe860750419670152a',
@@ -61,7 +61,7 @@
 				</div>
 
 				<div id="alternateLogin" align="center">
-					<?php include "dbconfig.php";
+					<?php
 						$msg = "";
 						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						    $name = $_POST["name"];
