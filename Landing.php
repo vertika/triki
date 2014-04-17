@@ -59,11 +59,11 @@
 					?>
 					
 				</div>
-
-				<form id="form1" name="form1" method="post" action="login.php">
+				<br />
+				<form id="form1" name="form1" method="post" action="login.php" align="center">
 					<table width="510" border="0" align="center">
 						<tr>
-							<td colspan="2">Login Form</td>
+							<td colspan="2">Login without Facebook</td>
 						</tr>
 						<tr>
 							<td>Username:</td>
