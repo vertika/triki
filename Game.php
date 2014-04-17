@@ -1,15 +1,4 @@
-<?php
 
-	session_start();
-
-	require "fb-sdk/facebook.php";
-
-	$facebook = new Facebook(array(
-		'appId'		=> '578241305624655',
-		'secret' 	=> '163708fdec7503fe860750419670152a',
-	));
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +40,6 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-
 	<!-- Modal Question Window -->
 	<div id="question-modal" class="modal fade">
 		<div class="modal-dialog">
@@ -76,11 +64,9 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-
 	<!-- Game board -->
 
-	<div id="gamePanel" class="panel panel-default">
-
+	<div id="gamePanel" class="panel panel-default" data-toggle="collapse" id="accordion">
 		<div id="gamePanelHeading" class="panel-heading">
 			<div class="container">
 				<div id="gamePanelHeaderLabels">
@@ -89,7 +75,7 @@
 				</div>
 				<div>
 					<span id="scoreLabel">0/30</span>
-					<span id="timeRemainingLabel" class="pull-right">3:00</span>
+					<span id="timeRemainingLabel" class="pull-right">4:00</span>
 				</div>
 			</div>
 		</div>
@@ -150,12 +136,102 @@
 
 		<div class="panel-footer">
 			<div class="container">
-				<a href="Home.html" id="giveUpButton" class="btn btn-danger pull-right">Give Up.. Man</a>
+				<button id="giveUpButton" onclick="giveUpPressed()" type="button" class="btn btn-danger pull-right">Give Up.. Man</button>
 			</div>
 		</div>
-
 	</div>
 
+	<!-- Results -->
+	<div id="resultsPanel" class="panel panel-info" data-toggle="collapse">
+		<div class="panel-heading">
+			<h3 id="resultsPanelHeader" class="panel-title">Congratulations,  you got [score] correct!</h3>
+		</div>
+		<div class="panel-body">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default" id="resultPanel-title-color-category0">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category0" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							Category, [5/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div id="resultPanel-body-category0" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category1">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category1" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							Category, [2/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div id="resultPanel-body-category1" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category2">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category2" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div id="resultPanel-body-category2" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category3">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category3" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+							Category, [5/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div id="resultPanel-body-category3" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category4">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category4" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div id="resultPanel-body-category4" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category5">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category5" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div id="resultPanel-body-category5" class="panel-body">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+  	$('#resultsPanel').hide();
+	</script>
 
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
