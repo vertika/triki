@@ -215,7 +215,10 @@ function giveUpPressed(){
   //Hide
   $("#gamePanel").hide();
 
+
+  $("#navBar").show();
   $("#resultsPanel").show();
+
 
 
 }
@@ -243,7 +246,7 @@ function generateResults(){
           console.log(qa.answeredCorrectly);
 
           var domQuest = "#resultPanel-body-category" + cat;
-          var wrongMsg = "<li>Read up on " + qa.correctAnswer + " at <a href=\"" + qa.url + "\">" + qa.url + "</a> </li>";
+          var wrongMsg = "<li>Read up on " + qa.correctAnswer + " at <a href=\"" + qa.url + "\" target=\"_blank\">" + qa.url + "</a> </li>";
           $(domQuest).append(wrongMsg);
           numWrong++;
         }
@@ -274,6 +277,9 @@ function generateResults(){
 
 }
 
+function rePlayPressed(){
+  location.reload();
+}
 
 //Whole business with opening up dialog
 //Determine if correct answer selected

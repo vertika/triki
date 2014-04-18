@@ -14,8 +14,8 @@
 
 /*----- Navigation -----*/
 
-#navigationContainer {
-  
+#navBar {
+
 }
 
 /*----- Game Page ----- */
@@ -65,23 +65,25 @@
   margin:0px auto;
   padding-left: 10px;
   padding-right: 10px;
-  width:16.66%
+  width:16.66%;
+  height: 20%;
 }
 
 #questionColumn *{
-  font-size: 20px;
+  font-size: 100%;
   height: 100px;
 }
 
 #categoryLabel1, #categoryLabel2, #categoryLabel3, #categoryLabel4, #categoryLabel5, #categoryLabel6{
   width: 100%;
   max-width: 400px;
-  font-size: 20px;
+  font-size: 100%px;
 }
 
 /*----- Results Page ----- */
 
 #resultsPanel{
+  margin-top: 50px;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -89,4 +91,8 @@
 
 #resultsPanelHeader{
   font-size: 30px;
+}
+
+#resultsFooter{
+  height: 55px;
 }

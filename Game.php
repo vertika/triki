@@ -22,6 +22,40 @@
 </head>
 <body id="gamePageBody">
 
+	<!-- navbar -->
+	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="Home.php">
+					<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="Home.php">Home</a></li>
+					<li><a href="About.php">About</a></li>
+					<li class="active"><a href="Category.php">Play</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<script>
+		$('#navBar').hide();
+	</script>
+
 	<!-- Game -->
 
 	<!-- Modal Loading Window -->
@@ -146,8 +180,8 @@
 		<div class="panel-heading">
 			<h3 id="resultsPanelHeader" class="panel-title">Congratulations,  you got [score] correct!</h3>
 		</div>
-		<div class="panel-body">
-		<div class="panel-group" id="accordion">
+
+		<div class="panel-group panel-body" id="accordion">
 			<div class="panel panel-default" id="resultPanel-title-color-category0">
 				<div class="panel-heading">
 					<h4 class="panel-title">
@@ -226,6 +260,11 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div id="resultsFooter" class="panel-footer">
+			<button id="playAgainButton" onclick="rePlayPressed()" type="button" class="btn btn-success pull-right">Play Again</button>
+<!--			<button id="newCategoriesButton" type="button" class="btn btn-success pull-right">New Categories</button> -->
 		</div>
 	</div>
 

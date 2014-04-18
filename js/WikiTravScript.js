@@ -1,7 +1,7 @@
 //Individual question and answer
 function QandA(){
 	this.category = "";
-	this.url = "en.wikipedia.org/wiki/";
+	this.url = "http://en.wikipedia.org/wiki/";
 	this.question = "";
 	this.correctAnswer = "";
 	this.incorrect1 = "";
