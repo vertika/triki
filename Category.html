@@ -25,35 +25,6 @@
 		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 
-		<style type="text/css">
-	      .ui-widget {
-	        border: 1px solid #CCCCCC;
-	        margin: 0 30px 0 30px;
-	      }
-	      
-	      .ui-widget ul {
-	        min-height: 300px;
-	        list-style-type: none;
-	        margin-left: 0;
-	        padding: 0 10px 0 10px;
-	      }
-	      .ui-widget-content {
-	        padding: 5px;
-	        margin-bottom: 5px;
-	      }
-	    </style>
-
-	    <script type="text/javascript">
-	      $(function() {
-	          $("#my-list").sortable({
-	          connectWith: "#my-other-list"
-	        });
-	        $("#my-other-list").sortable({
-	          connectWith: "#my-list"
-	        });
-	      });
-	    </script>
-
 		<script>
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
@@ -64,21 +35,17 @@
 				// reset
 				occupiedBins = 0;
 				$('#categoryBox').html( '' );
-				$('#categoryBox').sortable({});
-
   				$('#binBox').html( '' );
 
 				// create clump categories 
-				for ( var i=0; i<33; i++ ) {
+				 for ( var i=0; i<33; i++ ) {
 				    $('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
 				      cursor: 'move',
-				      revert: true,
-				      connectToSortable: '#categoryBox'
+				      revert: true
 				    } );
 				}
-
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
@@ -91,7 +58,6 @@
 			}
 
 
-			
 			function handleCatDrop( event, ui ) 
 			{	
 				var parent = $(this).parent().attr('id');
@@ -102,9 +68,6 @@
 					var binOccupied = $(this).data('occupied');
 					var catName = ui.draggable.data('category');
 					
-					console.log(this);
-					console.log(ui.draggable);
-
 					if( binOccupied == 0 )
 					{
 						// opccupy this bin
@@ -155,33 +118,15 @@
 
 		<h1 align="center" style="height:50px"> Choose Your Categories </h1>
 		
-		<table style="width: 100%">
-	      <tr>
-	        <td>
-	          <div class="ui-widget ui-corner-all">
-	            <ul id="my-list">
-	              <li class="ui-widget-content ui-state-default">Item1</li>
-	              <li class="ui-widget-content ui-state-default">Item2</li>
-	              <li class="ui-widget-content ui-state-default">Item3</li>
-	            </ul>
-	          </div>
-	        </td>
-	        <td>
-	          <div class="ui-widget ui-corner-all">
-	            <ul id="my-other-list">
-	              <li class="ui-widget-content ui-state-default">Item4</li>
-	              <li class="ui-widget-content ui-state-default">Item5</li>
-	              <li class="ui-widget-content ui-state-default">Item6</li>
-	            </ul>
-	          </div>
-	        </td>
-	      </tr>
-	    </table>
 
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
+					<!--<div class="well" id="categoryBoxContainer"> -->
+					
 						<div class="well" id="categoryBox"><div>
+					
+					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
 				</td>
 						
 				<td>
