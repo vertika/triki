@@ -26,7 +26,7 @@
 	//sanitize username
 	$username = $mysqli->real_escape_string($username);
 	 
-	$query = "INSERT INTO profile ( username, password, email, salt ) VALUES 
+	$query = "INSERT INTO members ( username, password, email, salt ) VALUES 
 			( '$username', '$password', '$email', '$salt' )";
 	 
 	//remove $conn variable in order to connect to our database using OOP.
