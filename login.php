@@ -7,7 +7,7 @@
 	$username = $mysqli->real_escape_string($username);
 	 
 	$query = "SELECT password, salt
-	        FROM member
+	        FROM members
 	        WHERE username = '$username';";
 	 
 	$result = $mysqli->query($query);
