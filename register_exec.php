@@ -19,7 +19,7 @@
 	}
 	 
 	$salt = createSalt();
-	$password = hash('sha256', $salt . $hash);
+	$password = hash('sha256', $salt . $hash);				
 	 
 	$mysqli = new mysqli('localhost', 'roy', 'chou', 'test'); //we change the mysqli_connect to "new mysqli"
 	 

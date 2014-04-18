@@ -23,7 +23,7 @@
 	 
 	if ($hash != $userData['password']) // Incorrect password. So, redirect to login_form again.
 	{
-	    header('Location: Category.php');
+	    header('Location: Landing.php');
 	}else { // Redirect to home page after successful login.
 		header('Location: Home.php');
 	}
