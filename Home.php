@@ -23,11 +23,11 @@
 		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
 
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<link href="css/home.css" rel="stylesheet">
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
 
-		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
+		<!-- JQuery -->
+		<script src="js/jquery-2.1.0.min.js"></script>
 
 		<!-- Custom -->
 		<script src="js/js/homePage.js"></script>
@@ -59,11 +59,6 @@
 
 	</head>
 	<body>
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
-
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -183,9 +178,9 @@
 		</div>
 
 
-		<!-- End code here! -->
+		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap/bootstrap.js"></script>
 	</body>
 
 </html>
