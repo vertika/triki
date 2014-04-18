@@ -1,6 +1,5 @@
 <?php
-	include "connection.php";
-	
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	 
@@ -22,12 +21,12 @@
 	$userData = mysqli_fetch_array($result, MYSQL_ASSOC);
 	$hash = hash('sha256', $userData['salt'] . hash('sha256', $password) );
 	 
-	if($hash != $userData['password']) // Incorrect password. So, redirect to login_form again.
+	if ($hash != $userData['password']) // Incorrect password. So, redirect to login_form again.
 	{
 	    header('Location: Landing.php');
-	}else{ // Redirect to home page after successful login.
+	}else { // Redirect to home page after successful login.
 		header('Location: Home.php');
 	}
 
-	mysqli_close($db);
+	$mysqli->close();
 ?>
