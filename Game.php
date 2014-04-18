@@ -84,10 +84,10 @@
 				<div class="modal-body">
 
 					<div class="btn-group-vertical">
-						<button onclick= "selectedOption(id)" id= "option1" type="button" class="btn btn-default"></button>
-						<button onclick= "selectedOption(id)" id= "option2" type="button" class="btn btn-default"></button>
-						<button onclick= "selectedOption(id)" id= "option3" type="button" class="btn btn-default"></button>
-						<button onclick= "selectedOption(id)" id= "option4" type="button" class="btn btn-default"></button>
+						<button onclick= "selectedOption(id)" id= "option1" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option2" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option3" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option4" type="button" class="btn btn-primary"></button>
 					</div>
 
 				</div>

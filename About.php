@@ -20,18 +20,34 @@
 			title="trikiIcon" height="30%" width="30%"></a>
 		</div>
 
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container" id="nav">
-				<ul class="nav">
-					<li><a href="Home.php">Home</a></li>
-					<li class="active"><a href="About.php">About</a></li>
-					<li><a href="Category.php">Play!</a></li>
-					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
-				</ul>
-			</div>
-			</div>
-		</div>
+		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="Home.php">
+						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+					</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="Home.php">Home</a></li>
+						<li class="active"><a href="About.php">About</a></li>
+						<li><a href="Category.php">Play</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 		<p></p>
 
 

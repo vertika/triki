@@ -21,14 +21,14 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
-		
+
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/home.css" rel="stylesheet">
-		
+
 		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
-		
+
 		<!-- Custom -->
 		<script src="js/js/homePage.js"></script>
 
@@ -56,31 +56,47 @@
         chart.draw(data, options);
       	}
     	</script>
-    
+
 	</head>
 	<body>
 		<div class="container" align="center">
 			<a href="Home.html"><img src="trikiIcon.jpg"
 			title="trikiIcon" height="30%" width="30%"></a>
 		</div>
-		
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li class="active"><a href="Home.php"><b>Home</b></a></li>
-					<li><a href="About.php"><b>About</b></a></li>
-					<li><a href="Category.php"><b>Play</b></a></li>
-					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
-				</ul>
-			</div>
-			</div>
-		</div>
+
+		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="Home.php">
+						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+					</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li  class="active"><a href="Home.php">Home</a></li>
+						<li><a href="About.php">About</a></li>
+						<li><a href="Category.php">Play</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 		<p></p>
-		
-		
+
+
 		<!-- Start code here: -->
-		
+
 		<div class="container">
 			<?php
 			echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
@@ -96,7 +112,7 @@
 					$eadd="triki.@umich.edu";
 					$aboutme="Triki wiki is the game to play!";
 				?> -->
-				
+
 				<h1><?=$firstname?> <?=$lastname?></h1>
 				<p><b>Email: </b> <?=$email?></p>
 				<h1>About Me:</h1>
@@ -107,8 +123,8 @@
 				<p></p>
 			</div>
 		</div>
-		
-		
+
+
 		<div class="container">
 			<h1>Game Stats:</h1>
 		</div>
@@ -120,11 +136,11 @@
 			<p></p>
 			</div>
 		</div>
-			
+
 		<p></p>
-		
-		
-		
+
+
+
 		<p></p>
 		<!-- Modal --->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -142,7 +158,7 @@
 							<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 						 </div>
 				</div>
-					
+
 				<form role="form">
 					<div class="form-group">
 						<label for="userFirstName"> <b>First Name</b> </label>
@@ -155,9 +171,9 @@
 						<input type="about" class="form-control" id="about" placeholder="Describe yourself here...">
 					</div>
 				</form>
-					
+
 			</div>
-				
+
 			</div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -166,10 +182,10 @@
 			</div>
 		</div>
 
-	
+
 		<!-- End code here! -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 	</body>
-	
+
 </html>
