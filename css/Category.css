@@ -13,6 +13,22 @@
 	margin-top:0px;
 }
 
+#sortable li.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+} 
+
+#sortable li.div.correct
+{
+	background-color:#428bca;
+}
+
+#categoryBox div.correct
+{
+	background-color:#428bca;
+}
+
 #binBox
 {
 	height:500px;

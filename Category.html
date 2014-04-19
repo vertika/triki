@@ -35,29 +35,35 @@
 				// reset
 				occupiedBins = 0;
 				$('#categoryBox').html( '' );
+				$('#sortable').html( '' );
   				$('#binBox').html( '' );
 
 				// create clump categories 
 				$('#categoryBox').append('<ul></ul>');
 				var table = $('#categoryBox').children();
 				table.attr('id','sortable');
-				console.log(table);
 				
 				for ( var i=0; i<33; i++ ) 
 				{
-					table.append('<li><div class="well">Category' + i + '</li></li>');
+					table.append('<li class="ui-draggable"><div class="well" id="cat'+ i +'">Category' + i + '</div></li>');
+					 
+					$('cat'+i).data('category', i).draggable( {
+				      containment: 'window',
+				      stack: '#sortable li',
+				      cursor: 'move',
+				      revert: true
+				    } );
 				}	
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
 				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
-				      accept: '#categoryBox div',
+				      accept: '#sortable li',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
 				    } );
 			 	}
 			}
-			
 
 			$(function() {
 				$( "#sortable" ).sortable();
@@ -79,9 +85,9 @@
 						// opccupy this bin
 						$(this).data( 'occupied', 1);
 						chosenCats[binNum] = catName;
-
-						ui.draggable.addClass( 'correct' );
-						//ui.draggable.draggable('disable');
+						
+						ui.draggable.children().addClass( 'correct' );
+						ui.draggable.draggable('disable');
 
 						$(this).droppable( 'disable' );
 						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
@@ -128,11 +134,8 @@
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
-					<!--<div class="well" id="categoryBoxContainer"> -->
-					
 						<div class="well" id="categoryBox"><div>
-					
-					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
+				
 				</td>
 						
 				<td>
