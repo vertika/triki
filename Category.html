@@ -28,6 +28,8 @@
 		<script>
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
+			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture','Education', 'Environment', 'Geography', 'Health', 'History', 'Humanities', 'Humans', 'Language', 'Law', 'Life', 'Mathematics', 'Medicine', 'Nature', 'People', 'Politics', 'Science', 'Society', 'Sports', 'Technology', 'Musicians', 'Television', 'Movies', 'Psychology', 'Fashion', 'Countries', 'Animals', 'Astrology','Food']; 
+
 			$( init );
 
 			function init() 
@@ -47,7 +49,8 @@
 				{
 					table.append('<li class="ui-draggable"><div class="well" id="cat'+ i +'">Category' + i + '</div></li>');
 					 
-					$('cat'+i).data('category', i).draggable( {
+					$('cat'+i).data('category', cats[i]).data('number',i).draggable( {
+					  connectToSortable: '#sortable',
 				      containment: 'window',
 				      stack: '#sortable li',
 				      cursor: 'move',
@@ -57,10 +60,11 @@
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well"><ul class="ui-droppable">Drop here ' + i + '</ul></div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
 				      accept: '#sortable li',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
+
 				    } );
 			 	}
 			}
@@ -76,12 +80,49 @@
 
 				if(parent == 'binBox')
 				{	
-					console.log('I am here');
+
+					// get bin and cat values
+					var binID = $(this).attr('id');
 					var binNum = $(this).data('number');
 					var binOccupied = $(this).data('occupied');
 					var catName = ui.draggable.data('category');
+					var catNum = ui.draggable.data('number');
+
+					// delete old cat
+					$('cat'+catNum).remove();
+
+					// create new cat well
+					$('cat'+catNum).data('category', cats[catNum]).attr('id', 'cat'+catNum).appendTo('#' + binID).
+							position( { of: $(this), my: 'left top', at: 'left top' } ).draggable( {
+				      containment: 'window',
+				      stack: '#sortable li',
+				      cursor: 'move',
+				      //revert: true
+				    } );
 					
-					ui.draggable.sortable( "disable" );
+					//ui.draggable.sortable( "disable" );
+					//ui.draggable.children().sortable( "disable" );
+					
+					// nothing in bin
+					if( binOccupied == 0 )
+					{
+						// mark bin as occupied
+						chosenCats[binNum] = catName;
+						$(this).data( 'occupied', 1);
+
+						/*
+						ui.draggable.children().addClass( 'correct' );
+						ui.draggable.draggable('disable'); */
+
+						$(this).droppable( 'disable' );
+						//$(this).append(ui.draggable);
+
+						//ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+						
+						//ui.draggable.draggable( 'option', 'revert', false );
+					}
+
+					/*ui.draggable.sortable( "disable" );
 					ui.draggable.children().sortable( "disable" );
 					
 					// nothing in bin
@@ -100,7 +141,7 @@
 						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
 						
 						//ui.draggable.draggable( 'option', 'revert', false );
-					}
+					}*/
 				}		
 				// dropping back
 				else if(parent == 'categoryBox')
