@@ -5,17 +5,35 @@
 	//I have to include some checks in Landing.php to check if the info is available before passing it through the session.
 	//Right now just assume that all uses have all the info below.
 	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
+	require_once ('connection.php');
 	$username = $_SESSION['username'];
 	$firstname = $_SESSION['firstname'];
 	$lastname = $_SESSION['lastname'];
 	$email = $_SESSION['email'];
 	$user_about_me = $_SESSION['user_about_me'];
-	//$user_photos = $_SESSION['user_photos']; //Still not too sure how to access the photos variables.
+	
+	//User game history variables
+	$memberid = $_SESSION['memberid'];
 
+?>
+
+<?php
+	$query = "SELECT * FROM gamestats WHERE memberid = '$memberid';";
+	$result = mysqli_query($db, $query); //$result is going to be a resourse
+	if (!$result) {
+		die ("Database query failed."); //means database query error.
+	}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+	while ($row = mysqli_fetch_row($result)){
+		var_dump($row);
+		echo "<hr />";
+	}
+?>
 	<head>
 		<title> Triki </title>
 		<meta charset="utf-8">
@@ -184,3 +202,7 @@
 	</body>
 
 </html>
+
+<?php
+	mysqli_close($db);
+?>

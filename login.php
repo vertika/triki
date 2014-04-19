@@ -1,4 +1,5 @@
 <?php
+	session_start();
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -25,6 +26,7 @@
 	{
 	    header('Location: Landing.php');
 	}else { // Redirect to home page after successful login.
+		$_SESSION['memberid'] = $userData['memberid'];
 		header('Location: Home.php');
 	}
 

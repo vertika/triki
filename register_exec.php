@@ -31,7 +31,12 @@
 	 
 	//remove $conn variable in order to connect to our database using OOP.
 	$mysqli->query($query);
-	 
+	
+	$query = "INSERT INTO gamestats ( gamesplayed, agriculture, arts, business, chronology, culture, education) VALUES 
+			( 0, 0, 0, 0, 0, 0, 0)";
+
+	$mysqli->query($query);
+
 	$mysqli->close();
 	 
 	header('Location: Landing.php');
