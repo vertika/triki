@@ -29,87 +29,80 @@
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
 			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture','Education', 'Environment', 'Geography', 'Health', 'History', 'Humanities', 'Humans', 'Language', 'Law', 'Life', 'Mathematics', 'Medicine', 'Nature', 'People', 'Politics', 'Science', 'Society', 'Sports', 'Technology', 'Musicians', 'Television', 'Movies', 'Psychology', 'Fashion', 'Countries', 'Animals', 'Astrology','Food']; 
-			$( init );
 
+			var myBin = $('.binBox').sortable({
+			    containment: 'window',
+			    helper: "clone",
+			    revert: 100,
+			    tolerance: "pointer",
+			    update: function(ev, ui) {
+			    	console.log("update");
+			        ui.item.addClass("correct").css({
+			            "left": "0px",
+			            "position": "static",
+			            "top": "0px"
+			        });
+			    }
+			}).disableSelection();
+
+			var setTileDraggable = function(tileSelector) {
+			    tileSelector.draggable( {
+			      connectToSortable: myBin,
+			      containment: 'window',
+			      stack: '.cats div',
+			      helper: "original",
+			      cursor: 'move',
+			      //revert: true
+			      revert: "invalid"
+			    }).disableSelection();
+			};
+
+			$( init );
 			function init() 
 			{	
 				// reset
 				occupiedBins = 0;
-				$('#categoryBox').html( '' );
-				$('#sortable').html( '' );
-  				$('#binBox').html( '' );
+				$('.cats').html( '' );
 
-				// create clump categories 
-				$('#categoryBox').append('<ul></ul>');
-				var table = $('#categoryBox').children();
-				table.attr('id','sortable');
-				
+				// CREATE CATEGORIES
 				for ( var i=0; i<33; i++ ) 
 				{
-					table.append('<div class="well ui-draggable" id="cat'+ i +'">Category' + i + '</div>');
+					$('.cats').append('<div class="well ui-draggable aCat" id="cat'+ i +'">Category' + i + '</div>');
 					 
-					$('cat'+i).data('category', i).draggable( {
-				      containment: 'window',
-				      stack: '#sortable div',
-				      cursor: 'move',
-				      revert: true
-				    } );
-				}	
+					var thisCat = $('#cat'+ i);
 
-				// create the bin slots
-				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well"><ul class="ui-droppable">Drop here ' + i + '</ul></div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
-				      accept: '#sortable div',
-				      hoverClass: 'hovered',
-				      drop: handleCatDrop
-				    } );
-			 	}
+					thisCat.data('category',i);
+					setTileDraggable(thisCat);
+				}	
 			}
 
-			$(function() {
-				$( "#sortable" ).sortable();
-				$( "#sortable" ).disableSelection();
-			});
-  
-			function handleCatDrop( event, ui ) 
-			{	
-				var parent = $(this).parent().attr('id');
-
-				if(parent == 'binBox')
-				{	
-					console.log('I am here');
-					var binNum = $(this).data('number');
-					var binOccupied = $(this).data('occupied');
-					var catName = ui.draggable.data('category');
-					
-					ui.draggable.sortable( "disable" );
-					//ui.draggable.children().sortable( "disable" );
-					
-					// nothing in bin
-					if( binOccupied == 0 )
+			var myCatBox = $('#categoryBox').droppable({
+				accept: '.aCat', //is this right?
+				drop: function(ev,ui){
+					console.log(ui.draggable);
+					if(ui.draggable.hasClass("correct"))
 					{
-						// mark bin as occupied
-						chosenCats[binNum] = catName;
-						$(this).data( 'occupied', 1);
+						console.log('here');
+						var cloneTile = ui.draggable.clone().removeClass("correct").show();
+						 // children isn't a div
+						myCatBox.children('div').append(cloneTile);
+						var dropx = ui.offset.left - myCatBox.offset().left;
+	            		var dropy = ui.offset.top - myCatBox.offset().top;
+	            		cloneTile.css({
+			                "left": dropx + "px",
+			                "position": "absolute",
+			                "top": dropy + "px"
+	           			 });
+	            		console.log(cloneTile);
+			            setTileDraggable(cloneTile);
+			            ui.helper.remove();
+			            ui.draggable.remove();
+			        }
+				}
+			}).disableSelection();
 
-						ui.draggable.children().addClass( 'correct' );
-						ui.draggable.draggable('disable');
-
-						$(this).droppable( 'disable' );
-						$(this).append(ui.draggable);
-
-						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-						
-						//ui.draggable.draggable( 'option', 'revert', false );
-					}
-				}		
-				// dropping back
-				else if(parent == 'categoryBox')
-				{
-					alert('drop into category box');
-				}	
-			}
-
+			//setTileDraggable(myCatBox.children(".cats").find(".aCat"));
+				
 		</script>
 
 
@@ -142,12 +135,13 @@
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
-						<div class="well" id="categoryBox"><div>
-				
+						<div class="well" id="categoryBox">
+							<div class="cats"></div>
+						</div>
 				</td>
 						
 				<td>
-					<div id="binBox"></div>
+					<div class="well" id="binBox"></div>
 					
 					<div style="height: 300px">
 						<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!

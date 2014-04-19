@@ -1,16 +1,16 @@
-#sortable 
+/*#sortable 
 { 
-	list-style-type: none; 
-	margin: 0; 
-	padding: 0; 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
 }
 /*#sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; 
-		width: 100px; height: 90px; font-size: 4em; text-align: center; }*/
-		
+    width: 100px; height: 90px; font-size: 4em; text-align: center; }
+    
 #sortable li
-{	
-	float: left;
-	margin-top:0px;
+{ 
+  float: left;
+  margin-top:0px;
 }
 
 #sortable div.ui-draggable-dragging {
@@ -23,43 +23,54 @@
   -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-} 
+} */
 
-#sortable div.correct
+.correct
 {
-	background-color:#428bca;
+    background-color:#428bca;
+    left: 0px;
+    position: static;
+    top: 0px
 }
+
+/*#sortable div.correct
+{
+  background-color:#428bca;
+}*/
 
 #categoryBox div.correct
 {
-	background-color:#428bca;
+  background-color:#428bca;
 }
 
 #binBox
 {
-	height:500px;
-	width:190px;
-	margin-left:70px;
+  height:500px;
+  width:190px;
+  margin-left:70px;
+  padding: 6px;
 }
 
 #categoryBox
 {
-	margin-top:10px;
-	height:800px; 
-	width:630px;
-	display: block;
+  margin-top:10px;
+  height:800px; 
+  width:630px;
+  display: block;
   margin-right: auto;
 }
 
-/*#binBox, #categoryBox{}*/
+/*#binBox, #categoryBox{}
 
-#binBox div, #categoryBox div
+#binBox div, */
+
+#categoryBox div
 {
-	width:150px;
-	height:10px;	
-	float: left;
-	margin-left: 15px;
-	margin-top:-5px;
+  width:150px;
+  height:10px;  
+  float: left;
+  margin-left: 15px;
+  margin-top:-5px;
 }
 
 #binBox div.hovered { background: #aaa; }
@@ -76,17 +87,17 @@
 
 #categoryBox div.correct
 {
-	background-color:#428bca;
+  background-color:#428bca;
 }
 
 
 #playButton
 {
-	height:100px; 
-	font-size:210%; 
-	margin-top:70px;
-	margin-left:80px;
-	position:absolute;
+  height:100px; 
+  font-size:210%; 
+  margin-top:70px;
+  margin-left:80px;
+  position:absolute;
 }
 body{
    min-width:1000px; /* suppose you want minimun width of 1000px */
