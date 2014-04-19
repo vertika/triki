@@ -57,7 +57,7 @@
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				    $('<div class="well"><ul class="ui-droppable">Drop here ' + i + '</ul></div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
 				      accept: '#sortable li',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
@@ -76,23 +76,30 @@
 
 				if(parent == 'binBox')
 				{	
+					console.log('I am here');
 					var binNum = $(this).data('number');
 					var binOccupied = $(this).data('occupied');
 					var catName = ui.draggable.data('category');
 					
+					ui.draggable.sortable( "disable" );
+					ui.draggable.children().sortable( "disable" );
+					
+					// nothing in bin
 					if( binOccupied == 0 )
 					{
-						// opccupy this bin
-						$(this).data( 'occupied', 1);
+						// mark bin as occupied
 						chosenCats[binNum] = catName;
-						
+						$(this).data( 'occupied', 1);
+
 						ui.draggable.children().addClass( 'correct' );
 						ui.draggable.draggable('disable');
 
 						$(this).droppable( 'disable' );
+						$(this).append(ui.draggable);
+
 						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
 						
-						ui.draggable.draggable( 'option', 'revert', false );
+						//ui.draggable.draggable( 'option', 'revert', false );
 					}
 				}		
 				// dropping back
