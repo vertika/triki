@@ -81,17 +81,23 @@
 		<h2>Learn more about us
 			<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro2"></button>
 		</h2>
-		<div id="intro2" class="collapse"> 
-			<div class="container">
-				<div class="jumbotron">	
-					<p style="font-size:20px;">
-					</p>
+		<div id="intro2" class="collapse">        
+  				<div class="row">
+   					<div class="col-md-3"><h4 align="center">Mark</h4></div>
+   					<div class="col-md-3"><h4 align="center">Vertika</h4></div>
+    				<div class="col-md-3"><h4 align="center">Roy</h4></div>
+    				
+    				<div class="col-md-3">
+    				<img src="img/pauline.jpg" height="50%" width="50%" class="img-rounded" align="center">
+    				<h4><i>Pauline Low</i></h4>
+    				<p><i>"Triki wiki is the game to play!"</i></p>
+    				</div>
 				</div>
-			</div>
 		</div>
 		
 		</div>
 		
+		<p></p>
 
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
