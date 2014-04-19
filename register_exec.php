@@ -33,7 +33,7 @@
 	$mysqli->query($query);
 	
 	$query = "INSERT INTO gamestats ( gamesplayed, agriculture, arts, business, chronology, culture, education) VALUES 
-			( 0, 0, 0, 0, 0, 0, 0)";
+			( '0', '0', '0', '0', '0', '0', '0' )";
 
 	$mysqli->query($query);
 
