@@ -19,7 +19,8 @@
 
     if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d==""))
       {
-      alert("All fields must be filled out.");
+      //alert("All fields must be filled out.");
+      document.getElementById('errors').innerHTML="All fields must be filled out.";
       return false;
       }
     if (a==null || a=="")
@@ -45,6 +46,8 @@
     }
     </script>
 
+
+
     <body>
     
 		<div class="col-md-4">
@@ -55,6 +58,7 @@
            <label for="username" class="col-md-3 control-label">Username</label>
            <div class="col-md-9">
              <input type="text" name="username" maxlength="20" class="form-control" id="username" placeholder="Username">
+             <div id="errors"> </div>
            </div>
            </div>
            <div class="form-group">
