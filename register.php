@@ -67,41 +67,10 @@
 
     <body>
     
-    <!--
-	<div class="container">
-        <form name="register" action="register_exec.php" method="post">
-            <table width="510" border="0">
-                <tr>
-                    <h1><strong>Sign Up</strong></h1></td>
-                </tr>
-                <tr>
-                    <td>Username :</td>
-                    <td><input type="text" name="username" maxlength="20" /></td>
-                </tr>
-                <tr>
-                    <td>Password :</td>
-                    <td><input type="password" name="password1" /></td>
-                </tr>
-                <tr>
-                    <td>Confirm Password :</td>
-                    <td><input type="password" name="password2" /></td>
-                </tr>
-                <tr>
-                    <td>Email :</td>
-                    <td><input type="text" name="email" id="email" /></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
-        </form>
-         <button type="button" class="btn btn-success" input type="submit" value="Register">Submit</button>
-
--->
 		<div class="col-md-4">
           <h2>Sign Up</h2>
             <hr>
-          <form class="form-horizontal" role="form" action="register_exec.php" method="post">
+          <form class="form-horizontal" name="reg" role="form" onsubmit="return validateForm()" action="register_exec.php" method="post">
            <div class="form-group">
            <label for="username" class="col-md-3 control-label">Username</label>
            <div class="col-md-9">
