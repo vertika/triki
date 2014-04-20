@@ -27,9 +27,9 @@
 	$username = $mysqli->real_escape_string($username);
 	 
 	$query = "INSERT INTO members ( username, email, password, salt ) VALUES 
-			( '$username', '$email', '$password', '$salt' ); ";
-	$query .= "INSERT INTO gamestats ( gamesplayed, agriculture, arts, business, chronology, culture, education) VALUES 
-			( '0', '0', '0', '0', '0', '0', '0' );";
+			( '$username', '$email', '$password', '$salt' );";
+	// .= "INSERT INTO gamestats ( gamesplayed, agriculture, arts, business, chronology, culture, education) VALUES 
+	//		( '0', '0', '0', '0', '0', '0', '0' );";
 	 
 	//remove $conn variable in order to connect to our database using OOP.
 	$mysqli->multi_query($query);
