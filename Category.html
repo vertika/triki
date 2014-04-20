@@ -13,11 +13,11 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap/bootstrap.js"></script>
 
 		<!-- Triki -->
 		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
-		<link type="text/css" rel="stylesheet" href="css/Category_orig.css"/>
+		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
 		<script src="js/Category.js"></script>
 
 		<!-- JQuery UI -->
@@ -28,6 +28,8 @@
 		<script>
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
+			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture','Education', 'Environment', 'Geography', 'Health', 'History', 'Humanities', 'Humans', 'Language', 'Law', 'Life', 'Mathematics', 'Medicine', 'Nature', 'People', 'Politics', 'Science', 'Society', 'Sports', 'Technology', 'Musicians', 'Television', 'Movies', 'Psychology', 'Fashion', 'Countries', 'Animals', 'Astrology','Food', 'Dance', 'Physics', 'Books']; 
+
 			$( init );
 
 			function init() 
@@ -42,15 +44,37 @@
 					hoverClass: 'hovered',
 					drop: function(ev,ui){
 						console.log('dropping into categoryBox');
-						ui.draggable.removeClass( 'correct' );
-						var fromBin = '#bin' + ui.draggable.data('inBin');
-						$(fromBin).droppable('enable');
+
+						
+
+						var fromBinNum = ui.draggable.data('inBin');
+						
+
+						if(fromBinNum == -1)
+						{
+							// do nothing because already in catBox
+						}
+						else
+						{
+							ui.draggable.removeClass( 'correct' );
+							var fromBin = '#bin' + ui.draggable.data('inBin');
+							$(fromBin).droppable('enable');
+
+							occupiedBins--;
+							ui.draggable.data('inBin', '-1');
+						}
+
+						
+						
+						console.log(occupiedBins);
 					}
 				});
 
+				$('#categoryBox').sortable();
+
 				// create clump categories 
-				for ( var i=0; i<12; i++ ) {
-					$('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
+				for ( var i=0; i<36; i++ ) {
+					$('<div class="well ui-draggable">' + cats[i] + '</div>').data('category', cats[i]).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
 				      snap: '#categoryBox',
@@ -61,7 +85,7 @@
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				    $('<div class="well ui-droppable">Drop category here </div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
 				      accept: '#categoryBox div',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
@@ -75,7 +99,6 @@
 			{
 
 				console.log('droppping into bins');
-				var parent = $(this).parent().attr('id');
 
 				var binNum = $(this).data('number');
 				var binOccupied = $(this).data('occupied');
@@ -86,13 +109,12 @@
 				$(this).data( 'occupied', 1);
 				ui.draggable.data('inBin',binNum);
 				chosenCats[binNum] = catName;
+				occupiedBins++;
+				console.log(occupiedBins);
 
 				ui.draggable.addClass( 'correct' );
-				//ui.draggable.draggable('disable');
-
 				$(this).droppable( 'disable' );
 				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-
 				ui.draggable.draggable( 'option', 'revert', false );
 				
 				
@@ -136,9 +158,9 @@
 				</td>
 
 				<td>
-					<div id="binBox"></div>
+					<div id="binBox" align="center"></div>
 
-					<div style="height: 300px">
+					<div align="center" style="height: 100px">
 						<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!
 						</button>
 					</div>
@@ -159,12 +181,12 @@
 	  				else
 	  				{	
 
-	  					for(int i = 0; i < 6; i++)
+	  					for(var i = 0; i < 6; i++)
 	  					{
 	  						console.log(chosenCats[i] + '');
 	  					}
-	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 
+	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 	  					window.location.href ='Game.html?Category1=' + chosenCats[0] +
 	  					'&Category2=' + chosenCats[1] + 
 	  					'&Category3=' + chosenCats[2] + 
