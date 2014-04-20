@@ -1,20 +1,20 @@
 <?php
 	session_start();
 
+	require_once('connection.php');
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	 
-	$mysqli = new mysqli('localhost', 'roy', 'chou', 'test');
-	 
-	$username = $mysqli->real_escape_string($username);
-	 
+	
+	$username = mysqli_real_escape_string($db, $username);
+	 	 
 	$query = "SELECT password, salt
 	        FROM members
 	        WHERE username = '$username';";
 	 
-	$result = $mysqli->query($query);
+	$result = mysqli_query($db, $query);
 	 
-	if($result->num_rows == 0) // User not found. So, redirect to login_form again.
+	if(mysqli_num_rows($result) == 0) // User not found. So, redirect to login_form again.
 	{
 	    header('Location: Landing.php');
 	}
@@ -31,6 +31,6 @@
 		$_SESSION['username'] = $userData['username'];
 		header('Location: Home.php');
 	}
-
-	$mysqli->close();
+	
+	mysqli_close($db);
 ?>

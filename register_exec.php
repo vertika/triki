@@ -1,4 +1,6 @@
 <?php
+	require_once('connection.php');
+
 	$username = $_POST['username'];
 	$password1 = $_POST['password1'];
 	$password2 = $_POST['password2'];
@@ -20,21 +22,20 @@
 	 
 	$salt = createSalt();
 	$password = hash('sha256', $salt . $hash);				
-	 
-	$mysqli = new mysqli('localhost', 'roy', 'chou', 'test'); //we change the mysqli_connect to "new mysqli"
-	 
+	 	 
 	//sanitize username
-	$username = $mysqli->real_escape_string($username);
+	$username = mysqli_real_escape_string($db, $username);
 	 
 	$query = "INSERT INTO members ( username, email, password, salt ) VALUES 
 			( '$username', '$email', '$password', '$salt' ); ";
-	$query .= "INSERT INTO gamestats ( username, gamesplayed) VALUES 
-			( '$username', 0);";
+	$query .= "INSERT INTO gamestats ( username ) VALUES 
+			( '$username');";
 	 
 	//remove $conn variable in order to connect to our database using OOP.
-	$mysqli->multi_query($query);
+	// $mysqli_multi_query($query);
+	mysqli_query($db, $query);
 
-	$mysqli->close();
+	mysqli_close($db);
 	 
 	header('Location: Landing.php');
 ?>
