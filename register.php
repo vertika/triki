@@ -101,7 +101,7 @@
 		<div class="col-md-4">
           <h2>Sign Up</h2>
             <hr>
-          <form class="form-horizontal" role="form">
+          <form class="form-horizontal" role="form" action="register_exec.php" method="post">
            <div class="form-group">
            <label for="username" class="col-md-3 control-label">Username</label>
            <div class="col-md-9">
@@ -117,7 +117,7 @@
            <div class="form-group">
            <label for="password2" class="col-md-3 control-label">Confirm Password</label>
            <div class="col-md-9">
-             <input type="password" class="form-control" id="password2" placeholder="Password (confirmation)">
+             <input type="password" class="form-control" id="password2" placeholder="Password (Confirmation)">
            </div>
            </div>
            <div class="form-group">
