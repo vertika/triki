@@ -24,9 +24,11 @@
 	 
 	if ($hash != $userData['password']) // Incorrect password. So, redirect to login_form again.
 	{
+		$_SESSION['loggedin'] = 0;
 	    header('Location: Landing.php');
 	}else { // Redirect to home page after successful login.
-		$_SESSION['memberid'] = $userData['memberid'];
+		$_SESSION['loggedin'] = 1;
+		$_SESSION['username'] = $userData['username'];
 		header('Location: Home.php');
 	}
 

@@ -21,7 +21,7 @@
 
 	</head>
 
-	<body style="cursor: default;">
+	<body id="gamePageBody" style="cursor: default;">
 
 		<!-- navbar -->
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
@@ -57,20 +57,25 @@
   		<div class="panel-heading">
     		<h3 class="panel-title" style="font-size:50px">Choose Your Categories</h3>
   		</div>
-  		<div id="categoryBox" class="panel-body">
+			<div class="container">
+  			<div id="categoryBox" class="panel-body"></div>
   		</div>
 		</div>
 
 		<div id="wellPanel" class="panel panel-info">
 			<div class="panel-body">
-				<table class="table">
+				<table>
 					<tr>
 						<td>
 							<div id="bin0" class="well"></div>
 						</td>
+					</tr>
+					<tr>
 						<td>
 							<div id="bin1" class="well"></div>
 						</td>
+					</tr>
+					<tr>
 						<td>
 							<div id="bin2" class="well"></div>
 						</td>
@@ -79,21 +84,28 @@
 						<td>
 							<div id="bin3" class="well"></div>
 						</td>
+					</tr>
+					<tr>
 						<td>
 							<div id="bin4" class="well"></div>
 						</td>
+					</tr>
+					<tr>
 						<td>
 							<div id="bin5" class="well"></div>
 						</td>
 					</tr>
+
 				</table>
+
 			</div>
+			<button class="btn btn-success" id="playButton">Start game!</button>
+
+
 		</div>
 
-<button class="btn btn-success" id="playButton">Start game!</button>
 <script>
 $('#playButton').click(function(){
-	console.log("afkjahds");
 	var readyToPlay = 1;
 	for(var i = 0; i < 6; i++){
 		if($("#bin"+i).data('category') == undefined){
