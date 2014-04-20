@@ -66,6 +66,8 @@
     </script>
 
     <body>
+    
+    <!--
 	<div class="container">
         <form name="register" action="register_exec.php" method="post">
             <table width="510" border="0">
@@ -95,6 +97,44 @@
         </form>
          <button type="button" class="btn btn-success" input type="submit" value="Register">Submit</button>
 
+-->
+		<div class="col-md-4">
+          <h2>Sign Up</h2>
+            <hr>
+          <form class="form-horizontal" role="form">
+           <div class="form-group">
+           <label for="username" class="col-md-3 control-label">Username</label>
+           <div class="col-md-9">
+             <input type="text" name="username" maxlength="20" class="form-control" id="username" placeholder="Username">
+           </div>
+           </div>
+           <div class="form-group">
+           <label for="password1" class="col-md-3 control-label">Password</label>
+           <div class="col-md-9">
+             <input type="password" class="form-control" id="password1" placeholder="Password">
+           </div>
+           </div>
+           <div class="form-group">
+           <label for="password2" class="col-md-3 control-label">Confirm Password</label>
+           <div class="col-md-9">
+             <input type="password" class="form-control" id="password2" placeholder="Password (confirmation)">
+           </div>
+           </div>
+           <div class="form-group">
+           <label for="email" class="col-md-3 control-label">Email</label>
+           <div class="col-md-9">
+             <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+           </div>
+           </div>
+           </div>
+           <div class="form-group">
+           <div class="col-md-offset-3 col-md-9">
+             <button input type="submit" class="btn btn-success" value="Register">Sign in</button>
+           </div>
+           </div>
+          </form>
+          
+        </div>
 
 
 

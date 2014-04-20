@@ -50,8 +50,7 @@
 									<!--<td><input type="submit" name="button" id="button" value="Submit" /></td>-->
 								</tr>
 							</table>
-							
-							<button type="button" class="btn btn-primary">
+							<label>
 							<?php
 							$user = $facebook->getUser();
 							//Check if use is logged in to FB
@@ -80,7 +79,7 @@
 								echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
 							}
 						
-						?></button>
+						?></label>
 						<button type="button" class="btn btn-success" input type="submit" name="button" id="button" value="Submit">Sign in</button>
 						</form>
 					</div>
