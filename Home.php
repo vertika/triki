@@ -119,17 +119,17 @@
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
-				 <?php
+				<!-- <?php
 					$name="Pauline";
 					$lname="Low";
 					$eadd="triki.@umich.edu";
 					$aboutme="Triki wiki is the game to play!";
-				?>
+				?>-->
 
-				<h2><b><?=$name?> <?=$lname?></b></h2>
-				<p><b>Email: </b> <?=$eadd?></p>
+				<h2><b><?=$firstname?> <?=$lastname?></b></h2>
+				<p><b>Email: </b> <?=$email?></p>
 				<h3>About Me:</h3>
-				<p><?=$aboutme?></p>
+				<p><?=$user_about_me?></p>
 				<p></p>
 				<!-- Button trigger modal -->
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
