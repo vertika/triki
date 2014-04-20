@@ -86,8 +86,10 @@
            </div>
            </div>
            
-           <div class="form-group" id="allfields-error"> </div>
-
+           <div class="form-group">
+           <div class="col-md-9" id="allfields-error"> </div>
+           </div>
+           
            <div class="form-group">
            <div class="col-md-offset-3 col-md-9">
             <input type="submit" value="Sign Up!" class="btn btn-success">
