@@ -74,9 +74,15 @@
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 } 
 
+#binBox div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+} 
+
 #categoryBox div.correct
 {
-	background-color:#428bca;
+ background-color:#428bca;
 }
 
 

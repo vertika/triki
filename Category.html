@@ -28,7 +28,6 @@
 		<script>
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
-			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture','Education', 'Environment', 'Geography', 'Health', 'History', 'Humanities', 'Humans', 'Language', 'Law', 'Life', 'Mathematics', 'Medicine', 'Nature', 'People', 'Politics', 'Science', 'Society', 'Sports', 'Technology', 'Musicians', 'Television', 'Movies', 'Psychology', 'Fashion', 'Countries', 'Animals', 'Astrology','Food']; 
 			$( init );
 
 			function init() 
@@ -36,78 +35,67 @@
 				// reset
 				occupiedBins = 0;
 				$('#categoryBox').html( '' );
-				$('#sortable').html( '' );
   				$('#binBox').html( '' );
 
+  				var myCatBox = $('#categoryBox').droppable({
+					accept: '#categoryBox div',
+					hoverClass: 'hovered',
+					drop: function(ev,ui){
+						console.log('dropping into categoryBox');
+						ui.draggable.removeClass( 'correct' );
+						var fromBin = '#bin' + ui.draggable.data('inBin');
+						$(fromBin).droppable('enable');
+					}
+				});
+
 				// create clump categories 
-				$('#categoryBox').append('<ul></ul>');
-				var table = $('#categoryBox').children();
-				table.attr('id','sortable');
-				
-				for ( var i=0; i<33; i++ ) 
-				{
-					table.append('<div class="well ui-draggable" id="cat'+ i +'">Category' + i + '</div>');
-					 
-					$('cat'+i).data('category', i).draggable( {
+				for ( var i=0; i<12; i++ ) {
+					$('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
-				      stack: '#sortable div',
+				      stack: '#categoryBox div',
+				      snap: '#categoryBox',
 				      cursor: 'move',
-				      revert: true
+				      revert: true,
 				    } );
-				}	
+				}
 
 				// create the bin slots
 				for ( var i=0; i<6; i++ ) {
-				    $('<div class="well"><ul class="ui-droppable">Drop here ' + i + '</ul></div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
-				      accept: '#sortable div',
+				    $('<div class="well ui-droppable">Drop here ' + i + '</div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				      accept: '#categoryBox div',
 				      hoverClass: 'hovered',
 				      drop: handleCatDrop
 				    } );
 			 	}
 			}
 
-			$(function() {
-				$( "#sortable" ).sortable();
-				$( "#sortable" ).disableSelection();
-			});
-  
+
+
 			function handleCatDrop( event, ui ) 
-			{	
+			{
+
+				console.log('droppping into bins');
 				var parent = $(this).parent().attr('id');
 
-				if(parent == 'binBox')
-				{	
-					console.log('I am here');
-					var binNum = $(this).data('number');
-					var binOccupied = $(this).data('occupied');
-					var catName = ui.draggable.data('category');
-					
-					ui.draggable.sortable( "disable" );
-					//ui.draggable.children().sortable( "disable" );
-					
-					// nothing in bin
-					if( binOccupied == 0 )
-					{
-						// mark bin as occupied
-						chosenCats[binNum] = catName;
-						$(this).data( 'occupied', 1);
+				var binNum = $(this).data('number');
+				var binOccupied = $(this).data('occupied');
+				var catName = ui.draggable.data('category');
 
-						ui.draggable.children().addClass( 'correct' );
-						ui.draggable.draggable('disable');
 
-						$(this).droppable( 'disable' );
-						$(this).append(ui.draggable);
+				// opccupy this bin
+				$(this).data( 'occupied', 1);
+				ui.draggable.data('inBin',binNum);
+				chosenCats[binNum] = catName;
 
-						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-						
-						//ui.draggable.draggable( 'option', 'revert', false );
-					}
-				}		
-				// dropping back
-				else if(parent == 'categoryBox')
-				{
-					alert('drop into category box');
-				}	
+				ui.draggable.addClass( 'correct' );
+				//ui.draggable.draggable('disable');
+
+				$(this).droppable( 'disable' );
+				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+
+				ui.draggable.draggable( 'option', 'revert', false );
+				
+				
 			}
 
 		</script>
@@ -137,18 +125,19 @@
 		<p></p>
 
 		<h1 align="center" style="height:50px"> Choose Your Categories </h1>
-		
+
 
 		<table align="center" id="bigTable">
 			<tr>
 				<td>
-						<div class="well" id="categoryBox"><div>
-				
+					<div class="well ui-droppable" id="categoryBox"></div>
+
+					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
 				</td>
-						
+
 				<td>
 					<div id="binBox"></div>
-					
+
 					<div style="height: 300px">
 						<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!
 						</button>
@@ -169,17 +158,21 @@
 	  				}
 	  				else
 	  				{	
-	  
+
+	  					for(int i = 0; i < 6; i++)
+	  					{
+	  						console.log(chosenCats[i] + '');
+	  					}
 	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 
 	  					window.location.href ='Game.html?Category1=' + chosenCats[0] +
 	  					'&Category2=' + chosenCats[1] + 
 	  					'&Category3=' + chosenCats[2] + 
-	  		
+
 	  					'&Category4=' + chosenCats[3] +
-	  				
+
 	  					'&Category5=' + chosenCats[4] +
-	  					
+
 	  					'&Category6=' + chosenCats[5]
 	  					;
 	  				}
@@ -194,7 +187,7 @@
 					May have to write a separate function for this.
 					*/
 
-	    		
+
 	      });
 	    </script>
 

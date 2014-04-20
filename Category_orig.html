@@ -37,6 +37,17 @@
 				$('#categoryBox').html( '' );
   				$('#binBox').html( '' );
 
+  				var myCatBox = $('#categoryBox').droppable({
+					accept: '#categoryBox div',
+					hoverClass: 'hovered',
+					drop: function(ev,ui){
+						console.log('dropping into categoryBox');
+						ui.draggable.removeClass( 'correct' );
+						var fromBin = '#bin' + ui.draggable.data('inBin');
+						$(fromBin).droppable('enable');
+					}
+				});
+
 				// create clump categories 
 				for ( var i=0; i<12; i++ ) {
 					$('<div class="well ui-draggable">Category' + i + '</div>').data('category', i).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
@@ -58,44 +69,33 @@
 			 	}
 			}
 
-			var myCatBox = $('#categoryBox').droppable({
-				//accept: '#categoryBox div',
-				hoverClass: 'hovered',
-				drop: function(ev,ui){'hi'}
-			}).disableSelection();
+
 
 			function handleCatDrop( event, ui ) 
 			{
 
-				console.log("handleCatDrop called");
-
+				console.log('droppping into bins');
 				var parent = $(this).parent().attr('id');
 
 				var binNum = $(this).data('number');
 				var binOccupied = $(this).data('occupied');
 				var catName = ui.draggable.data('category');
 
-				if( binOccupied == 0 )
-				{
-					if(parent == 'binBox')
-					{	
-						// opccupy this bin
-						$(this).data( 'occupied', 1);
-						chosenCats[binNum] = catName;
 
-						ui.draggable.addClass( 'correct' );
-						ui.draggable.draggable('disable');
+				// opccupy this bin
+				$(this).data( 'occupied', 1);
+				ui.draggable.data('inBin',binNum);
+				chosenCats[binNum] = catName;
 
-						$(this).droppable( 'disable' );
-						ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+				ui.draggable.addClass( 'correct' );
+				//ui.draggable.draggable('disable');
 
-						ui.draggable.draggable( 'option', 'revert', false );
-					}
-					else
-					{
-						console.log('dropping in catbox');
-					}
-				}			
+				$(this).droppable( 'disable' );
+				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+
+				ui.draggable.draggable( 'option', 'revert', false );
+				
+				
 			}
 
 		</script>
@@ -159,6 +159,10 @@
 	  				else
 	  				{	
 
+	  					for(int i = 0; i < 6; i++)
+	  					{
+	  						console.log(chosenCats[i] + '');
+	  					}
 	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
 
 	  					window.location.href ='Game.html?Category1=' + chosenCats[0] +
