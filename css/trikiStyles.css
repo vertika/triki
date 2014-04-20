@@ -18,6 +18,25 @@
 
 }
 
+/*----- Categories Page -----*/
+
+#categoryPanel{
+  width:70%;
+  height:400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#wellPanel{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#bin0, #bin1, #bin2, #bin3, #bin4, #bin5{
+  width: 100%;
+}
+
 /*----- Game Page ----- */
 
 #gamePageBody {
