@@ -119,17 +119,17 @@
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
-				<!-- <?php
+				 <?php
 					$name="Pauline";
 					$lname="Low";
 					$eadd="triki.@umich.edu";
 					$aboutme="Triki wiki is the game to play!";
-				?> -->
+				?>
 
-				<h1><?=$firstname?> <?=$lastname?></h1>
-				<p><b>Email: </b> <?=$email?></p>
-				<h1>About Me:</h1>
-				<p><?=$user_about_me?></p>
+				<h2><b><?=$name?> <?=$lname?></b></h2>
+				<p><b>Email: </b> <?=$eadd?></p>
+				<h3>About Me:</h3>
+				<p><?=$aboutme?></p>
 				<p></p>
 				<!-- Button trigger modal -->
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
@@ -139,12 +139,12 @@
 
 
 		<div class="container">
-			<h1>Game Stats:</h1>
+			<h3>Game Stats:</h3>
 		</div>
 		<div class="container" id="profile">
 			<div class="jumbotron">
-			<h3><b>Total Games Played: 50</b> </h3>
-			<h3><b>Categories Played: </b> </h3>
+			<h4>Total Games Played: 50 </h4>
+			<h4>Categories Played:  </h4>
 			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 			<p></p>
 			</div>
