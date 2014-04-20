@@ -45,12 +45,9 @@
 					drop: function(ev,ui){
 						console.log('dropping into categoryBox');
 
-						
-
 						var fromBinNum = ui.draggable.data('inBin');
-						
 
-						if(fromBinNum == -1)
+						if(fromBinNum == 7)
 						{
 							// do nothing because already in catBox
 						}
@@ -61,7 +58,7 @@
 							$(fromBin).droppable('enable');
 
 							occupiedBins--;
-							ui.draggable.data('inBin', '-1');
+							ui.draggable.data('inBin', 7);
 						}
 
 						
@@ -74,7 +71,7 @@
 
 				// create clump categories 
 				for ( var i=0; i<36; i++ ) {
-					$('<div class="well ui-draggable">' + cats[i] + '</div>').data('category', cats[i]).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
+					$('<div class="well ui-draggable">' + cats[i] + '</div>').data('category', cats[i]).data('inBin',7).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
 				      snap: '#categoryBox',
@@ -104,15 +101,30 @@
 				var binOccupied = $(this).data('occupied');
 				var catName = ui.draggable.data('category');
 
+				// occupying a new bin
+				if(ui.draggable.data('inBin') == 7)
+				{
+					occupiedBins++;
+					ui.draggable.addClass( 'correct' );
+				}
+				// coming from old bin
+				else 
+				{
+					//reenabled 
+					var fromBin = '#bin' + ui.draggable.data('inBin');
+					$(fromBin).droppable('enable');
+				}
 
-				// opccupy this bin
-				$(this).data( 'occupied', 1);
+				// occupy new bin
+				//$(this).data( 'occupied', 1);
+
+				// update to new bin
 				ui.draggable.data('inBin',binNum);
 				chosenCats[binNum] = catName;
-				occupiedBins++;
+				
 				console.log(occupiedBins);
 
-				ui.draggable.addClass( 'correct' );
+				
 				$(this).droppable( 'disable' );
 				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
 				ui.draggable.draggable( 'option', 'revert', false );
