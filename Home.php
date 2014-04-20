@@ -11,7 +11,6 @@
 		$user_about_me = $_SESSION['user_about_me'];
 		
 		//User game history variables
-		$memberid = $_SESSION['memberid'];
 	}
 	else {
 		header('Location: Landing.php');
@@ -20,7 +19,7 @@
 ?>
 
 <?php
-	$query = "SELECT * FROM gamestats WHERE memberid = '$memberid';";
+	$query = "SELECT * FROM gamestats WHERE username = '$username';";
 	$result = mysqli_query($db, $query); //$result is going to be a resourse
 	if (!$result) {
 		die ("Database query failed."); //means database query error.
