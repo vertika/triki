@@ -51,6 +51,11 @@
 									</tr>
 								</table>
 							<!--<label>-->
+							<!-- </label> -->
+							<input type="submit" value="Sign In" class="btn btn-success">
+							<!-- <button type="button" class="btn btn-success" input type="submit" name="button" id="button" value="Submit">Sign in</button> -->
+						</form>
+						<h4 align="center">OR</h4>
 								<?php
 									$user = $facebook->getUser();
 									//Check if use is logged in to FB
@@ -79,10 +84,8 @@
 										echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
 									}
 								?>
-							<!-- </label> -->
-							<input type="submit" value="Sign In" class="btn btn-success">
-							<!-- <button type="button" class="btn btn-success" input type="submit" name="button" id="button" value="Submit">Sign in</button> -->
-						</form>
+								
+					
 					</div>
 					
 				<div class="col-md-5">
