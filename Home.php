@@ -1,19 +1,21 @@
 <?php
 	session_start();
-
-	//Hi Pauline, you can use the variables here for your profile infomation. Note that these are grabbed from facebook.
-	//I have to include some checks in Landing.php to check if the info is available before passing it through the session.
-	//Right now just assume that all uses have all the info below.
-	//Just in case, you can reference the <div class "roytest"> below for an example on how to access the variables.
-	require_once ('connection.php');
-	$username = $_SESSION['username'];
-	$firstname = $_SESSION['firstname'];
-	$lastname = $_SESSION['lastname'];
-	$email = $_SESSION['email'];
-	$user_about_me = $_SESSION['user_about_me'];
+	$loggedin = $_SESSION['loggedin'];
 	
-	//User game history variables
-	$memberid = $_SESSION['memberid'];
+	if ($loggedin) {
+		require_once ('connection.php');
+		$username = $_SESSION['username'];
+		$firstname = $_SESSION['firstname'];
+		$lastname = $_SESSION['lastname'];
+		$email = $_SESSION['email'];
+		$user_about_me = $_SESSION['user_about_me'];
+		
+		//User game history variables
+		$memberid = $_SESSION['memberid'];
+	}
+	else {
+		header('Location: Landing.php');
+	}
 
 ?>
 
