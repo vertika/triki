@@ -37,5 +37,5 @@
 
 	mysqli_close($db);
 	 
-	header('Location: Landing.php');
+	header('Location: /');
 ?>
