@@ -66,6 +66,14 @@ function startCountDownToGame(){
 
     var c = WikiTraverser.prototype.qAndAs;
 
+    console.log(c[0][0].category);
+    console.log(c[1][0].category);
+    console.log(c[2][0].category);
+    console.log(c[3][0].category);
+    console.log(c[4][0].category);
+    console.log(c[5][0].category);
+
+
     //Set Category Labels
     $("#categoryLabel1").text(c[0][0].category.split(":")[1]);
     $("#categoryLabel2").text(c[1][0].category.split(":")[1]);

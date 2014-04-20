@@ -21,20 +21,41 @@
 /*----- Categories Page -----*/
 
 #categoryPanel{
-  width:70%;
-  height:400px;
-  margin-left:auto;
-  margin-right:auto;
+  width:65%;
+  float: left;
+  height:450px;
+  margin-left:5%;
+  margin-top:20px;
+
 }
 
 #wellPanel{
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 20%;
+  float: right;
+  margin-right: 5%;
+  margin-top: 20px;
+
 }
 
 #bin0, #bin1, #bin2, #bin3, #bin4, #bin5{
-  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  width: 170px;
+}
+
+#playButton{
+  float: right;
+  margin-right: 5%;
+}
+
+#draggable{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#categoryWellFooter{
 }
 
 /*----- Game Page ----- */
