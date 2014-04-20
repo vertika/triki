@@ -19,28 +19,27 @@
 
     if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d==""))
       {
-      //alert("All fields must be filled out.");
-      document.getElementById('errors').innerHTML="All fields must be filled out.";
+      document.getElementById('allfields-error').innerHTML="All fields must be filled out.";
       return false;
       }
     if (a==null || a=="")
       {
-      alert("Please enter a username.");
+      document.getElementById('username-error').innerHTML="Please enter a username.";
       return false;
       }
     if (b==null || b=="")
       {
-      alert("Please choose a password.");
+      document.getElementById('password1-error').innerHTML="Please enter a password.";
       return false;
       }
     if (c==null || c=="")
       {
-      alert("Please re-enter your password.");
+      document.getElementById('password2-error').innerHTML="Please re-enter your password.";
       return false;
       }
     if (d==null || d=="")
       {
-      alert("Please enter your email address.");
+      document.getElementById('email-error').innerHTML="Please enter a valid email address.";
       return false;
       }
     }
@@ -54,32 +53,41 @@
           <h2>Sign Up</h2>
             <hr>
           <form class="form-horizontal" name="reg" role="form" onsubmit="return validateForm()" action="register_exec.php" method="post">
+           
            <div class="form-group">
            <label for="username" class="col-md-3 control-label">Username</label>
            <div class="col-md-9">
              <input type="text" name="username" maxlength="20" class="form-control" id="username" placeholder="Username">
-             <div id="errors"> </div>
+             <div id="username-error"> </div>
            </div>
            </div>
+           
            <div class="form-group">
            <label for="password1" class="col-md-3 control-label">Password</label>
            <div class="col-md-9">
              <input type="password" name="password1" class="form-control" id="password1" placeholder="Password">
+             <div id="password1-error"> </div>             
            </div>
            </div>
+           
            <div class="form-group">
            <label for="password2" class="col-md-3 control-label">Confirm Password</label>
            <div class="col-md-9">
              <input type="password" name="password2" class="form-control" id="password2" placeholder="Password (Confirmation)">
+             <div id="password2-error"> </div>             
            </div>
            </div>
+           
            <div class="form-group">
            <label for="email" class="col-md-3 control-label">Email</label>
            <div class="col-md-9">
              <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+             <div id="email-error"> </div>             
            </div>
            </div>
-           </div>
+           
+           <div class="form-group" id="allfields-error"> </div>
+
            <div class="form-group">
            <div class="col-md-offset-3 col-md-9">
             <input type="submit" value="Sign Up!" class="btn btn-success">
@@ -87,9 +95,6 @@
            </div>
            </div>
           </form>
-          
-        </div>
-
 
 
            <!-- <form name="reg" action="code_exec.php" onsubmit="return validateForm()" method="post">
