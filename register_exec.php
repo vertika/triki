@@ -29,7 +29,7 @@
 	$query = "INSERT INTO members ( username, email, password, salt ) VALUES 
 			( '$username', '$email', '$password', '$salt' ); ";
 	$query .= "INSERT INTO gamestats ( username, gamesplayed) VALUES 
-	//		( '$username', '0');";
+			( '$username', 0);";
 	 
 	//remove $conn variable in order to connect to our database using OOP.
 	$mysqli->multi_query($query);
