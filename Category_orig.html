@@ -17,7 +17,7 @@
 
 		<!-- Triki -->
 		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
-		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
+		<link type="text/css" rel="stylesheet" href="css/Category_orig.css"/>
 		<script src="js/Category.js"></script>
 
 		<!-- JQuery UI -->
@@ -44,8 +44,8 @@
 				      stack: '#categoryBox div',
 				      snap: '#categoryBox',
 				      cursor: 'move',
-				      drag: handleDragStart,
-				      revert: true
+				      revert: true,
+				      stop: handleDragStop
 				    } );
 				}
 
@@ -66,9 +66,15 @@
 				drop: handleCatDrop
 			});
 
-			function handleDragStart(event, ui)
-			{
-				console.log('Handling drag start');
+			function handleDragStop(event, ui)
+			{	
+				// var catID = '#' + ui.draggable.attr('id');
+				// var hasClass = $(catID).hasClass('correct');
+				// if(hasClass)
+				// { 
+				// 	ui.draggable.removeClass('correct');
+				// }
+				console.log('Handling drag stop');
 			}
 
 			function handleCatDrop( event, ui ) 
