@@ -12,54 +12,34 @@
     <script type="text/javascript">
     function validateForm()
     {
-    var a=document.forms["reg"]["fname"].value;
-    var b=document.forms["reg"]["lname"].value;
-    var f=document.forms["reg"]["username"].value;
-    var g=document.forms["reg"]["password"].value;
-    var h=document.forms["reg"]["pic"].value;
-    if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d=="") && (e==null || e=="") && (f==null || f==""))
+    var a=document.forms["reg"]["username"].value;
+    var b=document.forms["reg"]["password1"].value;
+    var c=document.forms["reg"]["password2"].value;
+    var d=document.forms["reg"]["email"].value;
+
+    if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d==""))
       {
-      alert("All Field must be filled out");
+      alert("All fields must be filled out.");
       return false;
       }
     if (a==null || a=="")
       {
-      alert("First name must be filled out");
+      alert("Please enter a username.");
       return false;
       }
     if (b==null || b=="")
       {
-      alert("Last name must be filled out");
+      alert("Please choose a password.");
       return false;
       }
     if (c==null || c=="")
       {
-      alert("Gender name must be filled out");
+      alert("Please re-enter your password.");
       return false;
       }
     if (d==null || d=="")
       {
-      alert("address must be filled out");
-      return false;
-      }
-    if (e==null || e=="")
-      {
-      alert("contact must be filled out");
-      return false;
-      }
-    if (f==null || f=="")
-      {
-      alert("picture must be filled out");
-      return false;
-      }
-    if (g==null || g=="")
-      {
-      alert("username must be filled out");
-      return false;
-      }
-    if (h==null || h=="")
-      {
-      alert("password must be filled out");
+      alert("Please enter your email address.");
       return false;
       }
     }
