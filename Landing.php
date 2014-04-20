@@ -88,7 +88,10 @@
 					<h4>Why Sign Up? </h4>
 					<p>1. You will be able to keep track of your scores</p>
 					<p>2. You can view your most played categories</p>
-					<button type="button" class="btn btn-success">Sign up<a href="register.php"></a></button>
+					<form action="register.php">
+						<input type="submit" value="Sign Up!">
+					</form>
+					<!-- <button type="button" class="btn btn-success">Sign up<a href="register.php"></a></button> -->
 				</div>
 				
 			</div> <!--container-->
