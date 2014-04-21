@@ -2,8 +2,6 @@ var gameCountdownTime = 5;
 var paused = false;
 /*------ Init Page -----*/
 
-var varname = '<?php echo $username; ?>';
-console.log("username:" + varname);
 
 //Get Categories
 function getParameterByName(name) {
@@ -215,6 +213,8 @@ function selectedOption(selection){
 /* ----- after -----*/
 
 function giveUpPressed(){
+  console.log("username:" + varname);
+
   //Stop time
   clearInterval(gameTimer);
 
