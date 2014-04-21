@@ -23,26 +23,6 @@
 		<script src="js/jquery-2.1.0.min.js"></script>
 
 	</head>
-<<<<<<< HEAD
-	<body>
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
-		
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li><a href="Home.php">Home</a></li>
-					<li class="active"><a href="About.php">About</a></li>
-					<li><a href="Category.php">Play!</a></li>
-					<li><?php echo '<a href="logout.php">Logout</a>'</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-=======
 	<body id="gamePageBody">
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
@@ -72,7 +52,6 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
->>>>>>> 104f4079f560d251dc680f24eb6fea8821a6508e
 		<p></p>
 <script>
 		$("#brandNav").on('click', function(){
@@ -95,7 +74,7 @@
 		<!-- Start code here: -->
 		<div class="panel panel-default" id="aboutPanel" >
 			<div class="panel-body" id="aboutPanelBody">
-					<h3> What is Triki? 
+					<h3> What is Triki?
 						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#whatIs"></button>
 					</h3>
 					<div id="whatIs" class="well collapse">
@@ -120,7 +99,7 @@
 			    					<h5>Mark Mevorah</h5>
 			    				</div>
 			   					<div class="col-md-3">
-			    					<img src="img/vertika.jpg" height="70%" width="70%" class="img-rounded" align="center"> 
+			    					<img src="img/vertika.jpg" height="70%" width="70%" class="img-rounded" align="center">
 			    					<h5>Vertika Srivastava</h5>
 			    				</div>
 			    				<div class="col-md-3">
