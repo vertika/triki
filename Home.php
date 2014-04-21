@@ -113,7 +113,7 @@ end of php braces
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li  class="active"><a href="Home.php">Home</a></li>
+						<li  class="active"><a href="http://www.rzchou.com/Home.php">Home</a></li>
 						<li><a href="About.php">About</a></li>
 						<li><a href="Category.php">Play</a></li>
 					</ul>
