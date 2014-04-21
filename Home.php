@@ -50,7 +50,7 @@
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
           	['Agriculture‎', <?php if ($gameData["agriculture"]) echo $gameData["agriculture"]; else echo 0;?>],
-			['Arts', <?=$gameData["arts"]?>],
+			['Arts', <?php if ($gameData["arts"]) echo $gameData["arts"]; else echo 0;?>],
 			['Business‎', <?php if ($gameData["business"]) echo $gameData["business"]; else echo 0;?>] ,
 			['Chronology‎', <?php if ($gameData["chronology"]) echo $gameData["chronology"]; else echo 0;?>],
 			['Culture‎', <?php if ($gameData["culture"]) echo $gameData["culture"]; else echo 0;?>],
