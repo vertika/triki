@@ -32,11 +32,6 @@
 
 <body id="gamePageBody">
 
-	<script>
-		var varname = '<?php echo $username; ?>';
-		console.log("username:" + varname);
-	</script>
-
 	<!-- navbar -->
 	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 		<div class="container-fluid">

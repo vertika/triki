@@ -2,6 +2,9 @@ var gameCountdownTime = 5;
 var paused = false;
 /*------ Init Page -----*/
 
+var varname = '<?php echo $username; ?>';
+console.log("username:" + varname);
+
 //Get Categories
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
