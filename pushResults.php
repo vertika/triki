@@ -1,5 +1,5 @@
 <?php
-  //session_start();
+    session_start();
 
     $username = strval($_GET['q']);
     $numcorrect = intval($_GET['r']);
