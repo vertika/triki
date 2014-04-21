@@ -23,13 +23,13 @@
 
     $query = "UPDATE gamestats SET gamesplayed = gamesplayed + 1 WHERE username = '$username'; ";
     $query .= "UPDATE gamestats SET numcorrect = numcorrect + $numcorrect WHERE username = '$username'; ";
-    // $query .= "UPDATE gamestats SET $cat1 = $cat1 + 1 WHERE username = '$username'; ";
-    // $query .= "UPDATE gamestats SET $cat2 = $cat2 + 1 WHERE username = '$username'; ";
-    // $query .= "UPDATE gamestats SET $cat3 = $cat3 + 1 WHERE username = '$username'; ";
-    // $query .= "UPDATE gamestats SET $cat4 = $cat4 + 1 WHERE username = '$username'; ";
-    // $query .= "UPDATE gamestats SET $cat5 = $cat5 + 1 WHERE username = '$username'; ";
-    // // $query .= "UPDATE gamestats SET $cat6 = $cat6 + 1 WHERE username = '$username';";
-    echo $query;
+    $query .= "UPDATE gamestats SET $cat1 = $cat1 + 1 WHERE username = '$username'; ";
+    $query .= "UPDATE gamestats SET $cat2 = $cat2 + 1 WHERE username = '$username'; ";
+    $query .= "UPDATE gamestats SET $cat3 = $cat3 + 1 WHERE username = '$username'; ";
+    $query .= "UPDATE gamestats SET $cat4 = $cat4 + 1 WHERE username = '$username'; ";
+    $query .= "UPDATE gamestats SET $cat5 = $cat5 + 1 WHERE username = '$username'; ";
+    $query .= "UPDATE gamestats SET $cat6 = $cat6 + 1 WHERE username = '$username';";
+    // echo $query;
 
 
     mysqli_multi_query($db, $query);

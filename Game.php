@@ -7,7 +7,6 @@
 	else {
 	}
 
-//	$query = "UPDATE gamestats SET gamesplayed = gamesplayed + 1  WHERE username = '$username'";
 ?>
 
 <!DOCTYPE html>
