@@ -3,7 +3,7 @@
 	$loggedin = $_SESSION['loggedin'];
 	if ($loggedin) {
 		$username = $_SESSION['username'];
-		echo "userNamePhp: ".$username;
+		echo $username;
 	}
 	else {
 		echo "not logged in";
