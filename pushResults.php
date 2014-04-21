@@ -5,7 +5,7 @@
 
   $loggedin = $_SESSION['loggedin'];
   //if ($loggedin){
-    $username = $_SESSION['username'];
+    $username = "roy";
     $gamesplayed = $_POST['gamesplayed'];
     $numcorrect = $_POST['numcorrect'];
     $cat1 = $_POST['cat1'];
