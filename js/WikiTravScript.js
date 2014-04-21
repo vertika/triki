@@ -166,7 +166,38 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 				var div = document.createElement("div");
 				div.innerHTML = html;
 				var text = div.textContent || div.innerText || "";
-				var question = text.replace(item.correctAnswer, "______", "gi");
+
+				//So now text is the questions we're working with
+				var queryWords = item.correctAnswer.split(" ");
+				queryWords.forEach(function(entry){
+					console.log(entry);
+
+					//Go through normal
+					text = text.replace(entry,'_____', "gi");
+
+					//Make first letter uppercase
+					entry = capitaliseFirstLetter(entry);
+					text = text.replace(entry,'_____', "gi");
+
+					//Make first letter lowercase
+					entry = lowercaseFirstLetter(entry);
+					text = text.replace(entry,'_____', "gi");
+
+					//All uppercase
+					entry = entry.toUpperCase();
+					text = text.replace(entry,'_____', "gi");
+
+					//All lowercase
+					entry = entry.toLowerCase();
+					text = text.replace(entry,'_____', "gi");
+				});
+
+
+				var question = text;
+				console.log(question);
+
+
+			//	var question = text.replace(item.correctAnswer, "______", "gi");
 
 				item.question  = question;
 
@@ -199,4 +230,14 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 		WikiTraverser.prototype.numQuestionsGeneratedSoFar++;
 
 	});
+}
+
+function capitaliseFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function lowercaseFirstLetter(string)
+{
+		return string.charAt(0).toLowerCase() + string.slice(1);
 }
