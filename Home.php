@@ -168,7 +168,7 @@ end of php braces
 
 		<div class="container">
 			<?php
-			echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
+			//echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
 			?>
 		<!-- <img src="User-blue-icon.png"
 						title="User name" height="20%" width="20%"/> -->
