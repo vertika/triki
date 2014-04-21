@@ -5,7 +5,7 @@
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$_SESSION['username'] = $username;	
+	// $_SESSION['username'] = $username;	
 	$username = mysqli_real_escape_string($db, $username);
 	 	 
 	$query = "SELECT password, salt
@@ -29,7 +29,8 @@
 	}
 	else { // Redirect to home page after successful login.
 		$_SESSION['loggedin'] = 1;
-		$_SESSION['username'] = $userData['username'];
+		$_SESSION['username'] = $username;		
+		// $_SESSION['username'] = $userData['username'];
 
 		header('Location: Home.php');
 	}
