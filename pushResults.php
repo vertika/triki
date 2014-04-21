@@ -4,8 +4,8 @@
   require_once('connection.php');
 
   $loggedin = $_SESSION['loggedin'];
-  //if ($loggedin){
-    $username = "roy";
+  if ($loggedin){
+    $username = $_POST['username'];
     $gamesplayed = $_POST['gamesplayed'];
     $numcorrect = $_POST['numcorrect'];
     $cat1 = $_POST['cat1'];
@@ -35,7 +35,13 @@
     mysqli_multi_query($db, $query);
     mysqli_close($db);
 
-    // header ('Location: /Game.php');
-  //}
-
+    echo "
+        <script type=\"text/javascript\">
+            history.go(-1);
+        </script>
+    ";
+   }
+   else {
+        header ('Location: /');
+   }
 ?>
