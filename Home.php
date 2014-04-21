@@ -14,8 +14,6 @@
 				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-		echo $gameData["gamesplayed"];
-
 	}
 	else {
 		header('Location: /');
