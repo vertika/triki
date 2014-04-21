@@ -114,11 +114,11 @@ end of php braces
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li  class="active"><a href="http://www.rzchou.com/Home.php">Home</a></li>
-						<li><a href="About.php">About</a></li>
-						<li><a href="Category.php">Play</a></li>
+						<li><a href="http://www.rzchou.com/About.php">About</a></li>
+						<li><a href="http://www.rzchou.com/Category.php">Play</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+						<li><?php echo '<a href="http://www.rzchou.com/logout.php">Logout</a>';?></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
