@@ -37,7 +37,6 @@
 		<script src="js/jquery-2.1.0.min.js"></script>
 
 		<!-- Custom -->
-		<script src="js/js/homePage.js"></script>
 
 
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
