@@ -299,6 +299,12 @@
 
 		<div id="resultsFooter" class="panel-footer">
 			<button id="playAgainButton" onclick="rePlayPressed()" type="button" class="btn btn-success pull-right">Play Again</button>
+			<button id="cancelButton" type="button" class="btn btn-danger pull-left">Cancel</button>
+			<script>
+				$("#cancelButton").on('click', function(){
+					window.location.href = 'Category.php';
+				});
+			</script>
 <!--			<button id="newCategoriesButton" type="button" class="btn btn-success pull-right">New Categories</button> -->
 		</div>
 	</div>
