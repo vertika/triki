@@ -8,7 +8,7 @@
 	// $_SESSION['username'] = $username;
 	$userName = mysqli_real_escape_string($db, $userName);
 	 	 
-	$query = "SELECT password, salt
+	$query = "SELECT *
 	        FROM members
 	        WHERE username = '$userName';";
 	 
@@ -20,8 +20,6 @@
 	}
 	 
 	$userData = mysqli_fetch_array($result, MYSQL_ASSOC);
-	// printf("%s\n" , $userData);
-	print_r($userData);
 
 	$hash = hash('sha256', $userData['salt'] . hash('sha256', $passWord) );
 	 
@@ -36,11 +34,8 @@
 		$_SESSION['lastname'] = $userData["lastname"];
 		$_SESSION['username'] = $userData["username"];
 		$_SESSION['email'] = $userData["email"];
-		printf("%s\n" , $userData['username']);
-		printf("%s\n" , $userData["username"]);
-		echo "Username1: " . $userData['username'];
-		echo "Username2: " . $username;
-		//header('Location: Home.php');
+		
+		header('Location: Home.php');
 	}
 
 	mysqli_close($db);
