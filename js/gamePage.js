@@ -219,8 +219,8 @@ function giveUpPressed(){
   //Push To DB
   prepareToPush();
 
-  //Format Panel
-  formatResultPanel();
+  //Format PanelnumCorrect
+  formatResultPanel(usernamePHP, numCorrect);
 
   //Hide
   $("#gamePanel").hide();
@@ -230,36 +230,59 @@ function giveUpPressed(){
   $("#resultsPanel").show();
 }
 
-function prepareToPush(){
+function prepareToPush(username, numcorrect){
+  if (username=="")
+  {
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  } 
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","pushResults.php?q="+username+"r="+numcorrect+"cat1="+cat1+"cat2="+cat2+"cat3="+cat3+"cat4="+cat4+"cat5="+cat5+"cat6="+cat6,true);
+xmlhttp.send();
   //Create form things
-  var username = prepareInput("username", usernamePHP);
-  $("#resultsForm").append(username);
+  // var username = prepareInput("username", usernamePHP);
+  // $("#resultsForm").append(username);
 
-  var gamesplayed = prepareInput("gamesplayed", 1);
-  $("#resultsForm").append(gamesplayed);
+  // var gamesplayed = prepareInput("gamesplayed", 1);
+  // $("#resultsForm").append(gamesplayed);
 
-  var numcorrect = prepareInput("numcorrect", numCorrect);
-  $("#resultsForm").append(numcorrect);
+  // var numcorrect = prepareInput("numcorrect", numCorrect);
+  // $("#resultsForm").append(numcorrect);
 
-  var submitCat1 = prepareInput("cat1", cat1);
-  $("#resultsForm").append(submitCat1);
+  // var submitCat1 = prepareInput("cat1", cat1);
+  // $("#resultsForm").append(submitCat1);
 
-  var submitCat2 = prepareInput("cat2", cat2);
-  $("#resultsForm").append(submitCat2);
+  // var submitCat2 = prepareInput("cat2", cat2);
+  // $("#resultsForm").append(submitCat2);
 
-  var submitCat3 = prepareInput("cat3", cat3);
-  $("#resultsForm").append(submitCat3);
+  // var submitCat3 = prepareInput("cat3", cat3);
+  // $("#resultsForm").append(submitCat3);
 
-  var submitCat4 = prepareInput("cat4", cat4);
-  $("#resultsForm").append(submitCat4);
+  // var submitCat4 = prepareInput("cat4", cat4);
+  // $("#resultsForm").append(submitCat4);
 
-  var submitCat5 = prepareInput("cat5", cat5);
-  $("#resultsForm").append(submitCat5);
+  // var submitCat5 = prepareInput("cat5", cat5);
+  // $("#resultsForm").append(submitCat5);
 
-  var submitCat6 = prepareInput("cat6", cat6);
-  $("#resultsForm").append(submitCat6);
+  // var submitCat6 = prepareInput("cat6", cat6);
+  // $("#resultsForm").append(submitCat6);
 
-  $("#resultsForm").submit();
+  // $("#resultsForm").submit();
+
 }
 
 function prepareInput(name, value){
