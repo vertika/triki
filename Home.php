@@ -15,6 +15,7 @@
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
 		$gamesplayed = $gameData["gamesplayed"];
+		$correctPercentage = ($gameData["numcorrect"] / ($gamesplayed * 30)) * 100;
 	}
 	else {
 		header('Location: /');
@@ -153,7 +154,9 @@
 			</div>
 			<div class="panel-body" id="homePanelBody">
 				<div class="well" id="homeMain">
-						Total games played: <?php echo $gamesplayed;?><p></p>
+						Total games played: <?php echo $gamesplayed;?>
+						<br />
+						You were correct <?php echo $correctPercentage ?> % of the time.
 						Categories played:
 					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 				</div>
