@@ -12,51 +12,27 @@
   max-width: 100px;
 }
 
+
 /*----- Navigation -----*/
 
 #navBar {
 
 }
 
+/*----- Home ----- */
+#homePanelHeading
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#homePanelBody
+{
+  height: 650px;
+}
 /*----- Categories Page -----*/
 
-#categoryPanel{
-  width:65%;
-  float: left;
-  height:450px;
-  margin-left:5%;
-  margin-top:20px;
 
-}
-
-#wellPanel{
-  width: 20%;
-  float: right;
-  margin-right: 5%;
-  margin-top: 20px;
-
-}
-
-#bin0, #bin1, #bin2, #bin3, #bin4, #bin5{
-  margin-left:auto;
-  margin-right:auto;
-  width: 170px;
-}
-
-#playButton{
-  float: right;
-  margin-right: 5%;
-}
-
-#draggable{
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-#categoryWellFooter{
-}
 
 /*----- Game Page ----- */
 
