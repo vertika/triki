@@ -5,6 +5,7 @@
 		$username = $_SESSION['username'];
 	}
 	else {
+		header ('Location: /');
 	}
 
 ?>
