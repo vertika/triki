@@ -48,6 +48,8 @@ end of php braces
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
 		printf ("Username: %s \n",$gameData["username"]);
+		printf ("agriculture: (%s) \n",$gameData["agriculture"]);
+
 		// echo "Username: " . $gameData["username"];
 
 
