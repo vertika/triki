@@ -29,7 +29,7 @@
 	$username = mysqli_real_escape_string($db, $username);
 	 
 	$query = "INSERT INTO members ( firstname, lastname, username, password, email, salt ) VALUES 
-			( '$firstname', '$lastname', '$username', '$password', '$email', $salt' ); ";
+			( '$firstname', '$lastname', '$username', '$password', '$email', '$salt' ); ";
 	$query .= "INSERT INTO gamestats ( username ) VALUES 
 			( '$username');";
 	 
