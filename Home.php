@@ -156,7 +156,7 @@
 				<div class="well" id="homeMain">
 						Total games played: <?php echo $gamesplayed;?>
 						<br />
-						You were correct <?php echo $correctPercentage ?> % of the time.
+						You were correct <?php echo number_format((float)$correctPercentage, 2, '.', ''); ?> % of the time.
 						<br />
 						Categories played:
 					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
