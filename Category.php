@@ -23,13 +23,7 @@
 		<script>
 			var occupiedBins = 0;
 			var chosenCats = ['none', 'none','none','none','none','none'];
-			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture',
-									'Education', 'Environment', 'Geography', 'Health', 'History',
-									'Humanities', 'Humans', 'Language', 'Law', 'Life',
-									'Mathematics', 'Medicine', 'Nature', 'People', 'Politics',
-									'Science', 'Society', 'Sports', 'Technology', 'Musicians',
-									'Television', 'Movies', 'Psychology', 'Fashion', 'Countries',
-									'Animals', 'Astrology','Food', 'Dance', 'Physics', 'Books'];
+			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture','Education', 'Environment', 'Entertainment', 'Geography', 'Health', 'History', 'Humanities', 'Humans', 'Language', 'Law', 'Life', 'Mathematics', 'Medicine', 'Nature', 'People', 'Politics', 'Science', 'Society', 'Sports', 'Technology', 'Musicians', 'Psychology',  'Fashion', 'Countries', 'Animals', 'Astrology','Music', 'Film', 'Television', 'Books'];
 
 			$( init );
 
@@ -71,7 +65,7 @@
 				$('#categoryBox').sortable();
 
 				// create clump categories
-				for ( var i=0; i<36; i++ ) {
+				for ( var i=0; i<35; i++ ) {
 					$('<div class="well ui-draggable">' + cats[i] + '</div>').data('category', cats[i]).data('inBin',7).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
 				      containment: 'window',
 				      stack: '#categoryBox div',
