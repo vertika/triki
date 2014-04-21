@@ -19,6 +19,7 @@ if ($loggedin){
 <script type="text/javascript">
 function validateForm()
 {
+
   var a=document.forms["reg"]["firstname"].value;
   var b=document.forms["reg"]["lastname"].value;
   var c=document.forms["reg"]["username"].value;
@@ -51,19 +52,20 @@ function validateForm()
     document.getElementById('password1-error').innerHTML="Please enter a password.";
     return false;
   }
+
+  if (e==null || e=="")
+  {
+    document.getElementById('password2-error').innerHTML="Please re-enter your password.";
+    return false;
+  }
+
+  if (f==null || f=="")
+  {
+    document.getElementById('email-error').innerHTML="Please enter a valid email address.";
+    return false;
+  }
 }
-if (e==null || e=="")
-{
-  document.getElementById('password2-error').innerHTML="Please re-enter your password.";
-  return false;
-}
-}
-if (f==null || f=="")
-{
-  document.getElementById('email-error').innerHTML="Please enter a valid email address.";
-  return false;
-}
-}
+
 </script>
 
 
