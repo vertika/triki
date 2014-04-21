@@ -26,9 +26,11 @@
 	{
 		$_SESSION['loggedin'] = 0;
 	    header('Location: /');
-	}else { // Redirect to home page after successful login.
+	}
+	else { // Redirect to home page after successful login.
 		$_SESSION['loggedin'] = 1;
 		$_SESSION['username'] = $userData['username'];
+
 		header('Location: Home.php');
 	}
 

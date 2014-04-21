@@ -43,9 +43,17 @@ end of php braces
 		$user_about_me = $_SESSION['user_about_me'];
 		
 		//User game history variables
+		$query = "SELECT *
+				FROM gamestats
+				WHERE username = 'username';";
+		$result = mysqli_query($db, $query);
+		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+		$_SESSION['']
+
+
 	}
 	else {
-		header('Location: Landing.php');
+		header('Location: /');
 	}
 
 ?>
@@ -80,7 +88,8 @@ end of php braces
           ['American History',      2],
           ['Science',  2],
           ['Music', 2],
-          ['Science and Technology',    7]
+          ['Science and Technology',    7],
+          ['test', 0]
         ]);
 
         var options = {
@@ -113,12 +122,12 @@ end of php braces
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li  class="active"><a href="http://www.rzchou.com/Home.php">Home</a></li>
-						<li><a href="http://www.rzchou.com/About.php">About</a></li>
-						<li><a href="http://www.rzchou.com/Category.php">Play</a></li>
+						<li  class="active"><a href="Home.php">Home</a></li>
+						<li><a href="About.php">About</a></li>
+						<li><a href="Category.php">Play</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><?php echo '<a href="http://www.rzchou.com/logout.php">Logout</a>';?></li>
+						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -138,10 +147,10 @@ end of php braces
 		<div class="container" id="profile">
 			<div class="jumbotron">
 				<!-- <?php
-					$name="Pauline";
-					$lname="Low";
-					$eadd="triki.@umich.edu";
-					$aboutme="Triki wiki is the game to play!";
+					// $name="Pauline";
+					// $lname="Low";
+					// $eadd="triki.@umich.edu";
+					// $aboutme="Triki wiki is the game to play!";
 				?>-->
 
 				<h2><b><?=$firstname?> <?=$lastname?></b></h2>
