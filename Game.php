@@ -29,6 +29,10 @@
 	<script src="js/WikiTravScript.js"></script>
 	<script src="js/gamePage.js"></script>
 
+
+	<script>
+		var usernamePHP = '<?php echo $username; ?>';
+	</script>
 </head>
 
 <body id="gamePageBody">
@@ -283,9 +287,6 @@
 
 	<form id="resultsForm" name="resultsForm" method="post" action="pushResults.php">
 	</form>
-	<script>
-		var usernamePHP = '<?php echo $username; ?>';
-	</script>
 
 	<script>
   	$('#resultsPanel').hide();
