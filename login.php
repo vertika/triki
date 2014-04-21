@@ -20,7 +20,8 @@
 	}
 	 
 	$userData = mysqli_fetch_array($result, MYSQL_ASSOC);
-	printf("%s\n" , $userData["username"]);
+	// printf("%s\n" , $userData);
+	print_r($userData);
 
 	$hash = hash('sha256', $userData['salt'] . hash('sha256', $passWord) );
 	 
