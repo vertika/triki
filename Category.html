@@ -6,24 +6,20 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
 
+		<!-- Bootstrap -->
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
 
 		<!-- JQuery -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-		<!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
-
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<script src="js/bootstrap/bootstrap.js"></script>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/jquery-ui-1.10.4.custom.js"></script>
 
 		<!-- Triki -->
 		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
 		<script src="js/Category.js"></script>
 
-		<!-- JQuery UI -->
-		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+		
 
 		<script>
 			var occupiedBins = 0;
@@ -138,25 +134,52 @@
 	</head>
 
 	<body style="cursor: default;">
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
-
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<ul class="nav">
-						<li><a href="Home.php">Home</a></li>
-						<li><a href="About.html">About</a></li>
-						<li><a href="Rules.html">Rules</a></li>
-						<li><a href="Challenges.html">Challenges</a></li>
-						<li class="active"><a href="Category.html">Play!</a></li>
-					</ul>
+		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="brandNav" class="navbar-brand" href="#Home">
+						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+					</a>
 				</div>
-			</div>
-		</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a id="homeNav" href="#Home">Home</a></li>
+						<li class="active"><a id="aboutNav" href="#About">About</a></li>
+						<li><a id="playNav" href="#Play">Play</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 		<p></p>
+<script>
+		$("#brandNav").on('click', function(){
+			window.location.href = 'Home.php';
+		});
+		$("#homeNav").on('click', function(){
+			window.location.href = 'Home.php';
+		});
+		$("#aboutNav").on('click', function(){
+			window.location.href = 'About.php';
+		});
+		$("#playNav").on('click', function(){
+			window.location.href = 'Category.php';
+		});
+		$("#logoutNav").on('click', function(){
+			window.location.href = 'logout.php';
+		});
+</script>
 
 		<h1 align="center" style="height:50px"> Choose Your Categories </h1>
 
