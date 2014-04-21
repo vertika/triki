@@ -8,7 +8,7 @@
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
 		$email = $_SESSION['email'];
-		
+
 		//User game history variables
 		$query = "SELECT *
 				FROM gamestats
@@ -98,50 +98,68 @@
 
 	</head>
 	<body id="gamePageBody">
-		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="Home.php">
-						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
-					</a>
-				</div>
+	<!-- navbar -->
+	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="brandNav" class="navbar-brand" href="#Home">
+					<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+				</a>
+			</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li  class="active"><a href="Home.php">Home</a></li>
-						<li><a href="About.php">About</a></li>
-						<li><a href="Category.php">Play</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-		<p></p>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a id="homeNav" href="#Home">Home</a></li>
+					<li><a id="aboutNav" href="#About">About</a></li>
+					<li class="active"><a id="playNav" href="#Play">Play</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<p></p>
+<script>
+	$("#brandNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#homeNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#aboutNav").on('click', function(){
+		window.location.href = 'About.php';
+	});
+	$("#playNav").on('click', function(){
+		window.location.href = 'Category.php';
+	});
+	$("#logoutNav").on('click', function(){
+		window.location.href = 'logout.php';
+	});
+</script> 
 
 
 		<!-- Start code here: -->
 
 		<div id="gamePanel" class="panel panel-default">
 
-			<div class="panel-heading" id="homePanelHeading"> 
+			<div class="panel-heading" id="homePanelHeading">
 				<h1>Game Stats</h1>
 				<h4><?php echo $firstname?></h4>
 			</div>
 			<div class="panel-body" id="homePanelBody">
 				<div class="well" id="homeMain">
-					
+
 						Total games played: <p></p>
-						Categories played:  
+						Categories played:
 						<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 					</div>
 			</div>
