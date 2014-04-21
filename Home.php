@@ -157,7 +157,7 @@
 			<div class="panel-body" id="homePanelBody">
 				<div class="well" id="homeMain">
 
-						Total games played: <p></p>
+						Total games played: <?=$gameData["gamesplayed"]?><p></p>
 						Categories played:
 						<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 					</div>
