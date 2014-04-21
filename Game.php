@@ -91,7 +91,6 @@
 	</script>
 
 	<!-- Game -->
-<div id="txtHint"><b>Person info will be listed here.</b></div>
 	<!-- Modal Loading Window -->
 	<div id="countdown-modal" class="modal fade">
 		<div class="modal-dialog">
