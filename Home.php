@@ -134,7 +134,7 @@ end of php braces
     	</script>
 
 	</head>
-	<body>
+	<body id="gamePageBody">
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -168,51 +168,24 @@ end of php braces
 
 		<!-- Start code here: -->
 
-		<div class="container">
-			<?php
-			//echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
-			?>
-		<!-- <img src="User-blue-icon.png"
-						title="User name" height="20%" width="20%"/> -->
-		</div>
-		<div class="container" id="profile">
-			<div class="jumbotron">
-				<!-- <?php
-					// $name="Pauline";
-					// $lname="Low";
-					// $eadd="triki.@umich.edu";
-					// $aboutme="Triki wiki is the game to play!";
-				?>-->
+		<div id="gamePanel" class="panel panel-default">
 
-				<h2><b><?=$firstname?> <?=$lastname?></b></h2>
-				<p><b>Email: </b> <?=$email?></p>
-				<h3>About Me:</h3>
-				<p><?=$user_about_me?></p>
-				<p></p>
-				<!-- Button trigger modal -->
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
-				<p></p>
+			<div class="panel-heading" id="homePanelHeading"> 
+				<h1>Game Stats</h1>
+				<h4>FirstName LastName, username</h4>
+			</div>
+			<div class="panel-body" id="homePanelBody">
+				<div class="well" id="homeMain">
+					
+						Total games played: <p></p>
+						Categories played:  
+						<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+					</div>
 			</div>
 		</div>
 
 
-		<div class="container">
-			<h3>Game Stats:</h3>
-		</div>
-		<div class="container" id="profile">
-			<div class="jumbotron">
-			<h4>Total Games Played: 50 </h4>
-			<h4>Categories Played:  </h4>
-			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-			<p></p>
-			</div>
-		</div>
-
-		<p></p>
-
-
-
-		<p></p>
+	
 		<!-- Modal --->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">

@@ -1,3 +1,63 @@
+<!-- 
+Accessing the DB.
+within php braces
+
+	require_once('connection.php');
+
+	$username = $_SESSION['username'];
+	 	 
+	$username = mysqli_real_escape_string($db, $username); //this is the key we use to query the database.
+	 
+	$query = "SELECT * 
+	        FROM gamestats
+	        WHERE username = '$username';";
+	 
+	$result = mysqli_query($db, $query);
+	 
+	if(mysqli_num_rows($result) == 0){
+		die ("Database query failed.");
+	}
+	else {
+	    $gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+	    $_SESSION['<categoryname>'] = $gameData['<categoryname>'] //this will return you the number of times this category was played as an integer
+	    //and assigned to a session variable or any other variable if you prefer.
+	}
+
+	mysqli_close($db);
+	 
+end of php braces
+
+-->
+
+
+<?php
+	session_start();
+	$loggedin = $_SESSION['loggedin'];
+	echo "logged in: " . $loggedin;
+	if ($loggedin) {
+		require_once ('connection.php');
+		$username = $_SESSION['username'];
+		echo "Username: " . $username;
+		$firstname = $_SESSION['firstname'];
+		$lastname = $_SESSION['lastname'];
+		$email = $_SESSION['email'];
+		$user_about_me = $_SESSION['user_about_me'];
+		
+		//User game history variables
+		$query = "SELECT *
+				FROM gamestats
+				WHERE username = 'username';";
+		$result = mysqli_query($db, $query);
+		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+
+
+	}
+	else {
+		header('Location: /');
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -5,43 +65,153 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
-		
+
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="trikiStyles.css" media="screen" />
-		
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
+
+		<!-- JQuery -->
+		<script src="js/jquery-2.1.0.min.js"></script>
+
 		<!-- Custom -->
 		<script src="js/js/homePage.js"></script>
 
+
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    	<script type="text/javascript">
+      	google.load("visualization", "1", {packages:["corechart"]});
+      	google.setOnLoadCallback(drawChart);
+      	function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          	['Categories Played', 'Number of Times Played'],
+          	['Agriculture‎', ],
+			['Arts'],
+			['Business‎'] ,
+			['Chronology‎'],
+			['Culture‎'],
+			['Education‎',] ,
+			['Environment‎',] 
+			['Entertainment',],
+			['Geography'],
+			['Health'],
+			['History'],
+			['Humanities',],
+			['Humans'],
+			['Language',],
+			['Law',],
+			['Life',],
+			['Mathematics',],
+			['Medicine',],
+			['Nature',],
+			['People',],
+			['Politics',],
+			['Science',],
+			['Society',],
+			['Sports',],
+			['Technology',],
+			['Musicians',],
+			['Psychology',],
+			['Fashion',],
+			['Countries',],
+			['Animals',],
+			['Astrology',],
+			['Music',],
+			['Film',],
+			['Television',],
+			['Books',]
+        ]);
+
+        var options = {
+          title: '',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      	}
+    	</script>
+
 	</head>
 	<body>
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
-		
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li class="active"><a href="Home.php"><b>Home</b></a></li>
-					<li><a href="About.html"><b>About</b></a></li>
-					<li><a href="Category.html"><b>Play</b></a></li>
-					<li><a href="Landing.html"><b>Log Out</b></a></li>
-				</ul>
-			</div>
-			</div>
-		</div>
-		<p></p>
-		
-		
-		<!-- Start code here: -->
-		
-		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="Home.php">
+						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+					</a>
+				</div>
 
-		<!-- Modal -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li  class="active"><a href="Home.php">Home</a></li>
+						<li><a href="About.php">About</a></li>
+						<li><a href="Category.php">Play</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<p></p>
+
+
+		<!-- Start code here: -->
+
+		<div class="container">
+			<?php
+			//echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
+			?>
+		<!-- <img src="User-blue-icon.png"
+						title="User name" height="20%" width="20%"/> -->
+		</div>
+		<div class="container" id="profile">
+			<div class="jumbotron">
+				<!-- <?php
+					// $name="Pauline";
+					// $lname="Low";
+					// $eadd="triki.@umich.edu";
+					// $aboutme="Triki wiki is the game to play!";
+				?>-->
+
+				<h2><b><?=$firstname?> <?=$lastname?></b></h2>
+				<p><b>Email: </b> <?=$email?></p>
+				<h3>About Me:</h3>
+				<p><?=$user_about_me?></p>
+				<p></p>
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
+				<p></p>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<h3>Game Stats:</h3>
+		</div>
+		<div class="container" id="profile">
+			<div class="jumbotron">
+			<h4>Total Games Played: 50 </h4>
+			<h4>Categories Played:  </h4>
+			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+			<p></p>
+			</div>
+		</div>
+
+		<p></p>
+
+
+
+		<p></p>
+		<!-- Modal --->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -57,7 +227,7 @@
 							<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 						 </div>
 				</div>
-					
+
 				<form role="form">
 					<div class="form-group">
 						<label for="userFirstName"> <b>First Name</b> </label>
@@ -70,9 +240,9 @@
 						<input type="about" class="form-control" id="about" placeholder="Describe yourself here...">
 					</div>
 				</form>
-					
+
 			</div>
-				
+
 			</div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,11 +250,15 @@
 			  </div>
 			</div>
 		</div>
-	
-	
-		<!-- End code here! -->
+
+
+		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap/bootstrap.js"></script>
 	</body>
-	
+
 </html>
+
+<?php
+	mysqli_close($db);
+?>
