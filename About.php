@@ -77,7 +77,7 @@
 						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button>
 					</h3>
 					<div id="intro1" class="well collapse">
-						<p style="font-size:18px;">Log in through Facebook or as a registered user. Click on the <i>Play</i>
+						<p style="font-size:18px;">Log in as a registered user. Click on the <i>Play</i>
 						tab to choose six categories that you want your questions to be on. Click <i>Start Game!</i> and experience 5 minutes of intense concentration to clear the game board. Green indicates a correct answer and red indicates an incorrect answer. After 5 minutes have passed or you clicked <i>Give up.. man</i>, view your results on the <i>Results</i> page and find <i>Wikipedia</i> links related to the questions you answered incorrectly.</p>
 					</div>
 
