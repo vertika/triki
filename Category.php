@@ -1,9 +1,9 @@
 <?php
-	session_start();
+/*	session_start();
 	$loggedin = $_SESSION['loggedin'];
 	if (!$loggedin){
 		header ('Location: /');
-	}
+	}*/
 ?>
 
 
@@ -190,7 +190,7 @@
 </script>
 
 
-		<div id="panel" class="panel panel-default">
+		<div id="panel" class="panel panel-info">
 
 			<div id="panelHeading" class="panel-heading">Choose Your Categories </div>
 			<div class="panel-body">
