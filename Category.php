@@ -1,9 +1,9 @@
 <?php
-/*	session_start();
+	session_start();
 	$loggedin = $_SESSION['loggedin'];
 	if (!$loggedin){
 		header ('Location: /');
-	}*/
+	}
 ?>
 
 
