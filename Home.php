@@ -134,7 +134,7 @@
 
 			<div class="panel-heading" id="homePanelHeading"> 
 				<h1>Game Stats</h1>
-				<h4><?=$firstname ." ". $lastname . " , " . $username?></h4>
+				<h4><?=$firstname . $lastname . $username?></h4>
 			</div>
 			<div class="panel-body" id="homePanelBody">
 				<div class="well" id="homeMain">
