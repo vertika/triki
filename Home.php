@@ -15,8 +15,8 @@
 				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-		printf ("Username: %s \n",$gameData["username"]);
-		printf ("agriculture: %s \n",$gameData["agriculture"]);
+		// printf ("Username: %s \n",$gameData["username"]);
+		// printf ("agriculture: %s \n",$gameData["agriculture"]);
 
 		// echo "Username: " . $gameData["username"];
 
@@ -57,38 +57,38 @@
           	['Agriculture‎', <?php if ($gameData["agriculture"]) echo $gameData["agriculture"]; else echo 0;?>],
 			['Arts', <?=$gameData["arts"]?>],
 			['Business‎', <?php if ($gameData["business"]) echo $gameData["business"]; else echo 0;?>] ,
-			['Chronology‎', <?=$gameData["chronology"]?>],
-			['Culture‎', <?=$gameData["culture"]?>],
-			['Education‎', <?=$gameData["education"]?>],
-			['Environment‎', <?=$gameData["environment"]?>],
-			['Entertainment', <?=$gameData["entertainment"]?>],
-			['Geography', <?=$gameData["geography"]?>],
-			['Health', <?=$gameData["health"]?>],
-			['History', <?=$gameData["history"]?>],
-			['Humanities', <?=$gameData["humanities`"]?>],
-			['Humans', <?=$gameData["humans"]?>],
-			['Language', <?=$gameData["language"]?>],
-			['Law', <?=$gameData["law"]?>],
-			['Life', <?=$gameData["life"]?>],
-			['Mathematics', <?=$gameData["mathematics"]?>],
-			['Medicine', <?=$gameData["medicine"]?>],
-			['Nature', <?=$gameData["nature"]?>],
-			['People', <?=$gameData["people"]?>],
-			['Politics', <?=$gameData["politics"]?>],
-			['Science', <?=$gameData["science"]?>],
-			['Society', <?=$gameData["society"]?>],
-			['Sports', <?=$gameData["sports"]?>],
-			['Technology', <?=$gameData["technology"]?>],
-			['Musicians', <?=$gameData["musicians"]?>],
-			['Psychology', <?=$gameData["psychology"]?>],
-			['Fashion', <?=$gameData["fashion"]?>],
-			['Countries', <?=$gameData["countries"]?>],
-			['Animals', <?=$gameData["animals"]?>],
-			['Astrology', <?=$gameData["astrology"]?>],
-			['Music', <?=$gameData["music"]?>],
-			['Film', <?=$gameData["film"]?>],
-			['Television', <?=$gameData["television"]?>],
-			['Books', <?=$gameData["books"]?>]
+			['Chronology‎', <?php if ($gameData["chronology"]) echo $gameData["chronology"]; else echo 0;?>],
+			['Culture‎', <?php if ($gameData["culture"]) echo $gameData["culture"]; else echo 0;?>],
+			['Education‎', <?php if ($gameData["education"]) echo $gameData["education"]; else echo 0;?>],
+			['Environment‎', <?php if ($gameData["environment"]) echo $gameData["environment"]; else echo 0;?>],
+			['Entertainment', <?php if ($gameData["entertainment"]) echo $gameData["entertainment"]; else echo 0;?>],
+			['Geography', <?php if ($gameData["geography"]) echo $gameData["geography"]; else echo 0;?>],
+			['Health', <?php if ($gameData["health"]) echo $gameData["health"]; else echo 0;?>],
+			['History', <?php if ($gameData["history"]) echo $gameData["history"]; else echo 0;?>],
+			['Humanities', <?php if ($gameData["humanities"]) echo $gameData["humanities"]; else echo 0;?>],
+			['Humans', <?php if ($gameData["humans"]) echo $gameData["humans"]; else echo 0;?>]
+			// ['Language', <?=$gameData["language"]?>],
+			// ['Law', <?=$gameData["law"]?>],
+			// ['Life', <?=$gameData["life"]?>],
+			// ['Mathematics', <?=$gameData["mathematics"]?>],
+			// ['Medicine', <?=$gameData["medicine"]?>],
+			// ['Nature', <?=$gameData["nature"]?>],
+			// ['People', <?=$gameData["people"]?>],
+			// ['Politics', <?=$gameData["politics"]?>],
+			// ['Science', <?=$gameData["science"]?>],
+			// ['Society', <?=$gameData["society"]?>],
+			// ['Sports', <?=$gameData["sports"]?>],
+			// ['Technology', <?=$gameData["technology"]?>],
+			// ['Musicians', <?=$gameData["musicians"]?>],
+			// ['Psychology', <?=$gameData["psychology"]?>],
+			// ['Fashion', <?=$gameData["fashion"]?>],
+			// ['Countries', <?=$gameData["countries"]?>],
+			// ['Animals', <?=$gameData["animals"]?>],
+			// ['Astrology', <?=$gameData["astrology"]?>],
+			// ['Music', <?=$gameData["music"]?>],
+			// ['Film', <?=$gameData["film"]?>],
+			// ['Television', <?=$gameData["television"]?>],
+			// ['Books', <?=$gameData["books"]?>]
         ]);
 
         var options = {
