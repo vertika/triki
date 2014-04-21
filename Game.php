@@ -7,6 +7,7 @@
 	else {
 	}
 
+//	$query = "UPDATE gamestats SET gamesplayed = gamesplayed + 1  WHERE username = '$username'";
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +32,8 @@
 </head>
 
 <body id="gamePageBody">
+
+
 
 	<!-- navbar -->
 	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
@@ -279,8 +282,10 @@
 	</div>
 
 	<form id="resultsForm" name="resultsForm" method="post" action="pushResults.php">
-
 	</form>
+	<script>
+		var usernamePHP = '<?php echo $username; ?>';
+	</script>
 
 	<script>
   	$('#resultsPanel').hide();

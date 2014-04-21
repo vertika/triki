@@ -232,6 +232,8 @@ function giveUpPressed(){
 
 function prepareToPush(){
   //Create form things
+  var username = prepareInput("username", usernamePHP);
+  $("#resultsForm").append(username);
 
   var gamesplayed = prepareInput("gamesplayed", 1);
   $("#resultsForm").append(gamesplayed);
