@@ -233,7 +233,7 @@ function giveUpPressed(){
 function prepareToPush(username, numcorrect){
   if (username=="")
   {
-  //document.getElementById("txtHint").innerHTML="";
+  document.getElementById("txtHint").innerHTML="";
   return;
   } 
 if (window.XMLHttpRequest)
@@ -248,7 +248,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    // document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
     }
   }
 xmlhttp.open("GET","pushResults.php?q="+username+"r="+numcorrect+"cat1="+cat1+"cat2="+cat2+"cat3="+cat3+"cat4="+cat4+"cat5="+cat5+"cat6="+cat6,true);
