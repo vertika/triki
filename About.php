@@ -91,7 +91,7 @@
 			    					<h5>Mark Mevorah</h5>
 			    				</div>
 			   					<div class="col-md-3">
-			    					<img src="img/vertika1.jpg" height="70%" width="70%" class="img-rounded" align="center">
+			    					<!--<img src="img/vertika1.jpg" height="70%" width="70%" class="img-rounded" align="center"> -->
 			    					<h5>Vertika Srivastava</h5>
 			    				</div>
 			    				<div class="col-md-3">
