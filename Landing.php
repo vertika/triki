@@ -40,8 +40,8 @@
 										<td colspan="2"><h4>Are you a registered user?</h4></td>
 									</tr>
 									<tr>
-										<td><b>Username:</b></td>
-										<td><input type="text" name="username" id="username" /></td>
+										<!-- <td><b>Username:</b></td> -->
+										<td><b>Username:</b><input type="text" name="username" id="username" /></td>
 									</tr>
 									<tr>
 										<td><b>Password:</b></td>
