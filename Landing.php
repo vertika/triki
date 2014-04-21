@@ -28,7 +28,7 @@
 		<div id="wrapper">
 			<div id="content">
 				<div align="center"><img id="blah" src="img/logo.png"></div>
-				
+
 				<div class="container-fluid">
 				<!--</div>-->
 					<!--<div id="signin" class="container" width="50%">-->
@@ -86,10 +86,10 @@
 									// 	echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
 									// }
 								?> -->
-								
-					
+
+
 					</div>
-					
+
 				<div class="col-md-5">
 					<h4>Why Sign Up? </h4>
 					<p>1. You will be able to keep track of your scores</p>
@@ -99,25 +99,13 @@
 					</form>
 					<!-- <button type="button" class="btn btn-success">Sign up<a href="register.php"></a></button> -->
 				</div>
-				
+
 			</div> <!--container-->
 
 			<footer id="footer">
-				<li>
-					<a href="">About</a>
-				</li>
-				<li>
-					<a href="">FAQ</a>
-				</li>
-				<li>
-					<a href="">Blog</a>
-				</li>
-				<li>
-					<a href="">Terms of Use</a>
-				</li>
 			</footer>
 		</div>
 
-		
+
 	</body>
 </html>
