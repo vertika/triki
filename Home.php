@@ -86,7 +86,7 @@ end of php braces
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
-          	['Agriculture‎', 1],
+          	['Agriculture‎', <?=$gameData["agriculture"]?>],
 			['Arts', 0],
 			['Business‎', 0] ,
 			['Chronology‎', 0],
