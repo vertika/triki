@@ -1,7 +1,13 @@
 <?php
 	session_start();
-	$username = $_SESSION['username'];
-	echo "userNamePhp: ".$username;
+	$loggedin = $_SESSION['loggedin'];
+	if ($loggedin) {
+		$username = $_SESSION['username'];
+		echo "userNamePhp: ".$username;
+	}
+	else {
+		echo "not logged in";
+	}
 ?>
 
 <!DOCTYPE html>

@@ -43,12 +43,11 @@ end of php braces
 		$user_about_me = $_SESSION['user_about_me'];
 		
 		//User game history variables
-		// $query = "SELECT *
-		// 		FROM gamestats
-		// 		WHERE username = 'username';";
-		// $result = mysqli_query($db, $query);
-		// $gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-		// $_SESSION['']
+		$query = "SELECT *
+				FROM gamestats
+				WHERE username = 'username';";
+		$result = mysqli_query($db, $query);
+		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
 
 
 	}
@@ -83,13 +82,42 @@ end of php braces
       	google.setOnLoadCallback(drawChart);
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Categories Played', 'Number of Times Played'],
-          ['Physics',     11],
-          ['American History',      2],
-          ['Science',  2],
-          ['Music', 2],
-          ['Science and Technology',    7],
-          ['test', 0]
+          	['Categories Played', 'Number of Times Played'],
+          	['Agriculture‎', ],
+			['Arts'],
+			['Business‎'] ,
+			['Chronology‎'],
+			['Culture‎'],
+			['Education‎',] ,
+			['Environment‎',] 
+			['Entertainment',],
+			['Geography'],
+			['Health'],
+			['History'],
+			['Humanities',],
+			['Humans'],
+			['Language',],
+			['Law',],
+			['Life',],
+			['Mathematics',],
+			['Medicine',],
+			['Nature',],
+			['People',],
+			['Politics',],
+			['Science',],
+			['Society',],
+			['Sports',],
+			['Technology',],
+			['Musicians',],
+			['Psychology',],
+			['Fashion',],
+			['Countries',],
+			['Animals',],
+			['Astrology',],
+			['Music',],
+			['Film',],
+			['Television',],
+			['Books',]
         ]);
 
         var options = {
