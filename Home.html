@@ -33,11 +33,9 @@ end of php braces
 <?php
 	session_start();
 	$loggedin = $_SESSION['loggedin'];
-	echo "logged in: " . $loggedin;
 	if ($loggedin) {
 		require_once ('connection.php');
 		$username = $_SESSION['username'];
-		echo "Username: " . $username;
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
 		$email = $_SESSION['email'];
@@ -46,9 +44,13 @@ end of php braces
 		//User game history variables
 		$query = "SELECT *
 				FROM gamestats
-				WHERE username = 'username';";
+				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+		printf ("Username: %s \n",$gameData["username"]);
+		printf ("agriculture: %s \n",$gameData["agriculture"]);
+
+		// echo "Username: " . $gameData["username"];
 
 
 	}
@@ -84,41 +86,41 @@ end of php braces
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
-          	['Agriculture‎', ],
-			['Arts'],
-			['Business‎'] ,
-			['Chronology‎'],
-			['Culture‎'],
-			['Education‎',] ,
-			['Environment‎',] 
-			['Entertainment',],
-			['Geography'],
-			['Health'],
-			['History'],
-			['Humanities',],
-			['Humans'],
-			['Language',],
-			['Law',],
-			['Life',],
-			['Mathematics',],
-			['Medicine',],
-			['Nature',],
-			['People',],
-			['Politics',],
-			['Science',],
-			['Society',],
-			['Sports',],
-			['Technology',],
-			['Musicians',],
-			['Psychology',],
-			['Fashion',],
-			['Countries',],
-			['Animals',],
-			['Astrology',],
-			['Music',],
-			['Film',],
-			['Television',],
-			['Books',]
+          	['Agriculture‎', <?php$gameData["agriculture"]?>],
+			['Arts', <?=$gameData["arts"]?>],
+			['Business‎', <?=$gameData["business‎"]?>] ,
+			['Chronology‎', <?=$gameData["chronology"]?>],
+			['Culture‎', <?=$gameData["culture"]?>],
+			['Education‎', 0],
+			['Environment‎', 0],
+			['Entertainment', 0],
+			['Geography', 0],
+			['Health', 0],
+			['History', 0],
+			['Humanities', 0],
+			['Humans', 0],
+			['Language', 0],
+			['Law', 0],
+			['Life', 0],
+			['Mathematics', 0],
+			['Medicine', 0],
+			['Nature', 0],
+			['People', 0],
+			['Politics', 0],
+			['Science', 0],
+			['Society', 0],
+			['Sports', 0],
+			['Technology', 0],
+			['Musicians', 0],
+			['Psychology', 0],
+			['Fashion', 0],
+			['Countries', 0],
+			['Animals', 0],
+			['Astrology', 0],
+			['Music', 0],
+			['Film', 0],
+			['Television', 0],
+			['Books', 0]
         ]);
 
         var options = {
@@ -132,7 +134,7 @@ end of php braces
     	</script>
 
 	</head>
-	<body>
+	<body id="gamePageBody">
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -166,51 +168,24 @@ end of php braces
 
 		<!-- Start code here: -->
 
-		<div class="container">
-			<?php
-			//echo "<img src='http://graph.facebook.com/".$username."/picture?type=large'/>";
-			?>
-		<!-- <img src="User-blue-icon.png"
-						title="User name" height="20%" width="20%"/> -->
-		</div>
-		<div class="container" id="profile">
-			<div class="jumbotron">
-				<!-- <?php
-					// $name="Pauline";
-					// $lname="Low";
-					// $eadd="triki.@umich.edu";
-					// $aboutme="Triki wiki is the game to play!";
-				?>-->
+		<div id="gamePanel" class="panel panel-default">
 
-				<h2><b><?=$firstname?> <?=$lastname?></b></h2>
-				<p><b>Email: </b> <?=$email?></p>
-				<h3>About Me:</h3>
-				<p><?=$user_about_me?></p>
-				<p></p>
-				<!-- Button trigger modal -->
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Your Profile</button>
-				<p></p>
+			<div class="panel-heading" id="homePanelHeading"> 
+				<h1>Game Stats</h1>
+				<h4>FirstName LastName, username</h4>
+			</div>
+			<div class="panel-body" id="homePanelBody">
+				<div class="well" id="homeMain">
+					
+						Total games played: <p></p>
+						Categories played:  
+						<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+					</div>
 			</div>
 		</div>
 
 
-		<div class="container">
-			<h3>Game Stats:</h3>
-		</div>
-		<div class="container" id="profile">
-			<div class="jumbotron">
-			<h4>Total Games Played: 50 </h4>
-			<h4>Categories Played:  </h4>
-			<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-			<p></p>
-			</div>
-		</div>
-
-		<p></p>
-
-
-
-		<p></p>
+	
 		<!-- Modal --->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
