@@ -130,7 +130,7 @@
 
 	</head>
 
-	<body style="cursor: default;">
+	<body  id="pageBody" style="cursor: default;">
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -178,28 +178,27 @@
 		});
 </script>
 
-		<h1 align="center" style="height:50px"> Choose Your Categories </h1>
+		
+		<div id="panel" class="panel panel-default">
 
+			<div id="panelHeading" class="panel-heading">Choose Your Categories </div>
+			<div class="panel-body">
+				<table align="center" id="bigTable">
+					<tr>
+						<td>
+							<div class="well ui-droppable" id="categoryBox"></div>
+						</td>
 
-		<table align="center" id="bigTable">
-			<tr>
-				<td>
-					<div class="well ui-droppable" id="categoryBox"></div>
+						<td>
+							<div id="binBox" align="center"></div>
 
-					 <!--OLD BUTTON <button class="btn" id="cat41">Category41</button> -->
-				</td>
-
-				<td>
-					<div id="binBox" align="center"></div>
-
-					<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!</button>
-					
-				</td>
-
-
-
-			</tr>
-		</table>
+							<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!</button>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 
 
 	  	<script>
