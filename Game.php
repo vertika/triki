@@ -28,7 +28,7 @@
 
 	<script>
 		var varname = '<?php echo $username; ?>';
-		console.log(varname);
+		console.log("username:" + varname);
 	</script>
 
 	<!-- navbar -->
