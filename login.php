@@ -34,7 +34,9 @@
 		$_SESSION['username'] = $userData["username"];
 		$_SESSION['email'] = $userData["email"];
 
-		header('Location: Home.php');
+		echo "Username1: " . $userData["username"];
+		echo "Username2: " . $username;
+		//header('Location: Home.php');
 	}
 
 	mysqli_close($db);
