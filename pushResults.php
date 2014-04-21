@@ -29,6 +29,7 @@
     $query .= "UPDATE gamestats SET $cat4 = $cat4 + 1 WHERE username = '$username'; ";
     $query .= "UPDATE gamestats SET $cat5 = $cat5 + 1 WHERE username = '$username'; ";
     $query .= "UPDATE gamestats SET $cat6 = $cat6 + 1 WHERE username = '$username';";
+    echo $query;
 
 
     mysqli_multi_query($db, $query);
