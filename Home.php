@@ -1,35 +1,3 @@
-<!-- 
-Accessing the DB.
-within php braces
-
-	require_once('connection.php');
-
-	$username = $_SESSION['username'];
-	 	 
-	$username = mysqli_real_escape_string($db, $username); //this is the key we use to query the database.
-	 
-	$query = "SELECT * 
-	        FROM gamestats
-	        WHERE username = '$username';";
-	 
-	$result = mysqli_query($db, $query);
-	 
-	if(mysqli_num_rows($result) == 0){
-		die ("Database query failed.");
-	}
-	else {
-	    $gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-	    $_SESSION['<categoryname>'] = $gameData['<categoryname>'] //this will return you the number of times this category was played as an integer
-	    //and assigned to a session variable or any other variable if you prefer.
-	}
-
-	mysqli_close($db);
-	 
-end of php braces
-
--->
-
-
 <?php
 	session_start();
 	$loggedin = $_SESSION['loggedin'];
