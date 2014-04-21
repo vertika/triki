@@ -4,7 +4,11 @@
     $username = strval($_GET['q']);
     echo "Username: " . $username;
     $numcorrect = intval($_GET['r']);
+        echo " number correct: " . $numcorrect;
+
     $cat1 = strtolower($_GET['cat1']);
+            echo " cat1 is: " . $cat1;
+
     $cat2 = strtolower($_GET['cat2']);
     $cat3 = strtolower($_GET['cat3']);
     $cat4 = strtolower($_GET['cat4']);
