@@ -204,7 +204,7 @@
 
 		<div class="panel-footer">
 			<div class="container">
-				<button id="giveUpButton" onclick="giveUpPressed()" type="button" class="btn btn-danger pull-right">Give Up.. Man</button>
+				<button id="giveUpButton" onclick="giveUpPressed()" type="button" class="btn btn-danger pull-right">Give Up... Man</button>
 			</div>
 		</div>
 	</div>
