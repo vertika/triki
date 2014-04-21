@@ -157,6 +157,7 @@
 						Total games played: <?php echo $gamesplayed;?>
 						<br />
 						You were correct <?php echo $correctPercentage ?> % of the time.
+						<br />
 						Categories played:
 					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 				</div>
