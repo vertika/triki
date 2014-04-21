@@ -32,7 +32,7 @@
 		$_SESSION['firstname'] = $userData["firstname"];
 		$_SESSION['lastname'] = $userData["lastname"];
 		$_SESSION['username'] = $userData["username"];
-		$_SESSION['email'] = $userData['email'];
+		$_SESSION['email'] = $userData["email"];
 
 		header('Location: Home.php');
 	}
