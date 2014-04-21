@@ -36,7 +36,6 @@
 
 	<script>
 		var varname = '<?php echo $username; ?>';
-		console.log("username:" + varname);
 	</script>
 
 	<!-- navbar -->

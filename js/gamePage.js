@@ -2,6 +2,7 @@ var gameCountdownTime = 5;
 var paused = false;
 /*------ Init Page -----*/
 
+
 //Get Categories
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -212,6 +213,8 @@ function selectedOption(selection){
 /* ----- after -----*/
 
 function giveUpPressed(){
+  console.log("username:" + varname);
+
   //Stop time
   clearInterval(gameTimer);
 
