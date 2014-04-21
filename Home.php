@@ -14,6 +14,7 @@
 				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+		$gamesplayed = $gameData["gamesplayed"];
 	}
 	else {
 		header('Location: /');
@@ -152,7 +153,7 @@
 			</div>
 			<div class="panel-body" id="homePanelBody">
 				<div class="well" id="homeMain">
-						Total games played: <?=$gameData["gamesplayed"]?><p></p>
+						Total games played: <?php echo $gamesplayed;?><p></p>
 						Categories played:
 					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 				</div>
