@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$username = $_SESSION['username'];
-	echo "userNamePhp: "$username;
+	echo "userNamePhp: ".$username;
 ?>
 
 <!DOCTYPE html>
