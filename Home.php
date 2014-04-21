@@ -44,7 +44,7 @@ end of php braces
 		//User game history variables
 		$query = "SELECT *
 				FROM gamestats
-				WHERE username = 'username';";
+				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
 		echo "Username: " . $gameData["username"];
