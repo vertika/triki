@@ -4,7 +4,7 @@
     $username = mysqli_real_escape_string($_GET['q']);
     $numcorrect = mysqli_real_escape_string($_GET['r']);
     $cat1 = mysqli_real_escape_string($_GET['cat1']);
- echo "Username: " . $username . " number correct: " .$numcorrect. " cat1 is: " .$cat1;
+ //echo "Username: " . $username . " number correct: " .$numcorrect. " cat1 is: " .$cat1;
     $cat2 = mysqli_real_escape_string($_GET['cat2']);
     $cat3 = mysqli_real_escape_string($_GET['cat3']);
     $cat4 = mysqli_real_escape_string($_GET['cat4']);
