@@ -33,11 +33,9 @@ end of php braces
 <?php
 	session_start();
 	$loggedin = $_SESSION['loggedin'];
-	echo "logged in: " . $loggedin;
 	if ($loggedin) {
 		require_once ('connection.php');
 		$username = $_SESSION['username'];
-		echo "Username: " . $username;
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
 		$email = $_SESSION['email'];
@@ -49,6 +47,7 @@ end of php braces
 				WHERE username = 'username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+		echo "Username: " . $gameData['username'];
 
 
 	}
