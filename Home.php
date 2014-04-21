@@ -54,9 +54,9 @@
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
-          	['Agriculture‎', <?=$gameData["agriculture"]?>],
+          	['Agriculture‎', <?php if ($gameData["agriculture"]) echo $gameData["agriculture"]; else echo 0;?>],
 			['Arts', <?=$gameData["arts"]?>],
-			['Business‎', <?=$gameData["business"]?>] ,
+			['Business‎', <?php if ($gameData["business"]) echo $gameData["business"]; else echo 0;?>] ,
 			['Chronology‎', <?=$gameData["chronology"]?>],
 			['Culture‎', <?=$gameData["culture"]?>],
 			['Education‎', <?=$gameData["education"]?>],
