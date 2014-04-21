@@ -87,7 +87,7 @@ end of php braces
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
           	['Agriculture‎', <?=$gameData["agriculture"]?>],
-			['Arts', 0],
+			['Arts', <?=$gameData["arts"]?>],
 			['Business‎', 0] ,
 			['Chronology‎', 0],
 			['Culture‎', 0],
