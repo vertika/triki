@@ -5,7 +5,7 @@
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	
+	$_SESSION['username'] = $username;	
 	$username = mysqli_real_escape_string($db, $username);
 	 	 
 	$query = "SELECT password, salt
