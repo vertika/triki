@@ -78,15 +78,15 @@
 						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#whatIs"></button>
 					</h3>
 					<div id="whatIs" class="well collapse">
-						<p style="font-size:18px;"> An educational online trivia game that uses <i>Wikipedia</i> as the source for questions.</p>
+						<p style="font-size:18px;"> Triki is an educational online trivia game that uses <i>Wikipedia</i> as the source of its questions. Users are given the opportunity to be quized on selected categories and learn more about those questions answered incorrectly.</p>
 					</div>
 
 					<h3>How to Play?
 						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button>
 					</h3>
 					<div id="intro1" class="well collapse">
-						<p style="font-size:18px;">Log in as a registered user. Click on the <i>Play</i>
-						tab to choose six categories that you want your questions to be on. Click <i>Start Game!</i> and experience 5 minutes of intense concentration to clear the game board. Green indicates a correct answer and red indicates an incorrect answer. After 5 minutes have passed or you clicked <i>Give up.. man</i>, view your results on the <i>Results</i> page and find <i>Wikipedia</i> links related to the questions you answered incorrectly.</p>
+						<p style="font-size:18px;">Click on the <i>Play</i>
+						tab to choose six categories that you want to be quized on. Click <i>Start Game</i> and experience four minutes of intense concentration to clear the game board. Green indicates a correct answer and red indicates an incorrect answer. After four minutes have passed or you have clicked <i>Give Up</i>, view your results on the <i>Results</i> page and find <i>Wikipedia</i> links related to the questions you answered incorrectly. Furthmore, navigate to the <i>Home</i> page to view your game stats and favorite categories!</p>
 					</div>
 
 					<h3>Makers
