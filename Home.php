@@ -4,7 +4,7 @@
 	if ($loggedin) {
 		require_once ('connection.php');
 		$username = $_SESSION['username'];
-		echo $username;
+		echo "Username: " . $username;
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
 		$email = $_SESSION['email'];
@@ -117,12 +117,13 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a id="homeNav" href="#Home">Home</a></li>
+					<li class="active"><a id="homeNav" href="#Home">Home</a></li>
 					<li><a id="aboutNav" href="#About">About</a></li>
-					<li class="active"><a id="playNav" href="#Play">Play</a></li>
+					<li><a id="playNav" href="#Play">Play</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
+					<li><?php echo 		$username = $_SESSION['username'];
+'<a id="logoutNav" href="#Logout">Logout</a>';?></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
