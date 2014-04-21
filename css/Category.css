@@ -6,26 +6,29 @@
 #binBox
 {
 	height:500px;
-	width:190px;
+	width:100px;
 	margin-left:70px;
+	margin-top: 20px;
 }
 
 #categoryBox
 {
-	margin-top:10px;
-	height:600px; 
-	width:620px;
+	margin-top:-40px;
+	height:460px; 
+	width:630px;
 	display: block;
     margin-right: auto;
 }
 
 #binBox div, #categoryBox div
 {
-	width:100px;
+	width:134px;
+	height: 40px;
 	float: left;
 	margin-left: 10px;
 	margin-top:-10px;
 	text-align: center;
+	line-height: 2px;
 }
 
 #binBox div.hovered { background: #aaa; }
@@ -59,11 +62,12 @@
 
 #playButton
 {
-	height:80px; 
+	height:60px; 
 	font-size:210%; 
-	margin-top: -40px;
-	margin-left: 20px;
+	margin-top: -170px;
+	margin-left: 55px;
 	position:relative;
+	vertical-align: top;
 }
 
 body{
