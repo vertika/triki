@@ -4,6 +4,7 @@
 	if ($loggedin) {
 		require_once ('connection.php');
 		$username = $_SESSION['username'];
+		echo $username;
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
 		$email = $_SESSION['email'];
