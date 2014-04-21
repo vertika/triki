@@ -33,7 +33,7 @@ end of php braces
 <?php
 	session_start();
 	$loggedin = $_SESSION['loggedin'];
-	
+	echo "logged in: " . $loggedin;
 	if ($loggedin) {
 		require_once ('connection.php');
 		$username = $_SESSION['username'];
