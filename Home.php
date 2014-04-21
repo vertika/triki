@@ -48,7 +48,7 @@ end of php braces
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
 		printf ("Username: %s \n",$gameData["username"]);
-		printf ("agriculture: (%s) \n",$gameData["agriculture"]);
+		printf ("agriculture: %s \n",$gameData["agriculture"]);
 
 		// echo "Username: " . $gameData["username"];
 
@@ -86,7 +86,7 @@ end of php braces
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
-          	['Agriculture‎', <?=$gameData["agriculture"]?>],
+          	['Agriculture‎', <?php$gameData["agriculture"]?>],
 			['Arts', <?=$gameData["arts"]?>],
 			['Business‎', <?=$gameData["business‎"]?>] ,
 			['Chronology‎', <?=$gameData["chronology"]?>],
