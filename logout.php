@@ -17,6 +17,6 @@
 	session_destroy();
 	$facebook->destroySession();
 	// header('Location: http://www.rzchou.com/Landing.php');
-	header('Location: Landing.php');
+	header('Location: /');
 
 ?>

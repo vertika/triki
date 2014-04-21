@@ -1,55 +1,101 @@
-table.fixed
+#pageBody {
+  background-image:url("../img/gamePageBackground.png");
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  vertical-align: baseline;
+}
+
+#panel
 {
-	overflow: hidden;
-	table-layout:fixed; 
-	text-align: center;
+  margin-top: 50px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  min-width: 910px;
 }
 
-#vertAlign
+#panelHeading{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+  height: 60px;
+  line-height: 40px;
+ }
+
+#categoryBox div.correct
 {
-	vertical-align: text-middle;
+	background-color:#428bca;
 }
 
-#spaceBelow { 
-	margin-bottom: 10px;
-}
-
-#categoryBox{
-	margin-top:8px;
-	height:800px; 
-	width:580px;
-	display: block;
-  	margin-right: auto;
-  	overflow: scroll;
-}
-
-#bin, #cat0, #cat1, #cat2, #cat3, #cat4, 
-#cat5, #cat6, #cat7, #cat8, #cat9, #cat10,
-#cat11, #cat12, #cat13, #cat14, #cat15,
-#cat16, #cat17, #cat18, #cat19, #cat20,
-#cat21, #cat22, #cat23, #cat24, #cat25,
-#cat26, #cat27, #cat28, #cat28, #cat29,
-#cat30, #cat31, #cat32, #cat33, #cat34,
-#cat35, #cat36, #cat37, #cat38
+#binBox
 {
-	width:190px; 
-	height:30px;
-}
-
-#bin0, #bin1, #bin2, #bin3, #bin4, #bin4, #bin5{
-	width:190px;
-	height:30px;
+	height:500px;
+	width:100px;
 	margin-left:70px;
-	vertical-align: text-middle; 
+	margin-top: 40px;
+}
+
+#categoryBox
+{
+	margin-top:-40px;
+	height:460px; 
+	width:630px;
+	display: block;
+    margin-right: auto;
+}
+
+#binBox div, #categoryBox div
+{
+	width:134px;
+	height: 40px;
+	float: left;
+	margin-left: 10px;
+	margin-top:-10px;
+	text-align: center;
+	line-height: 2px;
+}
+
+#binBox div.hovered { background: #aaa; }
+
+#binBox div{ 
+	border-style: dashed;
+	color: #C0C0C0;
+	font-size: 11px;
+	margin-left: -20px;
+	background-color:#606060;
+}
+
+/* #categoryBox div{}; */
+
+#categoryBox div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+} 
+
+#binBox div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+} 
+
+#categoryBox div.correct
+{
+ background-color:#428bca;
 }
 
 #playButton
 {
-	height:100px; 
+	height:60px; 
 	font-size:210%; 
-	margin-left:80px;
-	margin-top:60px;
+	margin-top: -170px;
+	margin-left: 29px;
+	position:relative;
+	vertical-align: top;
 }
+
 body{
    min-width:1000px; /* suppose you want minimun width of 1000px */
    width: auto !important;  /* Firefox will set width as auto */

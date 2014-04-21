@@ -1,189 +1,323 @@
+<?php
+	session_start();
+	$loggedin = $_SESSION['loggedin'];
+	if ($loggedin) {
+		$username = $_SESSION['username'];
+	}
+	else {
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title> Triki </title>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
+<head>
+	<title> Triki </title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta  name="viewport" content="width=device-width,initial-scale=1.0">
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
 
-		<!-- JQuery -->
-		<script src="js/jquery-2.1.0.min.js"></script>
+	<!-- JQuery -->
+	<script src="js/jquery-2.1.0.min.js"></script>
 
-		<!-- Custom Scripts -->
-		<script src="js/WikiTravScript.js"></script>
-		<script src="js/gamePage.js"></script>
+	<!-- Custom Scripts -->
+	<script src="js/WikiTravScript.js"></script>
+	<script src="js/gamePage.js"></script>
 
-	</head>
-	<body>
 
-		<!-- Navigation Header -->
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
+	<script>
+		var usernamePHP = '<?php echo $username; ?>';
+	</script>
+</head>
 
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-<<<<<<< HEAD
-					<li><a href="Home.php">Home</a></li>
-					<li><a href="About.html">About</a></li>
-					<li><a href="Rules.html">Rules</a></li>
-					<li><a href="Challenges.html">Challenges</a></li>
-					<li><a href="Category.html">Play!</a></li>
-=======
-					<li><a href="Home.html"><b>Home</b></a></li>
-					<li><a href="About.html"><b>About</b></a></li>
-					<li><a href="Category.html"><b>Play</b></a></li>
-					<li><a href="Landing.html"><b>Log Out</b></a></li>
+<body id="gamePageBody">
 
->>>>>>> b96131c1440685a1145cd5cae8b82081d51b4ac7
+
+
+	<!-- navbar -->
+	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="brandNav" class="navbar-brand" href="#Home">
+					<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a id="homeNav" href="#Home">Home</a></li>
+					<li><a id="aboutNav" href="#About">About</a></li>
+					<li class="active"><a id="playNav" href="#Play">Play</a></li>
 				</ul>
-			</div>
-			</div>
-		</div>
-		<p></p>
+				<ul class="nav navbar-nav navbar-right">
+					<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<p></p>
+<script>
+	$("#brandNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#homeNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#aboutNav").on('click', function(){
+		window.location.href = 'About.php';
+	});
+	$("#playNav").on('click', function(){
+		window.location.href = 'Category.php';
+	});
+	$("#logoutNav").on('click', function(){
+		window.location.href = 'logout.php';
+	});
+</script>
 
-		<!-- Game -->
+	<script>
+		$('#navBar').hide();
+	</script>
 
-<!-- Modal Loading Window -->
-<div id="countdown-modal" class="modal fade">
-  <div class="modal-dialog">
-    <div id="countdown-modal-content" class="modal-content">
-      <div id= "countdown-modal-body" class="modal-body">
-				<!-- put countdown script -->
-				<div id="gameCountdown">5</div>
-      </div>
-      <div id="countdown-modal-footer" class="modal-footer">
-				<div id="numQuestionsGenerated"></div>
-        <button onclick="togglePause()" type="button" class="btn btn-primary">pause</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+	<!-- Game -->
 
-<!-- Modal Question Window -->
-<div id="question-modal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-				<p id="questionText"></p>
-      </div>
-      <div class="modal-body">
+	<!-- Modal Loading Window -->
+	<div id="countdown-modal" class="modal fade">
+		<div class="modal-dialog">
+			<div id="countdown-modal-content" class="modal-content">
+				<div id= "countdown-modal-body" class="modal-body">
+					<!-- put countdown script -->
+					<div id="gameCountdown">5</div>
+				</div>
+				<div id="countdown-modal-footer" class="modal-footer">
+					<div id="numQuestionsGenerated"></div>
+					<button onclick="togglePause()" type="button" data-toggle="button" class="btn btn-primary">pause</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-				<p id="option1"></p>
-				<p id="option2"></p>
-				<p id="option3"></p>
-				<p id="option4"></p>
+	<!-- Modal Question Window -->
+	<div id="question-modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p id="questionText"></p>
+				</div>
+				<div class="modal-body">
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Pass</button>
-        <button type="button" class="btn btn-primary">Lock-In</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<!-- Game board -->
-
-
-<div class="hero-unit" style="margin:0px auto; width:80%">
-	<div class="container">
-		<div id="column1" style="float:left; margin:0px auto; width:33%;">
-			<img src="User-blue-icon.png"
-						title="User name" height="20%" width="20%"/>
-
+					<div class="btn-group-vertical">
+						<button onclick= "selectedOption(id)" id= "option1" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option2" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option3" type="button" class="btn btn-primary"></button>
+						<button onclick= "selectedOption(id)" id= "option4" type="button" class="btn btn-primary"></button>
 					</div>
 
-					<div id="column2" style="float:left;margin:0px auto;width:33%;">
-						<p>User Name</p>
-						<p>Current Score:</p>
-					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Pass</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-					<div id="column3" style="float:left;margin:0px auto;width:33%">
-						<p>Time Left:
-					</div>
-			</div>
-		</div>
+	<!-- Game board -->
 
-		<p>
-		</p>
-
+	<div id="gamePanel" class="panel panel-default" data-toggle="collapse" id="accordion">
+		<div id="gamePanelHeading" class="panel-heading">
 			<div class="container">
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-					<p id="category1-label"></p>
-					<button onclick="questionSelected(1)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(2)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(3)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(4)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(5)" type="button" class="btn btn-primary pull">5</button>
+				<div id="gamePanelHeaderLabels">
+					<span>Score</span>
+					<span class="pull-right">Time Remaining</span>
 				</div>
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-
-					<button onclick="questionSelected(6)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(7)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(8)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(9)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(10)" type="button" class="btn btn-primary pull">5</button>
+				<div>
+					<span id="scoreLabel">0/30</span>
+					<span id="timeRemainingLabel" class="pull-right">4:00</span>
 				</div>
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-					<button onclick="questionSelected(11)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(12)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(13)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(14)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(15)" type="button" class="btn btn-primary pull">5</button>
-				</div>
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-					<button onclick="questionSelected(16)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(17)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(18)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(19)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(20)" type="button" class="btn btn-primary pull">5</button>
-				</div>
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-					<button onclick="questionSelected(21)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(22)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(23)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(24)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(25)" type="button" class="btn btn-primary pull">5</button>
-				</div>
-
-				<div class="btn-group btn-group-vertical" style="float:left;margin:0px auto; width:16%">
-					<button onclick="questionSelected(26)" type="button" class="btn btn-primary pull">1</button>
-					<button onclick="questionSelected(27)" type="button" class="btn btn-primary pull">2</button>
-					<button onclick="questionSelected(28)" type="button" class="btn btn-primary pull">3</button>
-					<button onclick="questionSelected(29)" type="button" class="btn btn-primary pull">4</button>
-					<button onclick="questionSelected(30)" type="button" class="btn btn-primary pull">5</button>
-				</div>
-
-			</div>
-
-
-		<p></p>
-
-		<div class="hero-unit" style="margin:0px auto; width:80%">
-			<div class="container">
-				<a href="Home.html" class="btn btn-larde btn-danger" style="float:right;margin:0px auto;width:10%"> Quit Game </a>
 			</div>
 		</div>
-		<p></p>
 
+		<div class="panel-body">
+			<div class="container">
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel1" class="label label-warning"> </span>
+					<button id="questionButton0" onclick="questionSelected(0, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton1" onclick="questionSelected(1, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton2" onclick="questionSelected(2, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton3" onclick="questionSelected(3, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton4" onclick="questionSelected(4, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
 
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
-	</body>
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel2" class="label label-warning"> </span>
+					<button id="questionButton5" onclick="questionSelected(5, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton6" onclick="questionSelected(6, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton7" onclick="questionSelected(7, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton8" onclick="questionSelected(8, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton9" onclick="questionSelected(9, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel3" class="label label-warning"> </span>
+					<button id="questionButton10" onclick="questionSelected(10, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton11" onclick="questionSelected(11, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton12" onclick="questionSelected(12, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton13" onclick="questionSelected(13, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton14" onclick="questionSelected(14, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel4" class="label label-warning"> </span>
+					<button id="questionButton15" onclick="questionSelected(15, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton16" onclick="questionSelected(16, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton17" onclick="questionSelected(17, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton18" onclick="questionSelected(18, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton19" onclick="questionSelected(19, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel5" class="label label-warning"> </span>
+					<button id="questionButton20" onclick="questionSelected(20, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton21" onclick="questionSelected(21, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton22" onclick="questionSelected(22, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton23" onclick="questionSelected(23, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton24" onclick="questionSelected(24, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
+				<div id= "questionColumn" class="btn-group btn-group-vertical">
+					<span id="categoryLabel6" class="label label-warning"> </span>
+					<button id="questionButton25" onclick="questionSelected(25, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton26" onclick="questionSelected(26, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton27" onclick="questionSelected(27, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton28" onclick="questionSelected(28, id)" type="button" class="btn btn-primary pull">Q</button>
+					<button id="questionButton29" onclick="questionSelected(29, id)" type="button" class="btn btn-primary pull">Q</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-footer">
+			<div class="container">
+				<button id="giveUpButton" onclick="giveUpPressed()" type="button" class="btn btn-danger pull-right">Give Up... Man</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Results -->
+	<div id="resultsPanel" class="panel panel-info" data-toggle="collapse">
+		<div class="panel-heading">
+			<h3 id="resultsPanelHeader" class="panel-title">Congratulations,  you got [score] correct!</h3>
+		</div>
+
+		<div class="panel-group panel-body" id="accordion">
+			<div class="panel panel-default" id="resultPanel-title-color-category0">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category0" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							Category, [5/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div id="resultPanel-body-category0" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category1">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category1" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							Category, [2/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div id="resultPanel-body-category1" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category2">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category2" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div id="resultPanel-body-category2" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category3">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category3" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+							Category, [5/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div id="resultPanel-body-category3" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category4">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category4" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div id="resultPanel-body-category4" class="panel-body">
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default" id="resultPanel-title-color-category5">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a id="resultPanel-title-category5" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+							Category, [4/5]
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div id="resultPanel-body-category5" class="panel-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="resultsFooter" class="panel-footer">
+			<button id="playAgainButton" onclick="rePlayPressed()" type="button" class="btn btn-success pull-right">Play Again</button>
+			<button id="cancelButton" type="button" class="btn btn-danger pull-left">Cancel</button>
+			<script>
+				$("#cancelButton").on('click', function(){
+					window.location.href = 'Category.php';
+				});
+			</script>
+<!--			<button id="newCategoriesButton" type="button" class="btn btn-success pull-right">New Categories</button> -->
+		</div>
+	</div>
+
+	<form id="resultsForm" name="resultsForm" method="post" action="pushResults.php">
+	</form>
+
+	<script>
+  	$('#resultsPanel').hide();
+	</script>
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap/bootstrap.js"></script>
+</body>
 
 </html>

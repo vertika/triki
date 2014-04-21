@@ -1,12 +1,14 @@
 //Individual question and answer
 function QandA(){
 	this.category = "";
-	this.url = "en.wikipedia.org/wiki/";
+	this.url = "http://en.wikipedia.org/wiki/";
 	this.question = "";
 	this.correctAnswer = "";
 	this.incorrect1 = "";
 	this.incorrect2 = "";
 	this.incorrect3 = "";
+	this.answeredCorrectly = 0;
+	this.answered = 0;
 }
 
 //Wiki Traverser
@@ -96,7 +98,7 @@ WikiTraverser.prototype.traverseCategory = function(nextCategory, toPopulate, tr
 //Consider changing to a polling function that checks if the array has returned
 //data;
 WikiTraverser.prototype.populateQuestions = function(toPopulate, trav){
-	console.log(toPopulate);
+	//console.log(toPopulate);
 	var groupsOfFour = [];
 
 	var numAnswers = 0;
@@ -129,7 +131,7 @@ WikiTraverser.prototype.populateQuestions = function(toPopulate, trav){
 },
 
 WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
-	console.log(groupOfFour);
+//	console.log(groupOfFour);
 	var url = 'http://en.wikipedia.org/w/api.php?' +
 	'callback=?' +
 	'&format=json' +
@@ -164,7 +166,38 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 				var div = document.createElement("div");
 				div.innerHTML = html;
 				var text = div.textContent || div.innerText || "";
-				var question = text.replace(item.correctAnswer, "______", "gi");
+
+				//So now text is the questions we're working with
+				var queryWords = item.correctAnswer.split(" ");
+				queryWords.forEach(function(entry){
+					console.log(entry);
+
+					//Go through normal
+					text = text.replace(entry,'_____', "gi");
+
+					//Make first letter uppercase
+					entry = capitaliseFirstLetter(entry);
+					text = text.replace(entry,'_____', "gi");
+
+					//Make first letter lowercase
+					entry = lowercaseFirstLetter(entry);
+					text = text.replace(entry,'_____', "gi");
+
+					//All uppercase
+					entry = entry.toUpperCase();
+					text = text.replace(entry,'_____', "gi");
+
+					//All lowercase
+					entry = entry.toLowerCase();
+					text = text.replace(entry,'_____', "gi");
+				});
+
+
+				var question = text;
+				console.log(question);
+
+
+			//	var question = text.replace(item.correctAnswer, "______", "gi");
 
 				item.question  = question;
 
@@ -191,19 +224,20 @@ WikiTraverser.prototype.generateQandA = function(groupOfFour, trav){
 			}
 		}
 		if(catExists === 0){
-			WikiTraverser.prototype.qAndAs.push(item.category);
-			for(var i = 0; i < WikiTraverser.prototype.qAndAs.length; i++){
-				if(item.category === WikiTraverser.prototype.qAndAs[i][0]){
-					WikiTraverser.prototype.qAndAs[i] = [item];
-				}
-			}
+			WikiTraverser.prototype.qAndAs.push([item]);
 		}
 
-		console.log(WikiTraverser.prototype.qAndAs);
-
-
-		//WikiTraverser.prototype.qAndAs.push(item);
 		WikiTraverser.prototype.numQuestionsGeneratedSoFar++;
 
 	});
+}
+
+function capitaliseFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function lowercaseFirstLetter(string)
+{
+		return string.charAt(0).toLowerCase() + string.slice(1);
 }
