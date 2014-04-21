@@ -41,11 +41,11 @@
 									</tr>
 									<tr>
 										<!-- <td><b>Username:</b></td> -->
-										<td >Username: <input type="text" name="username" id="username" /></td>
+										<td>Username: <input type="text" name="username" id="username" /></td>
 									</tr>
 									<tr>
 										<!-- <td><b>Password:</b></td> -->
-										<td >Password: <input type="password" name="password" id="password" /></td>
+										<td>Password: <input type="password" name="password" id="password" /></td>
 									</tr>
 									<tr>
 										<td>&nbsp;</td>
