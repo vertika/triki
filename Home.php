@@ -43,12 +43,12 @@ end of php braces
 		$user_about_me = $_SESSION['user_about_me'];
 		
 		//User game history variables
-		$query = "SELECT *
-				FROM gamestats
-				WHERE username = 'username';";
-		$result = mysqli_query($db, $query);
-		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-		$_SESSION['']
+		// $query = "SELECT *
+		// 		FROM gamestats
+		// 		WHERE username = 'username';";
+		// $result = mysqli_query($db, $query);
+		// $gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
+		// $_SESSION['']
 
 
 	}
