@@ -4,7 +4,7 @@
   require_once('connection.php');
 
   $loggedin = $_SESSION['loggedin'];
-  if ($loggedin){
+  //if ($loggedin){
     $gamesplayed = $_POST['gamesplayed'];
     $numcorrect = $_POST['numcorrect'];
     $cat1 = $_POST['cat1'];
@@ -34,6 +34,6 @@
     mysqli_close($db);
 
     header ('Location: /Game.php');
-  }
+  //}
 
 ?>
