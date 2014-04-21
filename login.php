@@ -29,8 +29,10 @@
 	}
 	else { // Redirect to home page after successful login.
 		$_SESSION['loggedin'] = 1;
-		$_SESSION['username'] = $username;		
-		// $_SESSION['username'] = $userData['username'];
+		$_SESSION['firstname'] = $userData["firstname"];
+		$_SESSION['lastname'] = $userData["lastname"];
+		$_SESSION['username'] = $userData["username"];
+		$_SESSION['email'] = $userData['email'];
 
 		header('Location: Home.php');
 	}

@@ -12,32 +12,46 @@
     <script type="text/javascript">
     function validateForm()
     {
-    var a=document.forms["reg"]["username"].value;
-    var b=document.forms["reg"]["password1"].value;
-    var c=document.forms["reg"]["password2"].value;
-    var d=document.forms["reg"]["email"].value;
+    var a=document.forms["reg"]["firstname"].value;
+    var b=document.forms["reg"]["lastname"].value;
+    var c=document.forms["reg"]["username"].value;
+    var d=document.forms["reg"]["password1"].value;
+    var e=document.forms["reg"]["password2"].value;
+    var f=document.forms["reg"]["email"].value;
 
-    if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d==""))
+    if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d=="") && (e==null || e=="") && (f==null || f==""))
       {
       document.getElementById('allfields-error').innerHTML="All fields must be filled out.";
       return false;
       }
     if (a==null || a=="")
       {
-      document.getElementById('username-error').innerHTML="Please enter a username.";
+      document.getElementById('firstname-error').innerHTML="Please enter your first name.";
       return false;
       }
     if (b==null || b=="")
       {
-      document.getElementById('password1-error').innerHTML="Please enter a password.";
+      document.getElementById('lastname-error').innerHTML="Please enter your last name.";
       return false;
       }
     if (c==null || c=="")
       {
-      document.getElementById('password2-error').innerHTML="Please re-enter your password.";
+      document.getElementById('username-error').innerHTML="Please enter a username.";
       return false;
       }
     if (d==null || d=="")
+      {
+      document.getElementById('password1-error').innerHTML="Please enter a password.";
+      return false;
+      }
+    }
+    if (e==null || e=="")
+      {
+      document.getElementById('password2-error').innerHTML="Please re-enter your password.";
+      return false;
+      }
+    }
+    if (f==null || f=="")
       {
       document.getElementById('email-error').innerHTML="Please enter a valid email address.";
       return false;
@@ -54,6 +68,22 @@
             <hr>
           <form class="form-horizontal" name="reg" role="form" onsubmit="return validateForm()" action="register_exec.php" method="post">
            
+           <div class="form-group">
+           <label for="firstname" class="col-md-3 control-label">First Name</label>
+           <div class="col-md-9">
+             <input type="text" name="firstname" maxlength="20" class="form-control" id="firstname" placeholder="First">
+             <div id="firstname-error"> </div>
+           </div>
+           </div>
+
+           <div class="form-group">
+           <label for="lastname" class="col-md-3 control-label">Last Name</label>
+           <div class="col-md-9">
+             <input type="text" name="lastname" maxlength="20" class="form-control" id="lastname" placeholder="Last">
+             <div id="lastname-error"> </div>
+           </div>
+           </div>
+
            <div class="form-group">
            <label for="username" class="col-md-3 control-label">Username</label>
            <div class="col-md-9">

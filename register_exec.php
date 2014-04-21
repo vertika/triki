@@ -1,6 +1,8 @@
 <?php
 	require_once('connection.php');
 
+	$firstname = $_POST['firstname'];
+	$lastname = $_POST['lastname'];
 	$username = $_POST['username'];
 	$password1 = $_POST['password1'];
 	$password2 = $_POST['password2'];
@@ -26,13 +28,12 @@
 	//sanitize username
 	$username = mysqli_real_escape_string($db, $username);
 	 
-	$query = "INSERT INTO members ( username, email, password, salt ) VALUES 
-			( '$username', '$email', '$password', '$salt' ); ";
+	$query = "INSERT INTO members ( firstname, lastname, username, password, email, salt ) VALUES 
+			( '$firstname', '$lastname', '$username', '$password', '$email', $salt' ); ";
 	$query .= "INSERT INTO gamestats ( username ) VALUES 
 			( '$username');";
 	 
 	//remove $conn variable in order to connect to our database using OOP.
-	// $mysqli_multi_query($query);
 	mysqli_multi_query($db, $query);
 
 	mysqli_close($db);

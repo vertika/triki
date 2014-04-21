@@ -2,12 +2,12 @@
 
 	session_start();
 	$_SESSION['loggedin'] = 0;
-	require "fb-sdk/facebook.php";
-	//include "connection.php";
-	$facebook = new Facebook(array(
-		'appId'		=> '578241305624655',
-		'secret' 	=> '163708fdec7503fe860750419670152a',
-		));
+	// require "fb-sdk/facebook.php";
+	// //include "connection.php";
+	// $facebook = new Facebook(array(
+	// 	'appId'		=> '578241305624655',
+	// 	'secret' 	=> '163708fdec7503fe860750419670152a',
+	// 	));
 ?>
 
 <!DOCTYPE html>
@@ -57,35 +57,35 @@
 							<input type="submit" value="Sign In" class="btn btn-success">
 							<!-- <button type="button" class="btn btn-success" input type="submit" name="button" id="button" value="Submit">Sign in</button> -->
 						</form>
-						<h4 align="center">OR</h4>
+						<!-- <h4 align="center">OR</h4>
 								<?php
-									$user = $facebook->getUser();
-									//Check if use is logged in to FB
-									if ($user) {
-										//echo '$UserID: ', $user, '</p>';
-										$user_graph = $facebook->api('/me');
-										//echo '<pre>', print_r($user_graph),'</pre>';
+									// $user = $facebook->getUser();
+									// //Check if use is logged in to FB
+									// if ($user) {
+									// 	//echo '$UserID: ', $user, '</p>';
+									// 	$user_graph = $facebook->api('/me');
+									// 	//echo '<pre>', print_r($user_graph),'</pre>';
 
-										//echo '<pre>', print_r($user_graph['first_name']),'</pre>';
-										//$_SESSION['uid'] = $user_graph['id'];
-										$_SESSION['firstname'] = $user_graph['first_name'];
-										$_SESSION['lastname'] = $user_graph['last_name'];
-										$_SESSION['email'] = $user_graph['email'];
-										$_SESSION['user_about_me'] = $user_graph['user_about_me'];
-										$_SESSION['username'] = $user_graph['username'];
-										$_SESSION['loggedin'] = 1;
-										header ('Location: Home.php');
-										//echo '<a href="logout.php">Logout</a>';
-									}
-									else {
-										$_SESSION['loggedin'] = 0;
-										$loginUrl = $facebook->getLoginUrl(array(
-											'scope' => 'user_about_me, email, user_photos',
-											'redirect_uri' => 'http://www.rzchou.com/Landing.php'
-											));
-										echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
-									}
-								?>
+									// 	//echo '<pre>', print_r($user_graph['first_name']),'</pre>';
+									// 	//$_SESSION['uid'] = $user_graph['id'];
+									// 	$_SESSION['firstname'] = $user_graph['first_name'];
+									// 	$_SESSION['lastname'] = $user_graph['last_name'];
+									// 	$_SESSION['email'] = $user_graph['email'];
+									// 	$_SESSION['user_about_me'] = $user_graph['user_about_me'];
+									// 	$_SESSION['username'] = $user_graph['username'];
+									// 	$_SESSION['loggedin'] = 1;
+									// 	header ('Location: Home.php');
+									// 	//echo '<a href="logout.php">Logout</a>';
+									// }
+									// else {
+									// 	$_SESSION['loggedin'] = 0;
+									// 	$loginUrl = $facebook->getLoginUrl(array(
+									// 		'scope' => 'user_about_me, email, user_photos',
+									// 		'redirect_uri' => 'http://www.rzchou.com/Landing.php'
+									// 		));
+									// 	echo '<div class="fbimage"><a href="' . $loginUrl . '" target="_top"><img src="img/active_404.png"></a></div>';
+									// }
+								?> -->
 								
 					
 					</div>
