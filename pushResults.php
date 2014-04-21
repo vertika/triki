@@ -2,6 +2,7 @@
     session_start();
 
     $username = strval($_GET['q']);
+    echo "Username: " . $username;
     $numcorrect = intval($_GET['r']);
     $cat1 = strtolower($_GET['cat1']);
     $cat2 = strtolower($_GET['cat2']);
