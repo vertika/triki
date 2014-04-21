@@ -78,7 +78,7 @@
 						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#whatIs"></button>
 					</h3>
 					<div id="whatIs" class="well collapse">
-						<p style="font-size:18px;"> Triki is an educational online trivia game that uses <i>Wikipedia</i> as the source of its questions. Users are given the opportunity to be quized on selected categories and learn more about those questions answered incorrectly.</p>
+						<p style="font-size:18px;"> Triki is an educational online trivia game that uses <i>Wikipedia</i> as the source of its questions. Users are given the opportunity to be quizzed on selected categories and learn more about those questions answered incorrectly.</p>
 					</div>
 
 					<h3>How to Play?
