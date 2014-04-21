@@ -20,6 +20,8 @@
 	}
 	 
 	$userData = mysqli_fetch_array($result, MYSQL_ASSOC);
+			printf("%s\n" , $userData['username']);
+
 	$hash = hash('sha256', $userData['salt'] . hash('sha256', $password) );
 	 
 	if ($hash != $userData['password']) // Incorrect password. So, redirect to login_form again.
