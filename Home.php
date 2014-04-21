@@ -96,6 +96,24 @@
     	</script>
 
 	</head>
+<<<<<<< HEAD
+	<body>
+		<div class="container" align="center">
+			<a href="Home.html"><img src="trikiIcon.jpg"
+			title="trikiIcon" height="30%" width="30%"></a>
+		</div>
+		
+		<div class="navbar">
+			<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><a href="Home.php"><b>Home</b></a></li>
+					<li><a href="About.php"><b>About</b></a></li>
+					<li><a href="Category.php"><b>Play</b></a></li>
+					<li><?php echo <a href="logout.php">Logout</a>;?></li>
+				</ul>
+			</div>
+=======
 	<body id="gamePageBody">
 	<!-- navbar -->
 	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
@@ -111,6 +129,7 @@
 				<a id="brandNav" class="navbar-brand" href="#Home">
 					<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
 				</a>
+>>>>>>> 104f4079f560d251dc680f24eb6fea8821a6508e
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
