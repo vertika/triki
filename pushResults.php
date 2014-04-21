@@ -35,12 +35,12 @@
     mysqli_multi_query($db, $query);
     mysqli_close($db);
 
-    // echo "
-    //     <script type=\"text/javascript\">
-    //         history.go(-1);
-    //     </script>
-    // ";
-   // }
+    echo "
+        <script type=\"text/javascript\">
+            history.go(-1);
+        </script>
+    ";
+   
    // else {
    //      header ('Location: /');
    // }
