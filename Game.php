@@ -1,4 +1,7 @@
-
+<?php
+	session_start();
+	$username = $_SESSION['username'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +23,13 @@
 	<script src="js/gamePage.js"></script>
 
 </head>
+
 <body id="gamePageBody">
+
+	<script>
+		var varname = '<?php echo $username; ?>';
+		console.log(varname);
+	</script>
 
 	<!-- navbar -->
 	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">

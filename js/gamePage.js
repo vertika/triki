@@ -215,19 +215,21 @@ function giveUpPressed(){
   //Stop time
   clearInterval(gameTimer);
 
+  //Push To DB
+  pushToDB();
 
-  //push results
-
+  //Format Panel
   formatResultPanel();
 
   //Hide
   $("#gamePanel").hide();
 
-
+  //Display Panel
   $("#navBar").show();
   $("#resultsPanel").show();
+}
 
-
+function pushToDB(){
 
 }
 
@@ -238,6 +240,7 @@ function formatResultPanel(){
   var resultPanelTitle = "Congrats, you got " + numCorrect + "/" + totalQuestions + " correct!";
   $("#resultsPanelHeader").text(resultPanelTitle);
 
+  //For Panel
   generateResults();
 
 }
