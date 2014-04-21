@@ -143,7 +143,7 @@
 	$("#logoutNav").on('click', function(){
 		window.location.href = 'logout.php';
 	});
-</script> 
+</script>
 
 
 		<!-- Start code here: -->

@@ -150,8 +150,8 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a id="homeNav" href="#Home">Home</a></li>
-						<li class="active"><a id="aboutNav" href="#About">About</a></li>
-						<li><a id="playNav" href="#Play">Play</a></li>
+						<li><a id="aboutNav" href="#About">About</a></li>
+						<li class="active"><a id="playNav" href="#Play">Play</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>

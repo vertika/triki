@@ -1,6 +1,6 @@
 <?php
   session_start();
-
+/*
   require_once('connection.php');
 
   $loggedin = $_SESSION['loggedin'];
@@ -43,5 +43,9 @@
    // }
    // else {
    //      header ('Location: /');
-   // }
+   // } */
+
+   $redirectUrl = $_POST['redirectlink'];
+   header ('Location: /triki/'.$redirectUrl);
+
 ?>
