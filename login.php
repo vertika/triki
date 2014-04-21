@@ -3,14 +3,14 @@
 
 	require_once('connection.php');
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$userName = $_POST['username'];
+	$passWord = $_POST['password'];
 	// $_SESSION['username'] = $username;
-	$username = mysqli_real_escape_string($db, $username);
+	$userName = mysqli_real_escape_string($db, $userName);
 	 	 
 	$query = "SELECT password, salt
 	        FROM members
-	        WHERE username = '$username';";
+	        WHERE username = '$userName';";
 	 
 	$result = mysqli_query($db, $query);
 	 
