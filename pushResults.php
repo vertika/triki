@@ -29,17 +29,17 @@
     // $query .= "UPDATE gamestats SET $cat4 = $cat4 + 1 WHERE username = '$username'; ";
     // $query .= "UPDATE gamestats SET $cat5 = $cat5 + 1 WHERE username = '$username'; ";
     // // $query .= "UPDATE gamestats SET $cat6 = $cat6 + 1 WHERE username = '$username';";
-    // echo $query;
+    echo $query;
 
 
     mysqli_multi_query($db, $query);
     mysqli_close($db);
 
-    echo "
-        <script type=\"text/javascript\">
-            history.go(-1);
-        </script>
-    ";
+    // echo "
+    //     <script type=\"text/javascript\">
+    //         history.go(-1);
+    //     </script>
+    // ";
    // }
    // else {
    //      header ('Location: /');
