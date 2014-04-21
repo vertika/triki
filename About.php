@@ -26,7 +26,7 @@
 					<li><a href="Home.php">Home</a></li>
 					<li class="active"><a href="About.php">About</a></li>
 					<li><a href="Category.php">Play!</a></li>
-					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					<li><?php echo '<a href="logout.php">Logout</a>'</li>
 				</ul>
 			</div>
 			</div>
