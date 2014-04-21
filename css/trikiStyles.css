@@ -30,8 +30,21 @@
 {
   height: 650px;
 }
-/*----- Categories Page -----*/
+/*----- About Page -----*/
+#aboutPanel
+{
+  margin-top: 50px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  min-width: 910px;
+}
 
+#aboutPanelBody
+{
+  height: 700px;
+}
 
 
 /*----- Game Page ----- */

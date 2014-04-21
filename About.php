@@ -15,7 +15,7 @@
 		<script src="js/jquery-2.1.0.min.js"></script>
 
 	</head>
-	<body>
+	<body id="gamePageBody">
 		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -64,56 +64,51 @@
 </script>
 
 		<!-- Start code here: -->
+		<div class="panel panel-default" id="aboutPanel" >
+			<div class="panel-body" id="aboutPanelBody">
+					<h3> What is Triki? 
+						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#whatIs"></button>
+					</h3>
+					<div id="whatIs" class="well collapse">
+						<p style="font-size:18px;"> An educational online trivia game that uses <i>Wikipedia</i> as the source for questions.</p>
+					</div>
 
-		<div class="container">
-		<h2>
-		What is Triki?
-		</h2>
-		<div class="container">
-			<div class="jumbotron">
-				<p style="font-size:20px;">Triki is an educational online trivia game and it is different from other trivia games as it utilizes
-				<i>Wikipedia</i> as a source to generate questions for players.</p>
+					<h3>How to Play?
+						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button>
+					</h3>
+					<div id="intro1" class="well collapse">
+						<p style="font-size:18px;">Log in through Facebook or as a registered user. Click on the <i>Play</i>
+						tab to choose six categories that you want your questions to be on. Click <i>Start Game!</i> and experience 5 minutes of intense concentration to clear the game board. Green indicates a correct answer and red indicates an incorrect answer. After 5 minutes have passed or you clicked <i>Give up.. man</i>, view your results on the <i>Results</i> page and find <i>Wikipedia</i> links related to the questions you answered incorrectly.</p>
+					</div>
+
+					<h3>Makers
+						<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro2"></button>
+					</h3>
+					<div id="intro2" class="well collapse">
+			  				<div class="row">
+			   					<div class="col-md-3">
+			    					<img src="img/mark.jpg" height="70%" width="70%" class="img-rounded" align="center">
+			    					<h5>Mark Mevorah</h5>
+			    				</div>
+			   					<div class="col-md-3">
+			    					<img src="img/vertika.jpg" height="70%" width="70%" class="img-rounded" align="center">
+			    					<h5>Vertika Srivastava</h5>
+			    				</div>
+			    				<div class="col-md-3">
+			    					<img src="img/roy.jpg" height="70%" width="70%" class="img-rounded" align="center">
+			    					<h5>Roy Chou</h5>
+			    				</div>
+			    				<div class="col-md-3">
+			    					<img src="img/pauline.jpg" height="70%" width="70%" class="img-rounded" align="center">
+			    					<h5>Pauline Low</h5>
+			    				</div>
+							</div>
+					</div>
 			</div>
 		</div>
-		<h2>How to Play?
-			<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro1"></button>
-		</h2>
-		<div id="intro1" class="collapse">
-			<div class="container">
-				<div class="jumbotron">
-					<p style="font-size:20px;">You can play Triki by logging in with either Facebook or as a registered user. After log in, you can proceed
-					by clicking on the <i>Play</i>
-					tab on top of the page. Before starting the game, you will need to choose the categories that you want to play.
-					When you have successfully picked the categories, you can proceed to the game by clicking on <i>Start Game!</i>
-					You will be given 5 minutes to answer as many questions as you can correctly. If your answer is correct, you will
-					see a green mark on the question and if your answer is incorrect, you will see a red mark instead. The game ends
-					when the timer goes off. After the game has ended, you will see the <i>Results</i> page whereby you can see the
-					links for the questions that are incorrect.</p>
-				</div>
-			</div>
-		</div>
 
 
-		<h2>Learn more about us
-			<button class="btn btn-primary collapsed" data-toggle="collapse" data-target="#intro2"></button>
-		</h2>
-		<div id="intro2" class="collapse">
-  				<div class="row">
-   					<div class="col-md-3"><h4 align="center">Mark</h4></div>
-   					<div class="col-md-3"><h4 align="center">Vertika</h4></div>
-    				<div class="col-md-3"><h4 align="center">Roy</h4></div>
 
-    				<div class="col-md-3">
-    				<img src="img/pauline.jpg" height="50%" width="50%" class="img-rounded" align="center">
-    				<h4><i>Pauline Low</i></h4>
-    				<p><i>"Triki wiki is the game to play!"</i></p>
-    				</div>
-				</div>
-		</div>
-
-		</div>
-
-		<p></p>
 
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
