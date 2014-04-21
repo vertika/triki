@@ -5,10 +5,8 @@
 		$username = $_SESSION['username'];
 	}
 	else {
-		echo "not logged in";
 	}
 
-	$query = "UPDATE gamestats SET gamesplayed = gamesplayed + 1  WHERE username = '$username'";
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +31,6 @@
 </head>
 
 <body id="gamePageBody">
-
-	<script>
-		var varname = '<?php echo $username; ?>';
-	</script>
 
 	<!-- navbar -->
 	<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
@@ -283,6 +277,10 @@
 <!--			<button id="newCategoriesButton" type="button" class="btn btn-success pull-right">New Categories</button> -->
 		</div>
 	</div>
+
+	<form id="resultsForm" name="resultsForm" method="post" action="pushResults.php">
+
+	</form>
 
 	<script>
   	$('#resultsPanel').hide();

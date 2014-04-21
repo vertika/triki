@@ -213,13 +213,11 @@ function selectedOption(selection){
 /* ----- after -----*/
 
 function giveUpPressed(){
-  console.log("username:" + varname);
-
   //Stop time
   clearInterval(gameTimer);
 
   //Push To DB
-  pushToDB();
+  prepareToPush();
 
   //Format Panel
   formatResultPanel();
@@ -232,10 +230,39 @@ function giveUpPressed(){
   $("#resultsPanel").show();
 }
 
-function pushToDB(){
+function prepareToPush(){
+  //Create form things
 
+  var gamesplayed = prepareInput("gamesplayed", 1);
+  $("#resultsForm").append(gamesplayed);
+
+  var numcorrect = prepareInput("numcorrect", numCorrect);
+  $("#resultsForm").append(numcorrect);
+
+  var submitCat1 = prepareInput("cat1", cat1);
+  $("#resultsForm").append(submitCat1);
+
+  var submitCat2 = prepareInput("cat2", cat2);
+  $("#resultsForm").append(submitCat2);
+
+  var submitCat3 = prepareInput("cat3", cat3);
+  $("#resultsForm").append(submitCat3);
+
+  var submitCat4 = prepareInput("cat4", cat4);
+  $("#resultsForm").append(submitCat4);
+
+  var submitCat5 = prepareInput("cat5", cat5);
+  $("#resultsForm").append(submitCat5);
+
+  var submitCat6 = prepareInput("cat6", cat6);
+  $("#resultsForm").append(submitCat6);
+
+  $("#resultsForm").submit();
 }
 
+function prepareInput(name, value){
+  return "<input type=\"hidden\" name=\""+ name + "\" value=\"" + value + "\">";
+}
 
 function formatResultPanel(){
 
