@@ -217,10 +217,10 @@ function giveUpPressed(){
   clearInterval(gameTimer);
 
   //Push To DB
-  prepareToPush();
+  prepareToPush(usernamePHP, numCorrect);
 
   //Format PanelnumCorrect
-  formatResultPanel(usernamePHP, numCorrect);
+  formatResultPanel();
 
   //Hide
   $("#gamePanel").hide();
