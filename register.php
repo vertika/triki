@@ -1,3 +1,10 @@
+<?php
+  $loggedin = $_SESSION['loggedin'];
+  if ($loggedin){
+    header ('Location: Home.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
