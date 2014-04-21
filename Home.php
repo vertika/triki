@@ -84,11 +84,11 @@ end of php braces
       	function drawChart() {
         var data = google.visualization.arrayToDataTable([
           	['Categories Played', 'Number of Times Played'],
-          	['Agriculture‎', ],
-			['Arts'],
-			['Business‎'] ,
-			['Chronology‎'],
-			['Culture‎'],
+          	['Agriculture‎', <?=$gameData["agriculture"]?>],
+			['Arts', <?=$gameData["arts"]?>],
+			['Business‎', <?=$gameData["business‎"]?>] ,
+			['Chronology‎', <?=$gameData["chronology"]?>],
+			['Culture‎', <?=$gameData["culture"]?>],
 			['Education‎',] ,
 			['Environment‎',] 
 			['Entertainment',],
