@@ -1,15 +1,15 @@
 <?php
     session_start();
 
-    $username = strval($_GET['q']);
-    $numcorrect = intval($_GET['r']);
-    $cat1 = strtolower($_GET['cat1']);
+    $username = mysqli_real_escape_string($_GET['q']);
+    $numcorrect = mysqli_real_escape_string($_GET['r']);
+    $cat1 = mysqli_real_escape_string($_GET['cat1']);
  echo "Username: " . $username . " number correct: " .$numcorrect. " cat1 is: " .$cat1;
-    $cat2 = strtolower($_GET['cat2']);
-    $cat3 = strtolower($_GET['cat3']);
-    $cat4 = strtolower($_GET['cat4']);
-    $cat5 = strtolower($_GET['cat5']);
-    $cat6 = strtolower($_GET['cat6']);
+    $cat2 = mysqli_real_escape_string($_GET['cat2']);
+    $cat3 = mysqli_real_escape_string($_GET['cat3']);
+    $cat4 = mysqli_real_escape_string($_GET['cat4']);
+    $cat5 = mysqli_real_escape_string($_GET['cat5']);
+    $cat6 = mysqli_real_escape_string($_GET['cat6']);
 
     require_once('connection.php');
 

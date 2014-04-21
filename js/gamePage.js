@@ -251,7 +251,7 @@ xmlhttp.onreadystatechange=function()
       document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","pushResults.php?q="+username+"r="+numcorrect+"cat1="+cat1+"cat2="+cat2+"cat3="+cat3+"cat4="+cat4+"cat5="+cat5+"cat6="+cat6,true);
+xmlhttp.open("GET","pushResults.php?q="+username+"&r="+numcorrect+"&cat1="+cat1+"&cat2="+cat2+"&cat3="+cat3+"&cat4="+cat4+"&cat5="+cat5+"&cat6="+cat6,true);
 xmlhttp.send();
   //Create form things
   // var username = prepareInput("username", usernamePHP);
