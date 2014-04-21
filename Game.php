@@ -71,19 +71,19 @@
 	<p></p>
 <script>
 	$("#brandNav").on('click', function(){
-		prepareToPush('Home.php');
+		window.location.href = 'Home.php';
 	});
 	$("#homeNav").on('click', function(){
-		prepareToPush('Home.php');
+		window.location.href = 'Home.php';
 	});
 	$("#aboutNav").on('click', function(){
-		prepareToPush('About.php');
+		window.location.href = 'About.php';
 	});
 	$("#playNav").on('click', function(){
-		prepareToPush('Category.php');
+		window.location.href = 'Category.php';
 	});
 	$("#logoutNav").on('click', function(){
-		prepareToPush('logout.php');
+		window.location.href = 'logout.php';
 	});
 </script>
 
@@ -302,7 +302,7 @@
 			<button id="cancelButton" type="button" class="btn btn-danger pull-left">Cancel</button>
 			<script>
 				$("#cancelButton").on('click', function(){
-					prepareToPush('Category.php');
+					window.location.href = 'Category.php';
 				});
 			</script>
 <!--			<button id="newCategoriesButton" type="button" class="btn btn-success pull-right">New Categories</button> -->

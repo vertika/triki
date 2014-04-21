@@ -217,7 +217,7 @@ function giveUpPressed(){
   clearInterval(gameTimer);
 
   //Push To DB
-//  prepareToPush();
+  prepareToPush();
 
   //Format Panel
   formatResultPanel();
@@ -230,11 +230,8 @@ function giveUpPressed(){
   $("#resultsPanel").show();
 }
 
-function prepareToPush(redirectLink){
+function prepareToPush(){
   //Create form things
-  var redirectLinkF = prepareInput("redirectlink", redirectLink);
-  $("#resultsForm").append(redirectLinkF);
-
   var username = prepareInput("username", usernamePHP);
   $("#resultsForm").append(username);
 
@@ -324,11 +321,7 @@ function generateResults(){
 }
 
 function rePlayPressed(){
-
-  //Need to get url to pass
-  //prepareToPush();
-
-   location.reload();
+  location.reload();
 }
 
 //Whole business with opening up dialog
