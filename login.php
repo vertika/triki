@@ -34,6 +34,7 @@
 		$_SESSION['username'] = $userData["username"];
 		$_SESSION['email'] = $userData["email"];
 		printf("%s\n" , $userData['username']);
+		printf("%s\n" , $userData["username"]);
 		echo "Username1: " . $userData['username'];
 		echo "Username2: " . $username;
 		//header('Location: Home.php');
