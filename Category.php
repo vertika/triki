@@ -7,314 +7,251 @@
 		<meta  name="viewport" content="width=device-width,initial-scale=1.0">
 
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css">
 
 		<!-- JQuery -->
 		<script src="js/jquery-2.1.0.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
- 
+		<script src="js/jquery-ui-1.10.4.custom.js"></script>
 
-		<!-- Vertika's stuff -->
+		<!-- Triki -->
+		<link rel="stylesheet" type="text/css" href="css/trikiStyles.css" media="screen"/>
 		<link type="text/css" rel="stylesheet" href="css/Category.css"/>
+		<script src="js/Category.js"></script>
 
-		<!-- Drag and Drop -->
-		<!-- <title>jQuery UI Sortable - Display as grid</title>
-	  	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-	  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	  	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	  	<link rel="stylesheet" href="/resources/demos/style.css">
 
-		<style>
-			  #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
-			  #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
-		  </style>
+		<script>
+			var occupiedBins = 0;
+			var chosenCats = ['none', 'none','none','none','none','none'];
+			var cats = ['Agriculture', 'Arts', 'Business', 'Chronology', 'Culture',
+									'Education', 'Environment', 'Geography', 'Health', 'History',
+									'Humanities', 'Humans', 'Language', 'Law', 'Life',
+									'Mathematics', 'Medicine', 'Nature', 'People', 'Politics',
+									'Science', 'Society', 'Sports', 'Technology', 'Musicians',
+									'Television', 'Movies', 'Psychology', 'Fashion', 'Countries',
+									'Animals', 'Astrology','Food', 'Dance', 'Physics', 'Books'];
 
-		<script type="text/javascript">
-			$(function() {
-		    	$( "#sortable" ).sortable();
-		    	$( "#sortable" ).disableSelection();
-		  	});
-		</script> -->
+			$( init );
+
+			function init()
+			{
+				// reset
+				occupiedBins = 0;
+				$('#categoryBox').html( '' );
+  				$('#binBox').html( '' );
+
+  				var myCatBox = $('#categoryBox').droppable({
+					accept: '#categoryBox div',
+					hoverClass: 'hovered',
+					drop: function(ev,ui){
+						console.log('dropping into categoryBox');
+
+						var fromBinNum = ui.draggable.data('inBin');
+
+						if(fromBinNum == 7)
+						{
+							// do nothing because already in catBox
+						}
+						else
+						{
+							ui.draggable.removeClass( 'correct' );
+							var fromBin = '#bin' + ui.draggable.data('inBin');
+							$(fromBin).droppable('enable');
+
+							occupiedBins--;
+							ui.draggable.data('inBin', 7);
+						}
+
+
+
+						console.log(occupiedBins);
+					}
+				});
+
+				$('#categoryBox').sortable();
+
+				// create clump categories
+				for ( var i=0; i<36; i++ ) {
+					$('<div class="well ui-draggable">' + cats[i] + '</div>').data('category', cats[i]).data('inBin',7).attr('id', 'cat'+i).appendTo('#categoryBox').draggable( {
+				      containment: 'window',
+				      stack: '#categoryBox div',
+				      snap: '#categoryBox',
+				      cursor: 'move',
+				      revert: true,
+				    } );
+				}
+
+				// create the bin slots
+				for ( var i=0; i<6; i++ ) {
+				    $('<div class="well ui-droppable">Drop category here </div>').data( 'number', i ).data('occupied',0).attr('id', 'bin'+i).appendTo( '#binBox' ).droppable( {
+				      accept: '#categoryBox div',
+				      hoverClass: 'hovered',
+				      drop: handleCatDrop
+				    } );
+			 	}
+			}
+
+			function handleCatDrop( event, ui )
+			{
+
+				console.log('droppping into bins');
+
+				var binNum = $(this).data('number');
+				var binOccupied = $(this).data('occupied');
+				var catName = ui.draggable.data('category');
+
+				// occupying a new bin
+				if(ui.draggable.data('inBin') == 7)
+				{
+					occupiedBins++;
+					ui.draggable.addClass( 'correct' );
+				}
+				// coming from old bin
+				else
+				{
+					//reenabled
+					var fromBin = '#bin' + ui.draggable.data('inBin');
+					$(fromBin).droppable('enable');
+				}
+
+				// occupy new bin
+				//$(this).data( 'occupied', 1);
+
+				// update to new bin
+				ui.draggable.data('inBin',binNum);
+				chosenCats[binNum] = catName;
+
+				console.log(occupiedBins);
+
+
+				$(this).droppable( 'disable' );
+				ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+				ui.draggable.draggable( 'option', 'revert', false );
+
+
+			}
+
+		</script>
+
 
 	</head>
-	
 
+	<body  id="pageBody" style="cursor: default;">
+		<nav id= "navBar" class="navbar navbar-default" data-toggle="collapse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="brandNav" class="navbar-brand" href="#Home">
+						<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
+					</a>
+				</div>
 
-	<body>
-		<div class="container" align="center">
-			<a href="Home.html"><img src="trikiIcon.jpg"
-			title="trikiIcon" height="30%" width="30%"></a>
-		</div>
-
-		<div class="navbar">
-			<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li><a href="Home.php">Home</a></li>
-					<li><a href="About.html">About</a></li>
-					<li><a href="Rules.html">Rules</a></li>
-					<li><a href="Challenges.html">Challenges</a></li>
-					<li class="active"><a href="Category.html">Play!</a></li>
-				</ul>
-			</div>
-			</div>
-		</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a id="homeNav" href="#Home">Home</a></li>
+						<li class="active"><a id="aboutNav" href="#About">About</a></li>
+						<li><a id="playNav" href="#Play">Play</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 		<p></p>
+<script>
+		$("#brandNav").on('click', function(){
+			window.location.href = 'Home.php';
+		});
+		$("#homeNav").on('click', function(){
+			window.location.href = 'Home.php';
+		});
+		$("#aboutNav").on('click', function(){
+			window.location.href = 'About.php';
+		});
+		$("#playNav").on('click', function(){
+			window.location.href = 'Category.php';
+		});
+		$("#logoutNav").on('click', function(){
+			window.location.href = 'logout.php';
+		});
+</script>
 
 
-		<!--<ul id="sortable">
-		  <li class="ui-state-default">1</li>
-		  <li class="ui-state-default">2</li>
-		  <li class="ui-state-default">3</li>
-		  <li class="ui-state-default">4</li>
-		  <li class="ui-state-default">5</li>
-		  <li class="ui-state-default">6</li>
-		  <li class="ui-state-default">7</li>
-		  <li class="ui-state-default">8</li>
-		  <li class="ui-state-default">9</li>
-		  <li class="ui-state-default">10</li>
-		  <li class="ui-state-default">11</li>
-		  <li class="ui-state-default">12</li>
-		</ul> -->
+		<div id="panel" class="panel panel-default">
 
-		<h1 align="center" style="height:50px"> Choose your categories </h1>
+			<div id="panelHeading" class="panel-heading">Choose Your Categories </div>
+			<div class="panel-body">
+				<table align="center" id="bigTable">
+					<tr>
+						<td>
+							<div class="well ui-droppable" id="categoryBox"></div>
+						</td>
 
-		<table align="center">
-			<tr>	
-				<td>
-					<div class="well" id="categoryBox">
-						<table>
-							<tr>
-								<td>
-									<button class="btn" id="cat0">Category0</button>
-								</td>
-								<td>
-									<button class="btn" id="cat1">Category1</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat2">Category2</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat3">Category3
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat4">Category4</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat5">Category5</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat6">Category6 </button> 
-								</td>
-								<td>
-									<button class="btn" id="cat7">Category7</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat8">Category8</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat9">Category9
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat10">Category10</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat11">Category11</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat12">Category12
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat13">Category13</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat14">Category14</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat15">Category15
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat7">Category7</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat16">Category16</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat17">Category17
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat18">Category18</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat19">Category19</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat20">Category20
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat21">Category21</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat22">Category22</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat23">Category23
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat24">Category24</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat25">Category25</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat26">Category26
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat27">Category27</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat28">Category28</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat29">Category29
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat30">Category30</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat31">Category31</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat32">Category32
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat33">Category33</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat34">Category34</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat35">Category35
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat36">Category36</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat37">Category37</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat38">Category38
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat39">Category39</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat40">Category41</button> 
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="btn" id="cat41">Category41
-									</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat42">Category42</button> 
-								</td>
-								<td>
-									<button class="btn" id="cat43">Category43</button> 
-								</td>
-							</tr>
-						</table>
-					</div>
-				</td>
-				<td>
-					<div class="well" id="bin0"></div>
-					<div class="well" id="bin1"></div>
-					<div class="well" id="bin2"></div>
-					<div class="well" id="bin3"></div>
-					<div class="well" id="bin4"></div>
-					<div class="well" id="bin5"></div>
-							
-					<div style="height: 300px" align="center">
-						<button class="btn .btn-large btn-success" id="playButton">Start game!
-						</button>
-					</div>
-				</td>
-			</tr>
-		</table>
-		
-		
+						<td>
+							<div id="binBox" align="center"></div>
+
+							<button class="btn .btn-large btn-success" id="playButton" align="center">Start game!</button>
+
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
 	  	<script>
 	  		$('#playButton').click(function(){
-	
-	
+	  				if(occupiedBins != 6)
+	  				{
+	  					alert("Must choose 6 categories before starting game.");
+	  				}
+	  				else
+	  				{
+
+	  					for(var i = 0; i < 6; i++)
+	  					{
+	  						console.log(chosenCats[i] + '');
+	  					}
+
+	  					// categories contained in array chosenCats (from chosenCats[0] to chosenCats[5])
+	  					window.location.href ='Game.php?Category1=' + chosenCats[0] +
+	  					'&Category2=' + chosenCats[1] +
+	  					'&Category3=' + chosenCats[2] +
+
+	  					'&Category4=' + chosenCats[3] +
+
+	  					'&Category5=' + chosenCats[4] +
+
+	  					'&Category6=' + chosenCats[5]
+	  					;
+	  				}
 					/*
 					The categories in the link are called query strings.
 					The hardcoded strings should be replaced by user selections but in the
 					same format as shown.
 					*/
-	
+
 					/*
 					Also something to keep in mind: putting %20 anywhere there is a space.
 					May have to write a separate function for this.
 					*/
-					
-	    		window.location.href ='Game.html?Category1=History&'+
-																					'Category2=Physics&'+
-																					'Category3=Music&'+
-																					'Category4=Health&'+
-																					'Category5=Life&'+
-																					'Category6=Culture';
+
+
 	      });
 	    </script>
 
 
 
 
-		<!-- End code here! -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+
 	</body>
 
 </html>

@@ -50,7 +50,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="Home.php">
+				<a id="brandNav" class="navbar-brand" href="#Home">
 					<img src="img/navbarlogo.png" height="110%" align="middle" alt="Triki">
 				</a>
 			</div>
@@ -58,16 +58,34 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="Home.php">Home</a></li>
-					<li><a href="About.php">About</a></li>
-					<li class="active"><a href="Category.php">Play</a></li>
+					<li><a id="homeNav" href="#Home">Home</a></li>
+					<li><a id="aboutNav" href="#About">About</a></li>
+					<li class="active"><a id="playNav" href="#Play">Play</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><?php echo '<a href="logout.php">Logout</a>';?></li>
+					<li><?php echo '<a id="logoutNav" href="#Logout">Logout</a>';?></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
+	<p></p>
+<script>
+	$("#brandNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#homeNav").on('click', function(){
+		window.location.href = 'Home.php';
+	});
+	$("#aboutNav").on('click', function(){
+		window.location.href = 'About.php';
+	});
+	$("#playNav").on('click', function(){
+		window.location.href = 'Category.php';
+	});
+	$("#logoutNav").on('click', function(){
+		window.location.href = 'logout.php';
+	});
+</script>
 
 	<script>
 		$('#navBar').hide();
