@@ -47,7 +47,8 @@ end of php braces
 				WHERE username = '$username';";
 		$result = mysqli_query($db, $query);
 		$gameData = mysqli_fetch_array($result, MYSQL_ASSOC);
-		echo "Username: " . $gameData["username"];
+		printf ("Username: %s \n",$gameData["username"]);
+		// echo "Username: " . $gameData["username"];
 
 
 	}
