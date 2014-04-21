@@ -13,7 +13,7 @@
 	// $params = array('next' => $logout.php');
 	// $logoutUrl = $facebook->getLogoutUrl($params); // $params is optional.
 
-	setcookie('fbs_'.$facebook->getAppId(), '', time()-100, '/', 'rzchou.com');
+	//setcookie('fbs_'.$facebook->getAppId(), '', time()-100, '/', 'rzchou.com');
 	session_destroy();
 //	$facebook->destroySession();
 	header('Location: /');
